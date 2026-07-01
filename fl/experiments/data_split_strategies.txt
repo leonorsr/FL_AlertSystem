@@ -1,0 +1,125 @@
+DATA SPLIT STRATEGIES USED IN EXPERIMENTS
+========================================
+
+1. baseline
+
+Folder
+- experiments/baseline
+
+Main idea
+- Trial-disjoint split inside each dataset.
+- A given trial only appears in one split, but the same client can appear in train, dev, and test through different trials.
+
+How the split is done
+- For each dataset independently:
+  - 80% of trials go to train
+  - 10% of trials go to dev
+  - 10% of trials go to test
+- Stratification is done at trial level whenever possible.
+
+What it measures
+- Generalization to unseen trials.
+- It is the least restrictive evaluation among the current protocols.
+
+
+2. byclient
+
+Folder
+- experiments/byclient
+
+Main idea
+- Client-disjoint split.
+- No client can appear in more than one split.
+- This avoids having trials from the same person in train, dev, and test.
+
+How the split is done
+- Clients are assigned deterministically to train, dev, and test for each dataset.
+- The assignment is fixed and stored in code and in the run artifacts.
+
+What it measures
+- Generalization to unseen clients.
+- This setting is more realistic for future FL comparisons.
+
+
+3. onedatasetout
+
+Folder
+- experiments/onedatasetout
+
+Main idea
+- Leave-One-Dataset-Out evaluation.
+- In each scenario, one complete dataset is held out for test and the remaining datasets are used for train/dev.
+
+How the split is done
+- Three scenarios are created:
+  - hold out KFall
+  - hold out SisFall
+  - hold out UpFall
+- In each scenario:
+  - the held-out dataset is used entirely as test
+  - the remaining datasets are split by trial into train/dev
+  - the train/dev split in source datasets is 90% / 10%
+
+What it measures
+- Cross-dataset generalization.
+- It tests whether a model trained on some datasets transfers to a dataset never seen during training.
+
+Important note
+- This is a much harder domain-shift setting than baseline or byclient.
+
+
+4. kfoldbyclient
+
+Folder
+- experiments/kfoldbyclient
+
+Main idea
+- K-fold evaluation with client groups.
+- Clients are partitioned into disjoint folds inside each dataset.
+- In each fold, train, dev, and test are client-disjoint.
+
+How the split is done
+- Default number of folds: 5
+- For each dataset separately:
+  - clients are deterministically shuffled
+  - clients are partitioned into 5 disjoint folds
+  - one fold is used as test
+  - from the remaining clients, a deterministic subset is used as dev
+  - the remaining clients are used as train
+
+What it measures
+- Average generalization to unseen clients across multiple folds, instead of a single fixed byclient split.
+- It gives a more stable estimate than one single train/dev/test client assignment.
+
+Important note
+- This is the most robust client-level evaluation currently prepared in the project.
+
+
+5. Why these four settings matter together
+
+baseline
+- Best for an initial centralized benchmark.
+
+byclient
+- Best for a realistic centralized comparison against FL on unseen clients.
+
+onedatasetout
+- Best for testing domain shift across datasets.
+
+kfoldbyclient
+- Best for a more robust estimate of client-level generalization.
+
+
+6. Recommended interpretation
+
+If a method performs well on baseline only
+- it may still depend too much on overlap between client distributions across splits.
+
+If a method also performs well on byclient
+- it is more credible for future FL experiments.
+
+If a method performs well on onedatasetout
+- it shows stronger robustness to cross-dataset shift.
+
+If a method performs well on kfoldbyclient
+- it is less likely that the conclusion depends on one specific client split.

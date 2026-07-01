@@ -1,0 +1,58 @@
+{
+  "experiment_id": "exp9_final_local_finetuning",
+  "title": "Experiment 9 - Final Local Fine-Tuning",
+  "description": "Standard KD followed by a short local fine-tuning stage on held-out test clients.",
+  "communication_mode": "soft_labels",
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.7623746823186177,
+    "balanced_accuracy": 0.7129193292986769,
+    "specificity": 0.8371191072673138,
+    "precision": 0.5571360808433254,
+    "recall": 0.5887195513300396,
+    "f1": 0.5531364952095391,
+    "roc_auc": 0.8008547311057087,
+    "pr_auc": 0.6362383552034266,
+    "far": 0.16288089273268594,
+    "miss_rate": 0.4112804486699603,
+    "tn": 15212.965536368898,
+    "fp": 2960.0344636311015,
+    "fn": 3217.0356694964307,
+    "tp": 4604.96433050357
+  },
+  "test_metrics": {
+    "accuracy": 0.7774737397494947,
+    "balanced_accuracy": 0.7314137183397318,
+    "specificity": 0.853415773611294,
+    "precision": 0.5937056040203575,
+    "recall": 0.6094116630681692,
+    "f1": 0.5851830989080559,
+    "roc_auc": 0.8159045987826228,
+    "pr_auc": 0.6848029265492781,
+    "far": 0.14658422638870608,
+    "miss_rate": 0.3905883369318305,
+    "tn": 15160.077802431024,
+    "fp": 2603.9221975689757,
+    "fn": 3135.252580551804,
+    "tp": 4891.747419448196
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.8788259053249459,
+    "balanced_accuracy": 0.8693942488798285,
+    "specificity": 0.9056609584322998,
+    "precision": 0.7224776632233587,
+    "recall": 0.7128062968037223,
+    "f1": 0.7055750402937759,
+    "roc_auc": 0.8214602820143112,
+    "pr_auc": 0.770526027749832,
+    "far": 0.09433904156769993,
+    "miss_rate": 0.1668724606726432
+  },
+  "fine_tune_summary": {},
+  "latest_kd_payload": {
+    "mean_soft_pos": 0.4584538529460095,
+    "count": 733.8385105151457
+  }
+}

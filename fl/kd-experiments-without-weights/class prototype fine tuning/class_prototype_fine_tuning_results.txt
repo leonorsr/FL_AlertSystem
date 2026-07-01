@@ -1,0 +1,63 @@
+Class Prototype Fine Tuning Results
+===================================
+
+Objective
+---------
+Select a local-first class-prototype configuration without exchanging model weights.
+Ranking prioritizes local PR-AUC, followed by global test PR-AUC, local F1 and global test F1.
+
+Search setup
+------------
+- experiments: exp11_baseline_final, exp12_final_unweighted, exp13_final_keep_best_local, exp14_final_clustered
+- runs per candidate: 1
+- global rounds: 3
+- local epochs: 20
+- matched seeds across candidates: yes
+
+Candidates
+----------
+- c1_current_baseline: Current class-prototype configuration. learning_rate=0.000800, dropout=0.30
+- c2_lower_dropout: Reduce dropout to favor local fitting. learning_rate=0.000800, dropout=0.20
+- c3_lower_lr_dropout: Use a lower learning rate with reduced dropout. learning_rate=0.000500, dropout=0.20
+- c4_higher_lr_dropout: Use a slightly higher learning rate with reduced dropout. learning_rate=0.001000, dropout=0.20
+
+Selected configurations
+-----------------------
+
+exp11_baseline_final
+~~~~~~~~~~~~~~~~~~~~
+Selected candidate: c1_current_baseline
+Candidate ranking:
+1. c1_current_baseline: local PR-AUC=0.7812, local F1=0.7393, global PR-AUC=0.6714, global F1=0.6091
+2. c3_lower_lr_dropout: local PR-AUC=0.7765, local F1=0.7232, global PR-AUC=0.6733, global F1=0.6077
+3. c2_lower_dropout: local PR-AUC=0.7757, local F1=0.7142, global PR-AUC=0.6591, global F1=0.5782
+4. c4_higher_lr_dropout: local PR-AUC=0.7602, local F1=0.6837, global PR-AUC=0.6438, global F1=0.5546
+
+exp12_final_unweighted
+~~~~~~~~~~~~~~~~~~~~~~
+Selected candidate: c1_current_baseline
+Candidate ranking:
+1. c1_current_baseline: local PR-AUC=0.7900, local F1=0.7282, global PR-AUC=0.6731, global F1=0.5986
+2. c2_lower_dropout: local PR-AUC=0.7855, local F1=0.7397, global PR-AUC=0.6755, global F1=0.6078
+3. c3_lower_lr_dropout: local PR-AUC=0.7854, local F1=0.7314, global PR-AUC=0.6848, global F1=0.6086
+4. c4_higher_lr_dropout: local PR-AUC=0.7700, local F1=0.6903, global PR-AUC=0.6555, global F1=0.5578
+
+exp13_final_keep_best_local
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Selected candidate: c1_current_baseline
+Candidate ranking:
+1. c1_current_baseline: local PR-AUC=0.7813, local F1=0.7186, global PR-AUC=0.6629, global F1=0.5875
+2. c2_lower_dropout: local PR-AUC=0.7807, local F1=0.7189, global PR-AUC=0.6628, global F1=0.5856
+3. c3_lower_lr_dropout: local PR-AUC=0.7792, local F1=0.7223, global PR-AUC=0.6731, global F1=0.6021
+4. c4_higher_lr_dropout: local PR-AUC=0.7597, local F1=0.6884, global PR-AUC=0.6382, global F1=0.5518
+
+exp14_final_clustered
+~~~~~~~~~~~~~~~~~~~~~
+Selected candidate: c2_lower_dropout
+Candidate ranking:
+1. c2_lower_dropout: local PR-AUC=0.7902, local F1=0.7283, global PR-AUC=0.6775, global F1=0.5933
+2. c1_current_baseline: local PR-AUC=0.7885, local F1=0.7403, global PR-AUC=0.6799, global F1=0.6128
+3. c3_lower_lr_dropout: local PR-AUC=0.7814, local F1=0.7372, global PR-AUC=0.6751, global F1=0.6095
+4. c4_higher_lr_dropout: local PR-AUC=0.7719, local F1=0.7165, global PR-AUC=0.6605, global F1=0.5829
+
+Use the highest-ranked experiment and candidate for expfinal.

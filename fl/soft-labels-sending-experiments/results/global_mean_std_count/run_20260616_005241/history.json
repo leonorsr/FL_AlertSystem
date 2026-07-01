@@ -1,0 +1,13 @@
+{
+  "losses_centralized": [],
+  "metrics_centralized": {},
+  "losses_distributed": [],
+  "metrics_distributed": {},
+  "metrics_distributed_fit": {},
+  "latest_probability_payload": {
+    "payload_type": "global_mean_std_count",
+    "count": 42209.0,
+    "mean": 0.42139242220377937,
+    "std": 0.13314102649478485
+  }
+}

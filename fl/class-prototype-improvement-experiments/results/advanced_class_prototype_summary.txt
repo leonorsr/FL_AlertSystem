@@ -1,0 +1,39 @@
+Advanced Class-Prototype Experiments
+====================================
+
+Ranking by local PR-AUC:
+- cosine_margin_proto (1 prototypes/class, 130 scalars, runs=10): local PR-AUC=0.7960 +/- 0.0024, local F1=0.7331, global PR-AUC=0.7021, global F1=0.5941
+- multi_proto_k2 (2 prototypes/class, 260 scalars, runs=10): local PR-AUC=0.7951 +/- 0.0011, local F1=0.7454, global PR-AUC=0.6985, global F1=0.5960
+- warmup_proto_schedule (1 prototypes/class, 130 scalars, runs=10): local PR-AUC=0.7908 +/- 0.0030, local F1=0.7447, global PR-AUC=0.6946, global F1=0.5980
+
+Per-run results:
+- cosine_margin_proto | local PR-AUC=0.7970 | local F1=0.7396 | global PR-AUC=0.7026 | global F1=0.6014 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\cosine_margin_proto\run_20260622_031914
+- cosine_margin_proto | local PR-AUC=0.7993 | local F1=0.7328 | global PR-AUC=0.7033 | global F1=0.5903 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\cosine_margin_proto\run_20260622_034800
+- cosine_margin_proto | local PR-AUC=0.7937 | local F1=0.7303 | global PR-AUC=0.7019 | global F1=0.5989 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\cosine_margin_proto\run_20260622_041645
+- cosine_margin_proto | local PR-AUC=0.7953 | local F1=0.7172 | global PR-AUC=0.7003 | global F1=0.5747 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\cosine_margin_proto\run_20260622_044519
+- cosine_margin_proto | local PR-AUC=0.7924 | local F1=0.7246 | global PR-AUC=0.6971 | global F1=0.5828 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\cosine_margin_proto\run_20260622_051526
+- cosine_margin_proto | local PR-AUC=0.7948 | local F1=0.7365 | global PR-AUC=0.6983 | global F1=0.5977 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\cosine_margin_proto\run_20260622_054539
+- cosine_margin_proto | local PR-AUC=0.7973 | local F1=0.7424 | global PR-AUC=0.7036 | global F1=0.6047 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\cosine_margin_proto\run_20260622_061441
+- cosine_margin_proto | local PR-AUC=0.7958 | local F1=0.7494 | global PR-AUC=0.7078 | global F1=0.6104 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\cosine_margin_proto\run_20260622_064242
+- cosine_margin_proto | local PR-AUC=0.7948 | local F1=0.7250 | global PR-AUC=0.7011 | global F1=0.5853 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\cosine_margin_proto\run_20260622_071142
+- cosine_margin_proto | local PR-AUC=0.7999 | local F1=0.7327 | global PR-AUC=0.7051 | global F1=0.5949 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\cosine_margin_proto\run_20260622_074037
+- multi_proto_k2 | local PR-AUC=0.7941 | local F1=0.7457 | global PR-AUC=0.6962 | global F1=0.5978 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\multi_proto_k2\run_20260621_222453
+- multi_proto_k2 | local PR-AUC=0.7963 | local F1=0.7491 | global PR-AUC=0.7012 | global F1=0.5984 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\multi_proto_k2\run_20260621_225433
+- multi_proto_k2 | local PR-AUC=0.7946 | local F1=0.7403 | global PR-AUC=0.6987 | global F1=0.5921 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\multi_proto_k2\run_20260621_232421
+- multi_proto_k2 | local PR-AUC=0.7943 | local F1=0.7517 | global PR-AUC=0.6946 | global F1=0.5948 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\multi_proto_k2\run_20260621_235416
+- multi_proto_k2 | local PR-AUC=0.7940 | local F1=0.7390 | global PR-AUC=0.6958 | global F1=0.5884 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\multi_proto_k2\run_20260622_002330
+- multi_proto_k2 | local PR-AUC=0.7973 | local F1=0.7487 | global PR-AUC=0.6987 | global F1=0.6007 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\multi_proto_k2\run_20260622_005241
+- multi_proto_k2 | local PR-AUC=0.7949 | local F1=0.7483 | global PR-AUC=0.6992 | global F1=0.6011 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\multi_proto_k2\run_20260622_012155
+- multi_proto_k2 | local PR-AUC=0.7950 | local F1=0.7419 | global PR-AUC=0.6990 | global F1=0.5927 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\multi_proto_k2\run_20260622_015115
+- multi_proto_k2 | local PR-AUC=0.7959 | local F1=0.7423 | global PR-AUC=0.7022 | global F1=0.5950 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\multi_proto_k2\run_20260622_022012
+- multi_proto_k2 | local PR-AUC=0.7950 | local F1=0.7470 | global PR-AUC=0.6995 | global F1=0.5987 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\multi_proto_k2\run_20260622_024910
+- warmup_proto_schedule | local PR-AUC=0.7859 | local F1=0.7329 | global PR-AUC=0.6892 | global F1=0.5897 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\warmup_proto_schedule\run_20260622_080935
+- warmup_proto_schedule | local PR-AUC=0.7925 | local F1=0.7452 | global PR-AUC=0.6958 | global F1=0.6053 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\warmup_proto_schedule\run_20260622_083835
+- warmup_proto_schedule | local PR-AUC=0.7938 | local F1=0.7548 | global PR-AUC=0.6974 | global F1=0.6033 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\warmup_proto_schedule\run_20260622_090856
+- warmup_proto_schedule | local PR-AUC=0.7916 | local F1=0.7430 | global PR-AUC=0.6955 | global F1=0.5974 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\warmup_proto_schedule\run_20260622_093922
+- warmup_proto_schedule | local PR-AUC=0.7926 | local F1=0.7546 | global PR-AUC=0.6962 | global F1=0.6058 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\warmup_proto_schedule\run_20260622_101353
+- warmup_proto_schedule | local PR-AUC=0.7896 | local F1=0.7382 | global PR-AUC=0.6916 | global F1=0.5924 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\warmup_proto_schedule\run_20260622_105354
+- warmup_proto_schedule | local PR-AUC=0.7880 | local F1=0.7458 | global PR-AUC=0.6922 | global F1=0.5996 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\warmup_proto_schedule\run_20260622_113737
+- warmup_proto_schedule | local PR-AUC=0.7881 | local F1=0.7400 | global PR-AUC=0.6957 | global F1=0.5946 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\warmup_proto_schedule\run_20260622_121549
+- warmup_proto_schedule | local PR-AUC=0.7957 | local F1=0.7488 | global PR-AUC=0.6989 | global F1=0.5999 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\warmup_proto_schedule\run_20260622_124913
+- warmup_proto_schedule | local PR-AUC=0.7904 | local F1=0.7441 | global PR-AUC=0.6937 | global F1=0.5920 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\class-prototype-improvement-experiments\results\warmup_proto_schedule\run_20260622_132110

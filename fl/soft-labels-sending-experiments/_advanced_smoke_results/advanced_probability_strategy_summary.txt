@@ -1,0 +1,9 @@
+Advanced Soft-label Sending Strategies
+======================================
+
+Ranking by local PR-AUC:
+- cluster_mean_count (global_mean_count, scope=cluster, runs=2): local PR-AUC=0.6107 +/- 0.0066, local F1=0.5004, global PR-AUC=0.5277, global F1=0.4315
+
+Per-run results:
+- cluster_mean_count | local PR-AUC=0.6154 | local F1=0.5064 | global PR-AUC=0.5299 | global F1=0.4302 | soft-labels-sending-experiments\_advanced_smoke_results\cluster_mean_count\run_20260618_103557
+- cluster_mean_count | local PR-AUC=0.6060 | local F1=0.4944 | global PR-AUC=0.5256 | global F1=0.4329 | soft-labels-sending-experiments\_advanced_smoke_results\cluster_mean_count\run_20260618_103717

@@ -1,0 +1,91 @@
+{
+  "experiment_id": "exp11_baseline_final",
+  "title": "Experiment 11 - Baseline Final",
+  "advanced_strategy_name": "cluster_class_mean_counts",
+  "advanced_strategy_description": "Cluster-specific class-conditional soft-label means and counts.",
+  "payload_name": "class_mean_counts",
+  "payload_scalar_count": 4,
+  "aggregation_scope": "cluster",
+  "warmup_rounds": 0,
+  "uncertain_only": false,
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.7939033776412376,
+    "balanced_accuracy": 0.7472952092532639,
+    "specificity": 0.8643447056541321,
+    "precision": 0.592276095759355,
+    "recall": 0.6302457128523954,
+    "f1": 0.5944185499103013,
+    "roc_auc": 0.8263824053319697,
+    "pr_auc": 0.6752626254373656,
+    "far": 0.13565529434586787,
+    "miss_rate": 0.36975428714760483,
+    "tn": 15707.736335852544,
+    "fp": 2465.263664147457,
+    "fn": 2892.2180340685636,
+    "tp": 4929.781965931436
+  },
+  "test_metrics": {
+    "accuracy": 0.8098004051706859,
+    "balanced_accuracy": 0.7696466112248158,
+    "specificity": 0.8760044729540897,
+    "precision": 0.6266866850616831,
+    "recall": 0.6632887494955421,
+    "f1": 0.628622369664686,
+    "roc_auc": 0.8448200126974961,
+    "pr_auc": 0.7281984364673671,
+    "far": 0.12399552704591052,
+    "miss_rate": 0.33671125050445805,
+    "tn": 15561.343457556446,
+    "fp": 2202.656542443555,
+    "fn": 2702.7812077992844,
+    "tp": 5324.218792200715
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.9417698218176939,
+    "balanced_accuracy": 0.9302390198344519,
+    "specificity": 0.9457614543775307,
+    "precision": 0.7835019391990695,
+    "recall": 0.789364172298883,
+    "f1": 0.7763151180835005,
+    "roc_auc": 0.8460134294536799,
+    "pr_auc": 0.8060622617578967,
+    "far": 0.05423854562246917,
+    "miss_rate": 0.08528341470862717
+  },
+  "fine_tune_summary": {},
+  "latest_strategy_payload": {
+    "scope": "cluster",
+    "clusters": {
+      "1": {
+        "payload_type": "class_mean_counts",
+        "count": 23157.0,
+        "mean": 0.4327660572009586,
+        "pos_count": 9549.0,
+        "pos_mean": 0.9693788303522081,
+        "neg_count": 13608.0,
+        "neg_mean": 0.05621436916294562
+      },
+      "2": {
+        "payload_type": "class_mean_counts",
+        "count": 7419.0,
+        "mean": 0.06456993471774264,
+        "pos_count": 337.0,
+        "pos_mean": 0.8541966944225464,
+        "neg_count": 7082.0,
+        "neg_mean": 0.02699520751913789
+      },
+      "0": {
+        "payload_type": "class_mean_counts",
+        "count": 11633.0,
+        "mean": 0.44308001551848525,
+        "pos_count": 5129.0,
+        "pos_mean": 0.9808050757856903,
+        "neg_count": 6504.0,
+        "neg_mean": 0.01903453056914713
+      }
+    }
+  }
+}

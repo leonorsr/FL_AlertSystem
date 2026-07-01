@@ -1,0 +1,58 @@
+{
+  "experiment_id": "exp11_baseline_final",
+  "title": "Experiment 11 - Baseline Final",
+  "description": "Final KD baseline using the strongest setting found so far: 100 local epochs with standard weighted aggregation.",
+  "communication_mode": "soft_labels",
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.8012525153041009,
+    "balanced_accuracy": 0.7596525582862499,
+    "specificity": 0.8641246752487693,
+    "precision": 0.6122252705260421,
+    "recall": 0.65518044132373,
+    "f1": 0.6232552226032877,
+    "roc_auc": 0.8342288499189996,
+    "pr_auc": 0.6950393673346377,
+    "far": 0.13587532475123074,
+    "miss_rate": 0.3448195586762699,
+    "tn": 15703.737723295884,
+    "fp": 2469.262276704116,
+    "fn": 2697.1785879657837,
+    "tp": 5124.821412034216
+  },
+  "test_metrics": {
+    "accuracy": 0.8183845238853106,
+    "balanced_accuracy": 0.782881874779174,
+    "specificity": 0.8769199586958184,
+    "precision": 0.6464498497709895,
+    "recall": 0.68884379086253,
+    "f1": 0.6585966806114195,
+    "roc_auc": 0.8555590039238137,
+    "pr_auc": 0.7489452316032299,
+    "far": 0.12308004130418194,
+    "miss_rate": 0.31115620913747005,
+    "tn": 15577.606146272512,
+    "fp": 2186.3938537274876,
+    "fn": 2497.650890746472,
+    "tp": 5529.349109253528
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.9322277334385364,
+    "balanced_accuracy": 0.928430137512689,
+    "specificity": 0.9396031338932054,
+    "precision": 0.781064712794694,
+    "recall": 0.8087347323392502,
+    "f1": 0.7870952860915482,
+    "far": 0.06039686610679451,
+    "miss_rate": 0.08274285886782742,
+    "roc_auc": 0.8619023558139588,
+    "pr_auc": 0.8173760203398178
+  },
+  "fine_tune_summary": {},
+  "latest_kd_payload": {
+    "mean_soft_pos": 0.40530011638731345,
+    "count": 41033.0
+  }
+}

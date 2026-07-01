@@ -1,0 +1,46 @@
+{
+  "losses_centralized": [],
+  "metrics_centralized": {},
+  "losses_distributed": [],
+  "metrics_distributed": {},
+  "metrics_distributed_fit": {},
+  "latest_probability_payload": {
+    "payload_type": "prob_bins_5",
+    "num_bins": 5,
+    "edges": [
+      0.0,
+      0.2,
+      0.4,
+      0.6000000000000001,
+      0.8,
+      1.0
+    ],
+    "bins": [
+      {
+        "mean": 0.009967872224766295,
+        "std": 0.023259551766380594,
+        "count": 26212.0
+      },
+      {
+        "mean": 0.29602883019946097,
+        "std": 0.059493433138619094,
+        "count": 674.0
+      },
+      {
+        "mean": 0.471113230329549,
+        "std": 0.0585345966349029,
+        "count": 323.0
+      },
+      {
+        "mean": 0.7065716627872352,
+        "std": 0.05470005810832478,
+        "count": 165.0
+      },
+      {
+        "mean": 0.9957407684690992,
+        "std": 0.015068091029131755,
+        "count": 14835.0
+      }
+    ]
+  }
+}

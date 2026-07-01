@@ -1,0 +1,58 @@
+{
+  "experiment_id": "exp13_final_keep_best_local",
+  "title": "Experiment 13 - Final Keep-Best Local",
+  "description": "Final KD baseline with 100 local epochs plus local selection between the incoming global model and the previous best local model.",
+  "communication_mode": "soft_labels",
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.7958877454935224,
+    "balanced_accuracy": 0.7265201538786786,
+    "specificity": 0.9007265633104115,
+    "precision": 0.6182727297293779,
+    "recall": 0.5523137444469457,
+    "f1": 0.5706904469318509,
+    "roc_auc": 0.8139474908632855,
+    "pr_auc": 0.6723374024462072,
+    "far": 0.09927343668958852,
+    "miss_rate": 0.44768625555305425,
+    "tn": 16368.903835040108,
+    "fp": 1804.0961649598928,
+    "fn": 3501.8018909359903,
+    "tp": 4320.19810906401
+  },
+  "test_metrics": {
+    "accuracy": 0.8147136754712018,
+    "balanced_accuracy": 0.7550921209013741,
+    "specificity": 0.9130154560056588,
+    "precision": 0.6598460936552809,
+    "recall": 0.5971687857970899,
+    "f1": 0.6158635372374762,
+    "roc_auc": 0.8353058668274821,
+    "pr_auc": 0.7320299222851422,
+    "far": 0.08698454399434116,
+    "miss_rate": 0.4028312142029102,
+    "tn": 16218.806560484523,
+    "fp": 1545.1934395154765,
+    "fn": 3233.526156406759,
+    "tp": 4793.47384359324
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.9342665117034581,
+    "balanced_accuracy": 0.9230434358142533,
+    "specificity": 0.9608625711727992,
+    "precision": 0.783565859263576,
+    "recall": 0.7529743640262943,
+    "f1": 0.7600465112250544,
+    "roc_auc": 0.8391923868394312,
+    "pr_auc": 0.8063673088076468,
+    "far": 0.03913742882720083,
+    "miss_rate": 0.11477569954429244
+  },
+  "fine_tune_summary": {},
+  "latest_kd_payload": {
+    "mean_soft_pos": 0.4247636041284729,
+    "count": 757.3241868744076
+  }
+}

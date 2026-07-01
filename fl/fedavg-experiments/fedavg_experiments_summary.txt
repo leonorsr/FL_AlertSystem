@@ -1,0 +1,990 @@
+FedAvg Experiments Summary
+==========================
+
+Results are aggregated across all available runs for each experiment/variant.
+Uncertainty is reported as sample standard deviation across runs (mean +/- std).
+
+exp12_final_unweighted
+----------------------
+Title: Experiment 12 - Final Unweighted
+Description: Final baseline with 100 local epochs plus unweighted aggregation across participating clients.
+Runs aggregated: 10
+Scenario: byclient
+Global rounds: 25
+Local epochs: 100
+Fraction fit: 1.0
+Weighted aggregation: 0.0
+Local model selection: 0.0
+Clustered aggregation: 0.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9219 +/- 0.0039
+  balanced_accuracy: 0.8965 +/- 0.0042
+  specificity: 0.9604 +/- 0.0046
+  precision: 0.9005 +/- 0.0104
+  recall: 0.8327 +/- 0.0070
+  f1: 0.8652 +/- 0.0064
+  roc_auc: 0.9687 +/- 0.0015
+  pr_auc: 0.9357 +/- 0.0054
+  far: 0.0396 +/- 0.0046
+  miss_rate: 0.1673 +/- 0.0070
+
+Final global test metrics:
+  accuracy: 0.9493 +/- 0.0026
+  balanced_accuracy: 0.9363 +/- 0.0031
+  specificity: 0.9707 +/- 0.0034
+  precision: 0.9330 +/- 0.0072
+  recall: 0.9019 +/- 0.0063
+  f1: 0.9171 +/- 0.0041
+  roc_auc: 0.9839 +/- 0.0010
+  pr_auc: 0.9676 +/- 0.0024
+  far: 0.0293 +/- 0.0034
+  miss_rate: 0.0981 +/- 0.0063
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a
+
+
+exp11_baseline_final
+--------------------
+Title: Experiment 11 - Baseline Final
+Description: Final FedAvg baseline using the strongest setting found so far: 100 local epochs with standard weighted aggregation.
+Runs aggregated: 10
+Scenario: byclient
+Global rounds: 25
+Local epochs: 100
+Fraction fit: 1.0
+Weighted aggregation: 1.0
+Local model selection: 0.0
+Clustered aggregation: 0.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9212 +/- 0.0025
+  balanced_accuracy: 0.9022 +/- 0.0015
+  specificity: 0.9498 +/- 0.0059
+  precision: 0.8802 +/- 0.0117
+  recall: 0.8546 +/- 0.0065
+  f1: 0.8671 +/- 0.0032
+  roc_auc: 0.9676 +/- 0.0009
+  pr_auc: 0.9306 +/- 0.0040
+  far: 0.0502 +/- 0.0059
+  miss_rate: 0.1454 +/- 0.0065
+
+Final global test metrics:
+  accuracy: 0.9480 +/- 0.0021
+  balanced_accuracy: 0.9398 +/- 0.0021
+  specificity: 0.9614 +/- 0.0040
+  precision: 0.9149 +/- 0.0078
+  recall: 0.9183 +/- 0.0053
+  f1: 0.9166 +/- 0.0032
+  roc_auc: 0.9834 +/- 0.0008
+  pr_auc: 0.9658 +/- 0.0020
+  far: 0.0386 +/- 0.0040
+  miss_rate: 0.0817 +/- 0.0053
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a
+
+
+exp13_final_keep_best_local
+---------------------------
+Title: Experiment 13 - Final Keep-Best Local
+Description: Final baseline with 100 local epochs plus local selection between the incoming global model and the previous best local model.
+Runs aggregated: 10
+Scenario: byclient
+Global rounds: 25
+Local epochs: 100
+Fraction fit: 1.0
+Weighted aggregation: 1.0
+Local model selection: 1.0
+Clustered aggregation: 0.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9209 +/- 0.0026
+  balanced_accuracy: 0.9017 +/- 0.0032
+  specificity: 0.9500 +/- 0.0044
+  precision: 0.8802 +/- 0.0087
+  recall: 0.8535 +/- 0.0078
+  f1: 0.8666 +/- 0.0041
+  roc_auc: 0.9671 +/- 0.0009
+  pr_auc: 0.9301 +/- 0.0049
+  far: 0.0500 +/- 0.0044
+  miss_rate: 0.1465 +/- 0.0078
+
+Final global test metrics:
+  accuracy: 0.9471 +/- 0.0018
+  balanced_accuracy: 0.9389 +/- 0.0022
+  specificity: 0.9607 +/- 0.0032
+  precision: 0.9134 +/- 0.0062
+  recall: 0.9172 +/- 0.0056
+  f1: 0.9153 +/- 0.0027
+  roc_auc: 0.9827 +/- 0.0009
+  pr_auc: 0.9644 +/- 0.0023
+  far: 0.0393 +/- 0.0032
+  miss_rate: 0.0828 +/- 0.0056
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a
+
+
+exp3_local_epochs_50
+--------------------
+Title: Experiment 3 - Local Epochs Comparison
+Description: FedAvg comparison across different numbers of local epochs while keeping the global setup fixed.
+Runs aggregated: 10
+Scenario: byclient
+Global rounds: 25
+Local epochs: 50
+Fraction fit: 1.0
+Weighted aggregation: 1.0
+Local model selection: 0.0
+Clustered aggregation: 0.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9204 +/- 0.0025
+  balanced_accuracy: 0.9006 +/- 0.0022
+  specificity: 0.9504 +/- 0.0054
+  precision: 0.8809 +/- 0.0109
+  recall: 0.8507 +/- 0.0070
+  f1: 0.8655 +/- 0.0035
+  roc_auc: 0.9661 +/- 0.0009
+  pr_auc: 0.9294 +/- 0.0041
+  far: 0.0496 +/- 0.0054
+  miss_rate: 0.1493 +/- 0.0070
+
+Final global test metrics:
+  accuracy: 0.9465 +/- 0.0022
+  balanced_accuracy: 0.9382 +/- 0.0020
+  specificity: 0.9602 +/- 0.0038
+  precision: 0.9123 +/- 0.0076
+  recall: 0.9163 +/- 0.0047
+  f1: 0.9143 +/- 0.0032
+  roc_auc: 0.9825 +/- 0.0009
+  pr_auc: 0.9642 +/- 0.0017
+  far: 0.0398 +/- 0.0038
+  miss_rate: 0.0837 +/- 0.0047
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a
+
+
+exp3_local_epochs_75
+--------------------
+Title: Experiment 3 - Local Epochs Comparison
+Description: FedAvg comparison across different numbers of local epochs while keeping the global setup fixed.
+Runs aggregated: 16
+Scenario: byclient
+Global rounds: 25
+Local epochs: 75
+Fraction fit: 1.0
+Weighted aggregation: 1.0
+Local model selection: 0.0
+Clustered aggregation: 0.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9209 +/- 0.0033
+  balanced_accuracy: 0.9012 +/- 0.0025
+  specificity: 0.9508 +/- 0.0061
+  precision: 0.8818 +/- 0.0125
+  recall: 0.8516 +/- 0.0064
+  f1: 0.8664 +/- 0.0046
+  roc_auc: 0.9669 +/- 0.0010
+  pr_auc: 0.9299 +/- 0.0056
+  far: 0.0492 +/- 0.0061
+  miss_rate: 0.1484 +/- 0.0064
+
+Final global test metrics:
+  accuracy: 0.9468 +/- 0.0024
+  balanced_accuracy: 0.9383 +/- 0.0022
+  specificity: 0.9608 +/- 0.0043
+  precision: 0.9135 +/- 0.0085
+  recall: 0.9157 +/- 0.0053
+  f1: 0.9146 +/- 0.0036
+  roc_auc: 0.9826 +/- 0.0008
+  pr_auc: 0.9642 +/- 0.0027
+  far: 0.0392 +/- 0.0043
+  miss_rate: 0.0843 +/- 0.0053
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a
+
+
+exp14_final_clustered
+---------------------
+Title: Experiment 14 - Final Clustered
+Description: Final baseline with 100 local epochs plus clustered aggregation over similar clients before the global update.
+Runs aggregated: 10
+Scenario: byclient
+Global rounds: 25
+Local epochs: 100
+Fraction fit: 1.0
+Weighted aggregation: 1.0
+Local model selection: 0.0
+Clustered aggregation: 1.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9213 +/- 0.0026
+  balanced_accuracy: 0.9024 +/- 0.0032
+  specificity: 0.9499 +/- 0.0051
+  precision: 0.8804 +/- 0.0101
+  recall: 0.8548 +/- 0.0085
+  f1: 0.8673 +/- 0.0041
+  roc_auc: 0.9671 +/- 0.0010
+  pr_auc: 0.9293 +/- 0.0057
+  far: 0.0501 +/- 0.0051
+  miss_rate: 0.1452 +/- 0.0085
+
+Final global test metrics:
+  accuracy: 0.9473 +/- 0.0026
+  balanced_accuracy: 0.9393 +/- 0.0032
+  specificity: 0.9605 +/- 0.0036
+  precision: 0.9131 +/- 0.0070
+  recall: 0.9182 +/- 0.0066
+  f1: 0.9156 +/- 0.0041
+  roc_auc: 0.9826 +/- 0.0009
+  pr_auc: 0.9639 +/- 0.0030
+  far: 0.0395 +/- 0.0036
+  miss_rate: 0.0818 +/- 0.0066
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a
+
+
+exp3_local_epochs_25
+--------------------
+Title: Experiment 3 - Local Epochs Comparison
+Description: FedAvg comparison across different numbers of local epochs while keeping the global setup fixed.
+Runs aggregated: 10
+Scenario: byclient
+Global rounds: 25
+Local epochs: 25
+Fraction fit: 1.0
+Weighted aggregation: 1.0
+Local model selection: 0.0
+Clustered aggregation: 0.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9192 +/- 0.0017
+  balanced_accuracy: 0.8990 +/- 0.0030
+  specificity: 0.9497 +/- 0.0044
+  precision: 0.8790 +/- 0.0084
+  recall: 0.8484 +/- 0.0093
+  f1: 0.8633 +/- 0.0029
+  roc_auc: 0.9643 +/- 0.0004
+  pr_auc: 0.9266 +/- 0.0047
+  far: 0.0503 +/- 0.0044
+  miss_rate: 0.1516 +/- 0.0093
+
+Final global test metrics:
+  accuracy: 0.9447 +/- 0.0021
+  balanced_accuracy: 0.9361 +/- 0.0022
+  specificity: 0.9590 +/- 0.0034
+  precision: 0.9097 +/- 0.0066
+  recall: 0.9132 +/- 0.0050
+  f1: 0.9114 +/- 0.0032
+  roc_auc: 0.9814 +/- 0.0007
+  pr_auc: 0.9610 +/- 0.0022
+  far: 0.0410 +/- 0.0034
+  miss_rate: 0.0868 +/- 0.0050
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a
+
+
+exp4_unweighted_aggregation
+---------------------------
+Title: Experiment 4 - Unweighted Aggregation
+Description: FedAvg variant with unweighted averaging across participating clients.
+Runs aggregated: 10
+Scenario: byclient
+Global rounds: 25
+Local epochs: 10
+Fraction fit: 1.0
+Weighted aggregation: 0.0
+Local model selection: 0.0
+Clustered aggregation: 0.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9138 +/- 0.0025
+  balanced_accuracy: 0.8887 +/- 0.0026
+  specificity: 0.9519 +/- 0.0032
+  precision: 0.8808 +/- 0.0070
+  recall: 0.8255 +/- 0.0043
+  f1: 0.8522 +/- 0.0041
+  roc_auc: 0.9608 +/- 0.0013
+  pr_auc: 0.9237 +/- 0.0040
+  far: 0.0481 +/- 0.0032
+  miss_rate: 0.1745 +/- 0.0043
+
+Final global test metrics:
+  accuracy: 0.9393 +/- 0.0020
+  balanced_accuracy: 0.9259 +/- 0.0030
+  specificity: 0.9614 +/- 0.0024
+  precision: 0.9125 +/- 0.0049
+  recall: 0.8905 +/- 0.0065
+  f1: 0.9014 +/- 0.0034
+  roc_auc: 0.9789 +/- 0.0007
+  pr_auc: 0.9577 +/- 0.0020
+  far: 0.0386 +/- 0.0024
+  miss_rate: 0.1095 +/- 0.0065
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a
+
+
+exp9_final_local_finetuning
+---------------------------
+Title: Experiment 9 - Final Local Fine-Tuning
+Description: Standard FedAvg followed by a short local fine-tuning stage on held-out test clients.
+Runs aggregated: 10
+Scenario: byclient
+Global rounds: 25
+Local epochs: 10
+Fraction fit: 1.0
+Weighted aggregation: 1.0
+Local model selection: 0.0
+Clustered aggregation: 0.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 3
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9134 +/- 0.0024
+  balanced_accuracy: 0.8939 +/- 0.0014
+  specificity: 0.9428 +/- 0.0061
+  precision: 0.8644 +/- 0.0117
+  recall: 0.8451 +/- 0.0073
+  f1: 0.8545 +/- 0.0027
+  roc_auc: 0.9596 +/- 0.0008
+  pr_auc: 0.9184 +/- 0.0032
+  far: 0.0572 +/- 0.0061
+  miss_rate: 0.1549 +/- 0.0073
+
+Final global test metrics:
+  accuracy: 0.9373 +/- 0.0024
+  balanced_accuracy: 0.9291 +/- 0.0018
+  specificity: 0.9509 +/- 0.0048
+  precision: 0.8931 +/- 0.0091
+  recall: 0.9074 +/- 0.0050
+  f1: 0.9002 +/- 0.0033
+  roc_auc: 0.9782 +/- 0.0009
+  pr_auc: 0.9552 +/- 0.0025
+  far: 0.0491 +/- 0.0048
+  miss_rate: 0.0926 +/- 0.0050
+
+Final fine-tuned test-client metrics:
+  accuracy: 0.9403 +/- 0.0079
+  balanced_accuracy: 0.9428 +/- 0.0073
+  specificity: 0.9308 +/- 0.0110
+  precision: 0.6250 +/- 0.0201
+  recall: 0.7326 +/- 0.0158
+  f1: 0.6648 +/- 0.0134
+  roc_auc: 0.9653 +/- 0.0078
+  pr_auc: 0.8798 +/- 0.0267
+  far: 0.0692 +/- 0.0110
+  miss_rate: 0.0452 +/- 0.0158
+
+
+exp6_keep_best_local_model
+--------------------------
+Title: Experiment 6 - Keep Best Local Model
+Description: Each client keeps the better model between the incoming global model and its previous best local model.
+Runs aggregated: 10
+Scenario: byclient
+Global rounds: 25
+Local epochs: 10
+Fraction fit: 1.0
+Weighted aggregation: 1.0
+Local model selection: 1.0
+Clustered aggregation: 0.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9144 +/- 0.0020
+  balanced_accuracy: 0.8954 +/- 0.0020
+  specificity: 0.9430 +/- 0.0055
+  precision: 0.8651 +/- 0.0102
+  recall: 0.8477 +/- 0.0081
+  f1: 0.8563 +/- 0.0025
+  roc_auc: 0.9603 +/- 0.0011
+  pr_auc: 0.9190 +/- 0.0050
+  far: 0.0570 +/- 0.0055
+  miss_rate: 0.1523 +/- 0.0081
+
+Final global test metrics:
+  accuracy: 0.9378 +/- 0.0020
+  balanced_accuracy: 0.9298 +/- 0.0019
+  specificity: 0.9511 +/- 0.0035
+  precision: 0.8935 +/- 0.0065
+  recall: 0.9085 +/- 0.0041
+  f1: 0.9009 +/- 0.0030
+  roc_auc: 0.9784 +/- 0.0012
+  pr_auc: 0.9548 +/- 0.0034
+  far: 0.0489 +/- 0.0035
+  miss_rate: 0.0915 +/- 0.0041
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a
+
+
+exp2_fraction_clients
+---------------------
+Title: Experiment 2 - Fraction Of Clients
+Description: FedAvg with partial client participation per round.
+Runs aggregated: 10
+Scenario: byclient
+Global rounds: 25
+Local epochs: 10
+Fraction fit: 0.5
+Weighted aggregation: 1.0
+Local model selection: 0.0
+Clustered aggregation: 0.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9116 +/- 0.0039
+  balanced_accuracy: 0.8912 +/- 0.0089
+  specificity: 0.9424 +/- 0.0140
+  precision: 0.8641 +/- 0.0259
+  recall: 0.8400 +/- 0.0297
+  f1: 0.8511 +/- 0.0075
+  roc_auc: 0.9595 +/- 0.0017
+  pr_auc: 0.9188 +/- 0.0056
+  far: 0.0576 +/- 0.0140
+  miss_rate: 0.1600 +/- 0.0297
+
+Final global test metrics:
+  accuracy: 0.9361 +/- 0.0046
+  balanced_accuracy: 0.9273 +/- 0.0065
+  specificity: 0.9507 +/- 0.0136
+  precision: 0.8933 +/- 0.0250
+  recall: 0.9039 +/- 0.0231
+  f1: 0.8981 +/- 0.0066
+  roc_auc: 0.9780 +/- 0.0017
+  pr_auc: 0.9548 +/- 0.0043
+  far: 0.0493 +/- 0.0136
+  miss_rate: 0.0961 +/- 0.0231
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a
+
+
+exp3_local_epochs_10
+--------------------
+Title: Experiment 3 - Local Epochs Comparison
+Description: FedAvg comparison across different numbers of local epochs while keeping the global setup fixed.
+Runs aggregated: 10
+Scenario: byclient
+Global rounds: 25
+Local epochs: 10
+Fraction fit: 1.0
+Weighted aggregation: 1.0
+Local model selection: 0.0
+Clustered aggregation: 0.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9132 +/- 0.0021
+  balanced_accuracy: 0.8944 +/- 0.0027
+  specificity: 0.9417 +/- 0.0041
+  precision: 0.8623 +/- 0.0077
+  recall: 0.8470 +/- 0.0072
+  f1: 0.8546 +/- 0.0033
+  roc_auc: 0.9597 +/- 0.0011
+  pr_auc: 0.9189 +/- 0.0047
+  far: 0.0583 +/- 0.0041
+  miss_rate: 0.1530 +/- 0.0072
+
+Final global test metrics:
+  accuracy: 0.9370 +/- 0.0031
+  balanced_accuracy: 0.9288 +/- 0.0027
+  specificity: 0.9505 +/- 0.0047
+  precision: 0.8923 +/- 0.0090
+  recall: 0.9071 +/- 0.0045
+  f1: 0.8996 +/- 0.0046
+  roc_auc: 0.9779 +/- 0.0011
+  pr_auc: 0.9546 +/- 0.0030
+  far: 0.0495 +/- 0.0047
+  miss_rate: 0.0929 +/- 0.0045
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a
+
+
+exp1_fedavg_base
+----------------
+Title: Experiment 1 - FedAvg Base
+Description: Standard FedAvg using magnitude_features and the mlp_wide architecture under the byclient split.
+Runs aggregated: 10
+Scenario: byclient
+Global rounds: 25
+Local epochs: 10
+Fraction fit: 1.0
+Weighted aggregation: 1.0
+Local model selection: 0.0
+Clustered aggregation: 0.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9129 +/- 0.0026
+  balanced_accuracy: 0.8936 +/- 0.0023
+  specificity: 0.9422 +/- 0.0068
+  precision: 0.8631 +/- 0.0129
+  recall: 0.8450 +/- 0.0094
+  f1: 0.8538 +/- 0.0032
+  roc_auc: 0.9598 +/- 0.0013
+  pr_auc: 0.9193 +/- 0.0053
+  far: 0.0578 +/- 0.0068
+  miss_rate: 0.1550 +/- 0.0094
+
+Final global test metrics:
+  accuracy: 0.9368 +/- 0.0026
+  balanced_accuracy: 0.9285 +/- 0.0023
+  specificity: 0.9505 +/- 0.0051
+  precision: 0.8923 +/- 0.0096
+  recall: 0.9065 +/- 0.0062
+  f1: 0.8993 +/- 0.0036
+  roc_auc: 0.9778 +/- 0.0009
+  pr_auc: 0.9542 +/- 0.0030
+  far: 0.0495 +/- 0.0051
+  miss_rate: 0.0935 +/- 0.0062
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a
+
+
+exp10_clustered_keep_best_local
+-------------------------------
+Title: Experiment 10 - Clustered Keep-Best Local
+Description: Clustered aggregation combined with local selection between the incoming grouped/global model and the previous best local model.
+Runs aggregated: 10
+Scenario: byclient
+Global rounds: 25
+Local epochs: 10
+Fraction fit: 1.0
+Weighted aggregation: 1.0
+Local model selection: 1.0
+Clustered aggregation: 1.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9132 +/- 0.0019
+  balanced_accuracy: 0.8942 +/- 0.0024
+  specificity: 0.9420 +/- 0.0047
+  precision: 0.8627 +/- 0.0087
+  recall: 0.8464 +/- 0.0079
+  f1: 0.8544 +/- 0.0028
+  roc_auc: 0.9600 +/- 0.0012
+  pr_auc: 0.9185 +/- 0.0043
+  far: 0.0580 +/- 0.0047
+  miss_rate: 0.1536 +/- 0.0079
+
+Final global test metrics:
+  accuracy: 0.9366 +/- 0.0021
+  balanced_accuracy: 0.9290 +/- 0.0020
+  specificity: 0.9490 +/- 0.0045
+  precision: 0.8897 +/- 0.0080
+  recall: 0.9090 +/- 0.0060
+  f1: 0.8992 +/- 0.0029
+  roc_auc: 0.9779 +/- 0.0010
+  pr_auc: 0.9535 +/- 0.0028
+  far: 0.0510 +/- 0.0045
+  miss_rate: 0.0910 +/- 0.0060
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a
+
+
+exp7_clustered_aggregation
+--------------------------
+Title: Experiment 7 - Clustered Aggregation
+Description: Aggregate similar clients into subgroup models before sending them to the global server.
+Runs aggregated: 10
+Scenario: byclient
+Global rounds: 25
+Local epochs: 10
+Fraction fit: 1.0
+Weighted aggregation: 1.0
+Local model selection: 0.0
+Clustered aggregation: 1.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9135 +/- 0.0020
+  balanced_accuracy: 0.8945 +/- 0.0015
+  specificity: 0.9422 +/- 0.0047
+  precision: 0.8632 +/- 0.0088
+  recall: 0.8468 +/- 0.0057
+  f1: 0.8548 +/- 0.0026
+  roc_auc: 0.9595 +/- 0.0011
+  pr_auc: 0.9176 +/- 0.0052
+  far: 0.0578 +/- 0.0047
+  miss_rate: 0.1532 +/- 0.0057
+
+Final global test metrics:
+  accuracy: 0.9377 +/- 0.0023
+  balanced_accuracy: 0.9297 +/- 0.0018
+  specificity: 0.9508 +/- 0.0045
+  precision: 0.8930 +/- 0.0082
+  recall: 0.9086 +/- 0.0046
+  f1: 0.9007 +/- 0.0032
+  roc_auc: 0.9779 +/- 0.0009
+  pr_auc: 0.9534 +/- 0.0029
+  far: 0.0492 +/- 0.0045
+  miss_rate: 0.0914 +/- 0.0046
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a
+
+
+exp8_personalized_fedavg
+------------------------
+Title: Experiment 8 - Personalized FedAvg
+Description: FedAvg with a personalized local head kept on each client.
+Runs aggregated: 10
+Scenario: byclient
+Global rounds: 25
+Local epochs: 10
+Fraction fit: 1.0
+Weighted aggregation: 1.0
+Local model selection: 0.0
+Clustered aggregation: 0.0
+Personalized head: 1.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.8937 +/- 0.0086
+  balanced_accuracy: 0.8527 +/- 0.0227
+  specificity: 0.9556 +/- 0.0139
+  precision: 0.8813 +/- 0.0243
+  recall: 0.7497 +/- 0.0587
+  f1: 0.8082 +/- 0.0245
+  roc_auc: 0.9507 +/- 0.0015
+  pr_auc: 0.8850 +/- 0.0050
+  far: 0.0444 +/- 0.0139
+  miss_rate: 0.2503 +/- 0.0587
+
+Final global test metrics:
+  accuracy: 0.9179 +/- 0.0066
+  balanced_accuracy: 0.8904 +/- 0.0178
+  specificity: 0.9632 +/- 0.0137
+  precision: 0.9113 +/- 0.0253
+  recall: 0.8176 +/- 0.0484
+  f1: 0.8605 +/- 0.0165
+  roc_auc: 0.9717 +/- 0.0012
+  pr_auc: 0.9383 +/- 0.0048
+  far: 0.0368 +/- 0.0137
+  miss_rate: 0.1824 +/- 0.0484
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a
+
+
+exp5_cross_dataset
+------------------
+Title: Experiment 5 - Cross Dataset Federated
+Description: Federated training on two datasets and evaluation on a held-out dataset.
+Runs aggregated: 10
+Scenario: crossdataset
+Global rounds: 25
+Local epochs: 10
+Fraction fit: 1.0
+Weighted aggregation: 1.0
+Local model selection: 0.0
+Clustered aggregation: 0.0
+Personalized head: 0.0
+Final local fine-tuning epochs: 0
+Random seed in config: 1.0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3
+Model learning rate: 0.0008
+Model weight decay: 0.0001
+Model batch size: 256.0
+
+Final global dev metrics:
+  accuracy: 0.9324 +/- 0.0063
+  balanced_accuracy: 0.9189 +/- 0.0076
+  specificity: 0.9700 +/- 0.0061
+  precision: 0.9433 +/- 0.0115
+  recall: 0.8678 +/- 0.0194
+  f1: 0.9038 +/- 0.0074
+  roc_auc: 0.9848 +/- 0.0016
+  pr_auc: 0.9702 +/- 0.0051
+  far: 0.0300 +/- 0.0061
+  miss_rate: 0.1322 +/- 0.0194
+
+Final global test metrics:
+  accuracy: 0.8155 +/- 0.0047
+  balanced_accuracy: 0.6050 +/- 0.0064
+  specificity: 0.9027 +/- 0.0068
+  precision: 0.3516 +/- 0.0121
+  recall: 0.3073 +/- 0.0159
+  f1: 0.3277 +/- 0.0112
+  roc_auc: 0.7633 +/- 0.0115
+  pr_auc: 0.3094 +/- 0.0139
+  far: 0.0973 +/- 0.0068
+  miss_rate: 0.6927 +/- 0.0159
+
+Final fine-tuned test-client metrics:
+  accuracy: n/a
+  balanced_accuracy: n/a
+  specificity: n/a
+  precision: n/a
+  recall: n/a
+  f1: n/a
+  roc_auc: n/a
+  pr_auc: n/a
+  far: n/a
+  miss_rate: n/a

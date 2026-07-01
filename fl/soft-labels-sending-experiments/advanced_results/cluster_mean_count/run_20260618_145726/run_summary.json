@@ -1,0 +1,79 @@
+{
+  "experiment_id": "exp11_baseline_final",
+  "title": "Experiment 11 - Baseline Final",
+  "advanced_strategy_name": "cluster_mean_count",
+  "advanced_strategy_description": "Cluster-specific soft-label mean and count. Each client receives the aggregate from its similarity cluster.",
+  "payload_name": "global_mean_count",
+  "payload_scalar_count": 2,
+  "aggregation_scope": "cluster",
+  "warmup_rounds": 0,
+  "uncertain_only": false,
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.7924029916052931,
+    "balanced_accuracy": 0.7443033430440483,
+    "specificity": 0.8650984705051208,
+    "precision": 0.5987425415497986,
+    "recall": 0.6235082155829754,
+    "f1": 0.5927701099932023,
+    "roc_auc": 0.8226380588256884,
+    "pr_auc": 0.6783180667217678,
+    "far": 0.134901529494879,
+    "miss_rate": 0.37649178441702463,
+    "tn": 15721.434504489564,
+    "fp": 2451.565495510436,
+    "fn": 2944.918737709967,
+    "tp": 4877.081262290033
+  },
+  "test_metrics": {
+    "accuracy": 0.8092587421840481,
+    "balanced_accuracy": 0.767748477058737,
+    "specificity": 0.8776993087160141,
+    "precision": 0.6356248616081309,
+    "recall": 0.6577976454014598,
+    "f1": 0.6292297592124682,
+    "roc_auc": 0.8416089200428806,
+    "pr_auc": 0.7320268905013756,
+    "far": 0.12230069128398595,
+    "miss_rate": 0.3422023545985403,
+    "tn": 15591.450520031272,
+    "fp": 2172.549479968727,
+    "fn": 2746.8583003624817,
+    "tp": 5280.141699637518
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.9360311206778702,
+    "balanced_accuracy": 0.9274913307979964,
+    "specificity": 0.940311464264844,
+    "precision": 0.7715273110226256,
+    "recall": 0.7893187843386591,
+    "f1": 0.7733630960351338,
+    "roc_auc": 0.8443245637938167,
+    "pr_auc": 0.8043234375721585,
+    "far": 0.0596885357351561,
+    "miss_rate": 0.08532880266885123
+  },
+  "fine_tune_summary": {},
+  "latest_strategy_payload": {
+    "scope": "cluster",
+    "clusters": {
+      "1": {
+        "payload_type": "global_mean_count",
+        "count": 23157.0,
+        "mean": 0.47716062519481034
+      },
+      "2": {
+        "payload_type": "global_mean_count",
+        "count": 7419.0,
+        "mean": 0.14749026337513216
+      },
+      "0": {
+        "payload_type": "global_mean_count",
+        "count": 11633.0,
+        "mean": 0.48331342987619486
+      }
+    }
+  }
+}

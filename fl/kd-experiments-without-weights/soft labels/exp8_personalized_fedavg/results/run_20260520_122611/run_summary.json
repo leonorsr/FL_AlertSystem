@@ -1,0 +1,58 @@
+{
+  "experiment_id": "exp8_personalized_fedavg",
+  "title": "Experiment 8 - Personalized KD",
+  "description": "KD with a personalized local head kept on each client.",
+  "communication_mode": "soft_labels",
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.7645233610020894,
+    "balanced_accuracy": 0.7013941559768714,
+    "specificity": 0.8599337835133929,
+    "precision": 0.5701918465064806,
+    "recall": 0.54285452844035,
+    "f1": 0.537871978115983,
+    "roc_auc": 0.795720659652631,
+    "pr_auc": 0.6312088364775864,
+    "far": 0.14006621648660705,
+    "miss_rate": 0.4571454715596501,
+    "tn": 15627.57664778889,
+    "fp": 2545.42335221111,
+    "fn": 3575.791878539583,
+    "tp": 4246.208121460417
+  },
+  "test_metrics": {
+    "accuracy": 0.7792377275543088,
+    "balanced_accuracy": 0.7217472263889078,
+    "specificity": 0.8740259072512732,
+    "precision": 0.6102919248129453,
+    "recall": 0.5694685455265428,
+    "f1": 0.5719487210185615,
+    "roc_auc": 0.8123422043960525,
+    "pr_auc": 0.6823842690838342,
+    "far": 0.12597409274872687,
+    "miss_rate": 0.43053145447345714,
+    "tn": 15526.196216411616,
+    "fp": 2237.8037835883842,
+    "fn": 3455.8759850584406,
+    "tp": 4571.124014941559
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.881601792906055,
+    "balanced_accuracy": 0.8681360115837613,
+    "specificity": 0.9241939192692911,
+    "precision": 0.7336902707286489,
+    "recall": 0.6905453891133178,
+    "f1": 0.6998268592165346,
+    "roc_auc": 0.8222240921438975,
+    "pr_auc": 0.7715553632354275,
+    "far": 0.07580608073070894,
+    "miss_rate": 0.1879218961017682
+  },
+  "fine_tune_summary": {},
+  "latest_kd_payload": {
+    "mean_soft_pos": 0.4556534664686767,
+    "count": 703.0851668875769
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "experiment_id": "exp3_local_epochs",
+  "title": "Experiment 3 - Local Epochs Comparison",
+  "description": "KD comparison across different numbers of local epochs while keeping the global setup fixed.",
+  "communication_mode": "soft_labels",
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.757941667570104,
+    "balanced_accuracy": 0.6941440897476716,
+    "specificity": 0.8543622363512968,
+    "precision": 0.5540612849191091,
+    "recall": 0.5339259431440458,
+    "f1": 0.522541225567619,
+    "roc_auc": 0.7902870429898208,
+    "pr_auc": 0.6222192662134735,
+    "far": 0.145637763648703,
+    "miss_rate": 0.4660740568559542,
+    "tn": 15526.32492121212,
+    "fp": 2646.6750787878786,
+    "fn": 3645.6312727272725,
+    "tp": 4176.3687272727275
+  },
+  "test_metrics": {
+    "accuracy": 0.7709180486968089,
+    "balanced_accuracy": 0.7128139488671296,
+    "specificity": 0.8667179068323406,
+    "precision": 0.5882705222896302,
+    "recall": 0.5589099909019184,
+    "f1": 0.5544222693704491,
+    "roc_auc": 0.806602867562548,
+    "pr_auc": 0.6702336628492751,
+    "far": 0.13328209316765946,
+    "miss_rate": 0.4410900090980818,
+    "tn": 15396.376896969698,
+    "fp": 2367.623103030303,
+    "fn": 3540.629503030303,
+    "tp": 4486.370496969697
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.8812236492436406,
+    "balanced_accuracy": 0.8636383620260306,
+    "specificity": 0.9194193793051686,
+    "precision": 0.7158039080727719,
+    "recall": 0.6755664356559833,
+    "f1": 0.6867409245498384,
+    "roc_auc": 0.8049099154518707,
+    "pr_auc": 0.7493096243739852,
+    "far": 0.08058062069483095,
+    "miss_rate": 0.1921426552531076
+  },
+  "fine_tune_summary": {},
+  "latest_kd_payload": {
+    "mean_soft_pos": 0.45545177767927,
+    "count": 716.3061818181818
+  }
+}

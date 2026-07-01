@@ -1,0 +1,92 @@
+FedAvg vs KD: Top-3 Strategy Comparison
+========================================
+
+Contexto
+--------
+A análise dos resultados atuais mostra que as três melhores técnicas por PR-AUC, tanto em FedAvg como em KD, são:
+
+1. exp12_final_unweighted
+2. exp13_final_keep_best_local
+3. exp11_baseline_final
+
+Isto significa que os mesmos três padrões estruturais tornaram-se os mais eficazes em ambas as estratégias, mas com uma diferença fundamental: FedAvg treina apenas com perda de classificação direta, enquanto KD adiciona distilação de conhecimento local.
+
+1. exp12_final_unweighted
+-------------------------
+Descrição geral
+- FedAvg: variante com agregação não ponderada (todos os clientes contribuem igualmente), 100 épocas locais, sem seleção local e sem clusterização.
+- KD: mesma arquitetura estrutural, mas com Knowledge Distillation adicionada no treino local, usando um termo de distilação sobre as previsões do modelo global anterior.
+
+FedAvg structural notes
+- Agregação: unweighted average across participating clients.
+- Local training: hard labels only, standard gradient descent on client data.
+- Impact: reduz o viés de clientes com mais exemplos, tornando a média global mais equilibrada.
+
+KD structural notes
+- Loss function: a weighted sum de BCE/CE com rótulos verdadeiros + KL divergence com soft targets do teacher.
+- Teacher: global model from previous round.
+- Student: client local model being trained.
+- Hyperparameters: distillation_alpha=0.5, distillation_temperature=2.0.
+
+Theoretical difference
+- FedAvg relies on pure federated averaging and assume que a média ponderada ou não ponderada ajuda a compensar heterogeneidade.
+- KD atua como regularização adicional: força os modelos locais a permanecerem próximos à distribuição global de previsões, o que pode reduzir a divergência entre clientes heterogéneos.
+
+2. exp13_final_keep_best_local
+------------------------------
+Descrição geral
+- FedAvg: estratégia em que cada cliente mantém o melhor modelo entre o global e o local anterior.
+- KD: mesma lógica de seleção local, mas o treinamento local incorpora distilação de conhecimento.
+
+FedAvg structural notes
+- Local model selection: clients compare their new local model with the incoming global model and keep the better-performing one.
+- Agregação: weighted aggregation among selected updates.
+- Objetivo: reduzir a degradação por atualizações locais ruins em cenários heterogéneos.
+
+KD structural notes
+- Além da seleção local, cada cliente também minimiza a discrepância entre suas predições e o teacher global.
+- Isso significa que o critério de seleção pode considerar modelos locais treinados com perda composta.
+
+Theoretical difference
+- FedAvg keep-best-funde: foca-se em robustez de atualização, evitando enviar modelos locais piores.
+- KD keep-best: adiciona uma camada de distilação que tende a estabilizar o treino local e a reduzir overfitting às amostras locais.
+
+3. exp11_baseline_final
+-----------------------
+Descrição geral
+- FedAvg: baseline forte com agregação ponderada padrão, 100 épocas locais.
+- KD: versão baseline com a mesma configuração, mas com Knowledge Distillation aplicada na fase de treino local.
+
+FedAvg structural notes
+- Weighted aggregation: updates são ponderados pelo volume local de dados.
+- Local epochs: grande intensidade local, o que pode causar client drift em dados heterogéneos.
+
+KD structural notes
+- A distilação atua como contrapeso ao client drift.
+- A perda suave de KD ajuda a alinhar os modelos locais com a distribuição global, mesmo quando a agregação é ponderada.
+
+Theoretical difference
+- FedAvg baseline enfatiza a capacidade de cada cliente de aprender com os próprios dados e contribuir proporcionalmente.
+- KD baseline adiciona regularização de consenso via soft labels, tornando o aprendizado local mais conservador e potencialmente mais geral.
+
+Comparação estratégia vs técnica
+--------------------------------
+FedAvg
+- Foco: combinação de pesos de clientes através de agregação (weighted/unweighted) e seleções locais.
+- Não há distilação. O único mecanismo de compartilhamento é a média de parâmetros.
+- Melhor quando a arquitetura do treino local e a agregação são suficientes para extrair generalização global.
+
+KD
+- Foco: mesmo processo federado de envio/recepção de pesos, mas com perda local que inclui teacher-student matching.
+- Structuralmente, o fluxo de comunicação não precisa mudar: ainda partilha-se apenas pesos globais e locais.
+- Teoricamente, KD adiciona regulação suave que ajuda a estabilizar clientes heterogéneos e a melhorar métricas de classificação como PR-AUC.
+
+Diferenças chave entre FedAvg e KD nas três técnicas
+--------------------------------------------------
+- exp12_final_unweighted: ambas usam agregação não ponderada, mas KD adiciona distilação para reduzir o viés local e melhorar generalização.
+- exp13_final_keep_best_local: ambas mantêm a melhor opção local/global, mas KD tem um modelo local mais regularizado antes da comparação.
+- exp11_baseline_final: ambas usam weighted aggregation; a diferença principal é que KD suaviza os updates locais enquanto FedAvg depende apenas de rótulos duros.
+
+Conclusão
+---------
+As três melhores técnicas de ambas as estratégias são estruturalmente idênticas em configuração base, mas KD distingue-se por introduzir uma perda de distilação local. Isso faz de KD uma extensão da estratégia FedAvg, com potencial para diminuir a variância e melhorar PR-AUC em cenários de clientes heterogéneos.

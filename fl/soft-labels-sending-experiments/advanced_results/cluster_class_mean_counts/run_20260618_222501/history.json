@@ -1,0 +1,39 @@
+{
+  "losses_centralized": [],
+  "metrics_centralized": {},
+  "losses_distributed": [],
+  "metrics_distributed": {},
+  "metrics_distributed_fit": {},
+  "latest_strategy_payload": {
+    "scope": "cluster",
+    "clusters": {
+      "0": {
+        "payload_type": "class_mean_counts",
+        "count": 11633.0,
+        "mean": 0.442920518741734,
+        "pos_count": 5129.0,
+        "pos_mean": 0.9809512843407485,
+        "neg_count": 6504.0,
+        "neg_mean": 0.018633957124675894
+      },
+      "2": {
+        "payload_type": "class_mean_counts",
+        "count": 7419.0,
+        "mean": 0.06411289522778928,
+        "pos_count": 337.0,
+        "pos_mean": 0.8398281403040674,
+        "neg_count": 7082.0,
+        "neg_mean": 0.027200153404758246
+      },
+      "1": {
+        "payload_type": "class_mean_counts",
+        "count": 23157.0,
+        "mean": 0.43665120881295505,
+        "pos_count": 9549.0,
+        "pos_mean": 0.9574196184008568,
+        "neg_count": 13608.0,
+        "neg_mean": 0.07121782086800549
+      }
+    }
+  }
+}

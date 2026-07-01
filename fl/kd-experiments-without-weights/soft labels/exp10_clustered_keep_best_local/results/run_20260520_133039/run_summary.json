@@ -1,0 +1,59 @@
+{
+  "experiment_id": "exp10_clustered_keep_best_local",
+  "title": "Experiment 10 - Clustered Keep-Best Local",
+  "description": "Clustered aggregation combined with local selection between the incoming grouped/global model and the previous best local model in KD training.",
+  "communication_mode": "soft_labels",
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.763614321211499,
+    "balanced_accuracy": 0.7082144821650007,
+    "specificity": 0.8473429543912322,
+    "precision": 0.5566387673924276,
+    "recall": 0.5690860099387686,
+    "f1": 0.5458622782698334,
+    "roc_auc": 0.792919708723254,
+    "pr_auc": 0.6273720777328226,
+    "far": 0.1526570456087678,
+    "miss_rate": 0.43091399006123116,
+    "tn": 15398.763510151863,
+    "fp": 2774.2364898481364,
+    "fn": 3370.6092302589495,
+    "tp": 4451.3907697410505
+  },
+  "test_metrics": {
+    "accuracy": 0.778210951882495,
+    "balanced_accuracy": 0.7270231450385369,
+    "specificity": 0.8626074858326754,
+    "precision": 0.5959781325185941,
+    "recall": 0.5914388042443982,
+    "f1": 0.5772366931329053,
+    "roc_auc": 0.8088206857897269,
+    "pr_auc": 0.6786222697482127,
+    "far": 0.13739251416732517,
+    "miss_rate": 0.4085611957556017,
+    "tn": 15323.359378331636,
+    "fp": 2440.6406216683645,
+    "fn": 3279.520718330214,
+    "tp": 4747.479281669786
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.885513073817681,
+    "balanced_accuracy": 0.871917539091948,
+    "specificity": 0.9125886212252057,
+    "precision": 0.7231079489251618,
+    "recall": 0.7058940439662009,
+    "f1": 0.7056759888658807,
+    "roc_auc": 0.8147685646144532,
+    "pr_auc": 0.7669804409830696,
+    "far": 0.08741137877479459,
+    "miss_rate": 0.16875354304130932
+  },
+  "fine_tune_summary": {},
+  "latest_kd_payload": {
+    "mean_soft_pos": 0.4589061345755468,
+    "count": 747.5010779691535,
+    "cluster_id": 0.9001634722452557
+  }
+}

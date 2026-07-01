@@ -1,0 +1,86 @@
+Best Local vs Global Experiments by Strategy
+============================================
+
+Selection rule: best experiment is selected by mean PR-AUC; F1 is used as a tie-breaker.
+Global model uses final global test_metrics.
+Local training uses local_metrics_summary when available. fine_tune_summary is reported separately when available.
+
+FedAvg
+------
+Description: comunica pesos; sem KD
+Experiments with full-length runs: 4
+Best global model: exp12_final_unweighted, runs=10, PR-AUC=0.9692 +/- 0.0024, F1=0.9184 +/- 0.0027
+Best local training: exp12_final_unweighted, runs=10, PR-AUC=0.9153 +/- 0.0107, F1=0.7674 +/- 0.0053
+Best fine-tuned test-client model: n/a
+
+Per-experiment overview:
+  exp11_baseline_final | runs=10 | global PR-AUC=0.9645 | global F1=0.9137 | local PR-AUC=0.9089 | local F1=0.7653
+  exp12_final_unweighted | runs=10 | global PR-AUC=0.9692 | global F1=0.9184 | local PR-AUC=0.9153 | local F1=0.7674
+  exp13_final_keep_best_local | runs=10 | global PR-AUC=0.9648 | global F1=0.9146 | local PR-AUC=0.9090 | local F1=0.7653
+  exp14_final_clustered | runs=10 | global PR-AUC=0.9643 | global F1=0.9135 | local PR-AUC=0.9111 | local F1=0.7656
+
+KD com pesos
+------------
+Description: comunica pesos; KD no treino local
+Experiments with full-length runs: 4
+Best global model: exp12_final_unweighted, runs=10, PR-AUC=0.9573 +/- 0.0022, F1=0.8661 +/- 0.0083
+Best local training: exp12_final_unweighted, runs=10, PR-AUC=0.9143 +/- 0.0065, F1=0.7517 +/- 0.0051
+Best fine-tuned test-client model: n/a
+
+Per-experiment overview:
+  exp11_baseline_final | runs=10 | global PR-AUC=0.9555 | global F1=0.8797 | local PR-AUC=0.8963 | local F1=0.7460
+  exp12_final_unweighted | runs=10 | global PR-AUC=0.9573 | global F1=0.8661 | local PR-AUC=0.9143 | local F1=0.7517
+  exp13_final_keep_best_local | runs=10 | global PR-AUC=0.9551 | global F1=0.8812 | local PR-AUC=0.8974 | local F1=0.7464
+  exp14_final_clustered | runs=10 | global PR-AUC=0.9553 | global F1=0.8798 | local PR-AUC=0.8941 | local F1=0.7462
+
+Soft labels
+-----------
+Description: nao comunica pesos; comunica soft labels
+Experiments with full-length runs: 14
+Best global model: exp12_final_unweighted, runs=10, PR-AUC=0.7320 +/- 0.0055, F1=0.6016 +/- 0.0074
+Best local training: exp13_final_keep_best_local, runs=10, PR-AUC=0.8085 +/- 0.0062, F1=0.7663 +/- 0.0085
+Best fine-tuned test-client model: n/a
+
+Per-experiment overview:
+  exp10_clustered_keep_best_local | runs=10 | global PR-AUC=0.6773 | global F1=0.5685 | local PR-AUC=0.7626 | local F1=0.6961
+  exp11_baseline_final | runs=10 | global PR-AUC=0.7318 | global F1=0.6181 | local PR-AUC=0.8084 | local F1=0.7659
+  exp12_final_unweighted | runs=10 | global PR-AUC=0.7320 | global F1=0.6016 | local PR-AUC=0.8081 | local F1=0.7492
+  exp13_final_keep_best_local | runs=10 | global PR-AUC=0.7308 | global F1=0.6181 | local PR-AUC=0.8085 | local F1=0.7663
+  exp14_final_clustered | runs=10 | global PR-AUC=0.7311 | global F1=0.6182 | local PR-AUC=0.8067 | local F1=0.7657
+  exp1_kkd_base | runs=10 | global PR-AUC=0.6814 | global F1=0.5725 | local PR-AUC=0.7658 | local F1=0.6964
+  exp2_fraction_clients | runs=10 | global PR-AUC=0.6744 | global F1=0.5588 | local PR-AUC=0.7555 | local F1=0.6922
+  exp3_local_epochs | runs=10 | global PR-AUC=0.6803 | global F1=0.5705 | local PR-AUC=0.7649 | local F1=0.6982
+  exp4_unweighted_aggregation | runs=10 | global PR-AUC=0.6756 | global F1=0.5612 | local PR-AUC=0.7608 | local F1=0.6854
+  exp5_cross_dataset | runs=10 | global PR-AUC=0.2787 | global F1=0.2849 | local PR-AUC=0.7821 | local F1=0.6968
+  exp6_keep_best_local_model | runs=10 | global PR-AUC=0.6800 | global F1=0.5709 | local PR-AUC=0.7655 | local F1=0.6970
+  exp7_clustered_aggregation | runs=10 | global PR-AUC=0.6799 | global F1=0.5706 | local PR-AUC=0.7654 | local F1=0.6975
+  exp8_personalized_fedavg | runs=10 | global PR-AUC=0.6797 | global F1=0.5725 | local PR-AUC=0.7639 | local F1=0.6989
+  exp9_final_local_finetuning | runs=10 | global PR-AUC=0.6769 | global F1=0.5709 | local PR-AUC=0.7618 | local F1=0.6959
+
+Class prototype
+---------------
+Description: nao comunica pesos; comunica prototipos por classe
+Experiments with full-length runs: 6
+Best global model: exp11_baseline_final, runs=10, PR-AUC=0.7012 +/- 0.0066, F1=0.6099 +/- 0.0093
+Best local training: exp13_final_keep_best_local, runs=10, PR-AUC=0.7923 +/- 0.0060, F1=0.7505 +/- 0.0059
+Best fine-tuned test-client model: n/a
+
+Per-experiment overview:
+  exp10_clustered_keep_best_local | runs=10 | global PR-AUC=0.6200 | global F1=0.5611 | local PR-AUC=0.7093 | local F1=0.6566
+  exp11_baseline_final | runs=10 | global PR-AUC=0.7012 | global F1=0.6099 | local PR-AUC=0.7913 | local F1=0.7484
+  exp12_final_unweighted | runs=10 | global PR-AUC=0.7004 | global F1=0.6121 | local PR-AUC=0.7908 | local F1=0.7512
+  exp13_final_keep_best_local | runs=10 | global PR-AUC=0.7007 | global F1=0.6107 | local PR-AUC=0.7923 | local F1=0.7505
+  exp14_final_clustered | runs=10 | global PR-AUC=0.7007 | global F1=0.6113 | local PR-AUC=0.7908 | local F1=0.7495
+  exp9_final_local_finetuning | runs=10 | global PR-AUC=0.6205 | global F1=0.5543 | local PR-AUC=0.7096 | local F1=0.6538
+
+Hidden states
+-------------
+Description: nao comunica pesos; comunica hidden states
+No full-length runs found.
+
+Compact Summary
+---------------
+FedAvg: global -> exp12_final_unweighted, runs=10, PR-AUC=0.9692 +/- 0.0024, F1=0.9184 +/- 0.0027; local -> exp12_final_unweighted, runs=10, PR-AUC=0.9153 +/- 0.0107, F1=0.7674 +/- 0.0053; fine-tune -> n/a
+KD com pesos: global -> exp12_final_unweighted, runs=10, PR-AUC=0.9573 +/- 0.0022, F1=0.8661 +/- 0.0083; local -> exp12_final_unweighted, runs=10, PR-AUC=0.9143 +/- 0.0065, F1=0.7517 +/- 0.0051; fine-tune -> n/a
+Soft labels: global -> exp12_final_unweighted, runs=10, PR-AUC=0.7320 +/- 0.0055, F1=0.6016 +/- 0.0074; local -> exp13_final_keep_best_local, runs=10, PR-AUC=0.8085 +/- 0.0062, F1=0.7663 +/- 0.0085; fine-tune -> n/a
+Class prototype: global -> exp11_baseline_final, runs=10, PR-AUC=0.7012 +/- 0.0066, F1=0.6099 +/- 0.0093; local -> exp13_final_keep_best_local, runs=10, PR-AUC=0.7923 +/- 0.0060, F1=0.7505 +/- 0.0059; fine-tune -> n/a

@@ -1,0 +1,219 @@
+Class Prototype KD Experiments Summary
+======================================
+
+Results are aggregated across all available full-length runs for each experiment.
+Uncertainty is reported as sample standard deviation across runs (mean +/- std).
+
+Knowledge Distillation Configuration:
+- Communication: no model weights
+- Payload: class prototypes from hidden representations
+- Prototype classes: positive and negative class means
+- Local objective: hard-label BCE plus prototype-alignment signal when global prototypes are available
+- Model: MLP hidden layers [256, 128, 64] followed by a single-neuron output layer
+
+Ranked experiments by final global test PR-AUC:
+  1. exp11_baseline_final - test PR-AUC: 0.7012, test F1: 0.6099
+  2. exp13_final_keep_best_local - test PR-AUC: 0.7007, test F1: 0.6107
+  3. exp14_final_clustered - test PR-AUC: 0.7007, test F1: 0.6113
+  4. exp12_final_unweighted - test PR-AUC: 0.7004, test F1: 0.6121
+  5. exp9_final_local_finetuning - test PR-AUC: 0.6205, test F1: 0.5543
+  6. exp10_clustered_keep_best_local - test PR-AUC: 0.6200, test F1: 0.5611
+
+
+exp11_baseline_final
+--------------------
+Title: Experiment 11 - Baseline Final
+Description: KD class prototypes baseline with final strong settings.
+Runs aggregated: 10
+
+Final global dev metrics:
+  accuracy: 0.7870 +/- 0.0027
+  balanced_accuracy: 0.7324 +/- 0.0054
+  specificity: 0.8696 +/- 0.0045
+  precision: 0.5847 +/- 0.0078
+  recall: 0.5952 +/- 0.0138
+  f1: 0.5765 +/- 0.0088
+  roc_auc: 0.8167 +/- 0.0037
+  pr_auc: 0.6499 +/- 0.0056
+  far: 0.1304 +/- 0.0045
+  miss_rate: 0.4048 +/- 0.0138
+
+Final global test metrics:
+  accuracy: 0.8016 +/- 0.0032
+  balanced_accuracy: 0.7537 +/- 0.0055
+  specificity: 0.8806 +/- 0.0044
+  precision: 0.6188 +/- 0.0084
+  recall: 0.6268 +/- 0.0134
+  f1: 0.6099 +/- 0.0093
+  roc_auc: 0.8337 +/- 0.0037
+  pr_auc: 0.7012 +/- 0.0066
+  far: 0.1194 +/- 0.0044
+  miss_rate: 0.3732 +/- 0.0134
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp13_final_keep_best_local
+---------------------------
+Title: Experiment 13 - Final Keep-Best Local
+Description: KD class prototypes with final local model selection.
+Runs aggregated: 10
+
+Final global dev metrics:
+  accuracy: 0.7874 +/- 0.0029
+  balanced_accuracy: 0.7326 +/- 0.0055
+  specificity: 0.8702 +/- 0.0042
+  precision: 0.5851 +/- 0.0060
+  recall: 0.5949 +/- 0.0136
+  f1: 0.5773 +/- 0.0072
+  roc_auc: 0.8158 +/- 0.0029
+  pr_auc: 0.6494 +/- 0.0050
+  far: 0.1298 +/- 0.0042
+  miss_rate: 0.4051 +/- 0.0136
+
+Final global test metrics:
+  accuracy: 0.8020 +/- 0.0031
+  balanced_accuracy: 0.7538 +/- 0.0054
+  specificity: 0.8814 +/- 0.0040
+  precision: 0.6190 +/- 0.0068
+  recall: 0.6262 +/- 0.0128
+  f1: 0.6107 +/- 0.0073
+  roc_auc: 0.8329 +/- 0.0028
+  pr_auc: 0.7007 +/- 0.0056
+  far: 0.1186 +/- 0.0040
+  miss_rate: 0.3738 +/- 0.0128
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp14_final_clustered
+---------------------
+Title: Experiment 14 - Final Clustered
+Description: KD class prototypes with final clustered aggregation.
+Runs aggregated: 10
+
+Final global dev metrics:
+  accuracy: 0.7870 +/- 0.0026
+  balanced_accuracy: 0.7330 +/- 0.0043
+  specificity: 0.8688 +/- 0.0038
+  precision: 0.5836 +/- 0.0067
+  recall: 0.5971 +/- 0.0104
+  f1: 0.5777 +/- 0.0061
+  roc_auc: 0.8159 +/- 0.0034
+  pr_auc: 0.6495 +/- 0.0047
+  far: 0.1312 +/- 0.0038
+  miss_rate: 0.4029 +/- 0.0104
+
+Final global test metrics:
+  accuracy: 0.8018 +/- 0.0027
+  balanced_accuracy: 0.7545 +/- 0.0039
+  specificity: 0.8796 +/- 0.0038
+  precision: 0.6170 +/- 0.0080
+  recall: 0.6294 +/- 0.0088
+  f1: 0.6113 +/- 0.0056
+  roc_auc: 0.8329 +/- 0.0034
+  pr_auc: 0.7007 +/- 0.0056
+  far: 0.1204 +/- 0.0038
+  miss_rate: 0.3706 +/- 0.0088
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp12_final_unweighted
+----------------------
+Title: Experiment 12 - Final Unweighted
+Description: KD class prototypes with final unweighted aggregation.
+Runs aggregated: 10
+
+Final global dev metrics:
+  accuracy: 0.7866 +/- 0.0032
+  balanced_accuracy: 0.7323 +/- 0.0046
+  specificity: 0.8686 +/- 0.0052
+  precision: 0.5835 +/- 0.0084
+  recall: 0.5959 +/- 0.0113
+  f1: 0.5781 +/- 0.0077
+  roc_auc: 0.8162 +/- 0.0030
+  pr_auc: 0.6495 +/- 0.0055
+  far: 0.1314 +/- 0.0052
+  miss_rate: 0.4041 +/- 0.0113
+
+Final global test metrics:
+  accuracy: 0.8014 +/- 0.0042
+  balanced_accuracy: 0.7538 +/- 0.0058
+  specificity: 0.8798 +/- 0.0052
+  precision: 0.6178 +/- 0.0090
+  recall: 0.6278 +/- 0.0125
+  f1: 0.6121 +/- 0.0093
+  roc_auc: 0.8331 +/- 0.0035
+  pr_auc: 0.7004 +/- 0.0074
+  far: 0.1202 +/- 0.0052
+  miss_rate: 0.3722 +/- 0.0125
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp9_final_local_finetuning
+---------------------------
+Title: Experiment 9 - Final Local Fine-Tuning
+Description: KD class prototypes plus final local fine-tuning.
+Runs aggregated: 10
+
+Final global dev metrics:
+  accuracy: 0.7295 +/- 0.0029
+  balanced_accuracy: 0.6973 +/- 0.0035
+  specificity: 0.7783 +/- 0.0066
+  precision: 0.4985 +/- 0.0053
+  recall: 0.6163 +/- 0.0109
+  f1: 0.5328 +/- 0.0054
+  roc_auc: 0.7723 +/- 0.0022
+  pr_auc: 0.5707 +/- 0.0061
+  far: 0.2217 +/- 0.0066
+  miss_rate: 0.3837 +/- 0.0109
+
+Final global test metrics:
+  accuracy: 0.7411 +/- 0.0029
+  balanced_accuracy: 0.7088 +/- 0.0037
+  specificity: 0.7944 +/- 0.0065
+  precision: 0.5290 +/- 0.0052
+  recall: 0.6232 +/- 0.0113
+  f1: 0.5543 +/- 0.0053
+  roc_auc: 0.7865 +/- 0.0026
+  pr_auc: 0.6205 +/- 0.0055
+  far: 0.2056 +/- 0.0065
+  miss_rate: 0.3768 +/- 0.0113
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp10_clustered_keep_best_local
+-------------------------------
+Title: Experiment 10 - Clustered Keep-Best Local
+Description: KD class prototypes combining clustering and local model selection.
+Runs aggregated: 10
+
+Final global dev metrics:
+  accuracy: 0.7299 +/- 0.0034
+  balanced_accuracy: 0.7008 +/- 0.0040
+  specificity: 0.7738 +/- 0.0095
+  precision: 0.4973 +/- 0.0040
+  recall: 0.6278 +/- 0.0150
+  f1: 0.5392 +/- 0.0064
+  roc_auc: 0.7718 +/- 0.0036
+  pr_auc: 0.5701 +/- 0.0065
+  far: 0.2262 +/- 0.0095
+  miss_rate: 0.3722 +/- 0.0150
+
+Final global test metrics:
+  accuracy: 0.7420 +/- 0.0032
+  balanced_accuracy: 0.7127 +/- 0.0045
+  specificity: 0.7902 +/- 0.0093
+  precision: 0.5274 +/- 0.0049
+  recall: 0.6351 +/- 0.0157
+  f1: 0.5611 +/- 0.0070
+  roc_auc: 0.7864 +/- 0.0037
+  pr_auc: 0.6200 +/- 0.0072
+  far: 0.2098 +/- 0.0093
+  miss_rate: 0.3649 +/- 0.0157
+
+Final fine-tuned test-client metrics:
+  n/a

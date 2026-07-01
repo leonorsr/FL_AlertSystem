@@ -1,0 +1,267 @@
+Experiencias ordenadas por desempenho no treino local
+=====================================================
+
+Objetivo deste resumo
+---------------------
+Este ficheiro organiza as experiencias realizadas no projeto dando prioridade
+ao desempenho dos modelos locais. A ordenacao usa, sempre que disponivel:
+
+1. PR-AUC local como metrica principal.
+2. F1 local como metrica secundaria.
+3. PR-AUC/F1 global apenas como contexto.
+
+Nota importante: nas estrategias sem partilha de pesos nao existe um unico
+modelo global treinado por agregacao de parametros. As metricas "globais"
+nesses casos correspondem a avaliacao agregada/medias dos modelos locais finais
+no conjunto de teste global, e devem ser interpretadas como contexto, nao como
+um modelo global FedAvg classico.
+
+Configuracao comum das experiencias finais
+------------------------------------------
+- Cenario: divisao por cliente.
+- Clientes de treino: 69.
+- Features: 32 magnitude_features.
+- Modelo: MLP [256, 128, 64], dropout geralmente 0.30.
+- Treino final: 25 rondas federadas e 100 epocas locais nas experiencias finais.
+- Otimizador: Adam, learning rate 0.0008, weight decay 0.0001.
+- Batch size: 256.
+- Avaliacao local: media das metricas dos modelos locais nos conjuntos locais de validacao.
+- Avaliacao global/test: avaliacao no conjunto de teste agregado.
+
+
+1. FedAvg com partilha completa de pesos
+----------------------------------------
+Montagem:
+FedAvg envia e agrega todos os parametros do modelo. Esta e a familia com maior
+custo de comunicacao, mas tambem a mais forte. As variantes finais diferem na
+forma de agregacao: ponderada, nao ponderada, com selecao local do melhor modelo
+ou com agregacao por clusters.
+
+Resultados locais principais:
+- exp12_final_unweighted: local PR-AUC 0.9153, local F1 0.7674; global PR-AUC 0.9691, global F1 0.9183. Melhor configuracao global/local no conjunto de experiencias com pesos. Usa agregacao nao ponderada e 100 epocas locais.
+- exp14_final_clustered: local PR-AUC 0.9111, local F1 0.7656; global PR-AUC 0.9643, global F1 0.9135. A agregacao por clusters fica perto do melhor FedAvg, mas nao supera exp12.
+- exp13_final_keep_best_local: local PR-AUC 0.9102, local F1 0.7664; global PR-AUC 0.9646, global F1 0.9147. A selecao do melhor modelo local ajuda ligeiramente o F1 local, mas nao melhora o PR-AUC local face a exp12.
+- exp11_baseline_final: local PR-AUC 0.9091, local F1 0.7656; global PR-AUC 0.9643, global F1 0.9135. Baseline ponderado forte, mas abaixo do unweighted final.
+
+Leitura:
+Quando o custo de comunicacao nao e a restricao principal, FedAvg continua a
+ser a referencia mais forte. A melhor variante foi a agregacao nao ponderada
+com 100 epocas locais.
+
+
+2. Knowledge Distillation com partilha de pesos
+-----------------------------------------------
+Montagem:
+Continua a haver partilha de parametros do modelo, mas o treino local combina
+BCE com labels reais e uma perda de distilacao baseada no modelo global da
+ronda anterior. A configuracao de KD usa alpha=0.5 e temperature=2.0.
+
+Resultados locais principais:
+- exp12_final_unweighted: local PR-AUC 0.9143, local F1 0.7517; global PR-AUC 0.9573, global F1 0.8661.
+- exp13_final_keep_best_local: local PR-AUC 0.8974, local F1 0.7464; global PR-AUC 0.9551, global F1 0.8812.
+- exp11_baseline_final: local PR-AUC 0.8963, local F1 0.7460; global PR-AUC 0.9555, global F1 0.8797.
+- exp14_final_clustered: local PR-AUC 0.8941, local F1 0.7462; global PR-AUC 0.9553, global F1 0.8798.
+
+Leitura:
+KD com pesos fica muito perto do melhor FedAvg em PR-AUC local na configuracao
+unweighted, mas perde sobretudo em F1 local e em F1 global. Em termos de treino
+local, a variante unweighted tambem domina dentro desta familia.
+
+
+3. Class prototypes sem partilha de pesos - local-first/fine tuning
+-------------------------------------------------------------------
+Montagem:
+Nao sao enviados parametros do modelo. Cada cliente comunica prototipos de
+representacoes internas por classe. Na configuracao final, sao enviados dois
+prototipos de 64 dimensoes, um para a classe negativa e outro para a positiva,
+mais contagens associadas. O payload aproximado e 132 escalares por ronda.
+
+Configuracao final:
+- base: exp14_final_clustered.
+- dropout: 0.20.
+- agregacao por clusters: ativa.
+- epocas locais: 100.
+- runs: 10.
+
+Resultado:
+- local PR-AUC 0.8186 +/- 0.0064, local F1 0.7654 +/- 0.0107.
+- global PR-AUC 0.7005 +/- 0.0055, global F1 0.6146 +/- 0.0097.
+
+Leitura:
+E a melhor tecnica sem partilha de pesos quando o criterio principal e PR-AUC
+local. No entanto, tem F1 local inferior ao soft-label local-first e o custo de
+comunicacao e muito maior do que enviar apenas media/contagem de soft labels.
+
+
+4. Soft labels sem partilha de pesos - local-first/fine tuning
+--------------------------------------------------------------
+Montagem:
+Nao ha partilha de parametros. Cada cliente envia estatisticas de soft labels
+obtidas a partir das probabilidades previstas localmente. A configuracao final
+foi escolhida apos uma procura local-first, privilegiando o desempenho dos
+modelos locais.
+
+Configuracao final:
+- base: exp11_baseline_final.
+- payload: soft label global simples.
+- distillation alpha: 0.75.
+- temperature: 2.0.
+- epocas locais: 100.
+- runs: 10.
+
+Resultado:
+- local PR-AUC 0.8169 +/- 0.0099, local F1 0.7866 +/- 0.0086.
+- global PR-AUC 0.7365 +/- 0.0090, global F1 0.6438 +/- 0.0104.
+
+Leitura:
+E a melhor configuracao sem pesos quando se olha para F1 local, e fica muito
+perto dos class prototypes em PR-AUC local. Como o payload e muito menor, esta
+configuracao e a mais interessante se o objetivo for melhorar treino local com
+baixo custo de comunicacao.
+
+
+5. Soft labels sem partilha de pesos - payloads simples
+-------------------------------------------------------
+Montagem:
+Estas experiencias testam o que se envia como soft-label payload. O servidor
+agrega estatisticas de probabilidades e envia o sinal agregado na ronda
+seguinte. Nao sao enviados pesos do modelo.
+
+Variantes testadas:
+- global_mean_count: media global da probabilidade prevista + contagem.
+- global_mean_std_count: media global + desvio padrao + contagem.
+- class_mean_counts: media por classe + contagens.
+- class_mean_std_counts: media/desvio padrao por classe + contagens.
+- class_quantile_stats: estatisticas por classe com quantis q25/q50/q75.
+
+Resultados:
+- global_mean_count: local PR-AUC 0.8100, local F1 0.7760; global PR-AUC 0.7291, global F1 0.6158; 2 escalares.
+- global_mean_std_count: local PR-AUC 0.8096, local F1 0.7802; global PR-AUC 0.7298, global F1 0.6236; 3 escalares.
+- class_mean_counts: local PR-AUC 0.8065, local F1 0.7778; global PR-AUC 0.7299, global F1 0.6300; 4 escalares.
+- class_mean_std_counts: local PR-AUC 0.8058, local F1 0.7783; global PR-AUC 0.7283, global F1 0.6308; 6 escalares.
+- class_quantile_stats: local PR-AUC 0.8056, local F1 0.7766; global PR-AUC 0.7284, global F1 0.6269; 12 escalares.
+
+Leitura:
+Enviar mais estatisticas nao melhorou o PR-AUC local. O payload mais simples
+(media + contagem) foi o melhor em PR-AUC local. Adicionar desvio padrao melhora
+um pouco o F1 local/global, mas com ligeira perda em PR-AUC local.
+
+
+6. Soft labels sem partilha de pesos - estrategias avancadas
+------------------------------------------------------------
+Montagem:
+Estas experiencias mantem payloads pequenos, mas mudam quando/para quem o sinal
+de KD e aplicado.
+
+Variantes testadas:
+- warmup_global_mean_count: KD desligado nas primeiras 5 rondas; depois usa media + contagem global.
+- cluster_mean_count: media + contagem agregadas por cluster de clientes.
+- cluster_class_mean_counts: medias por classe e por cluster.
+- uncertain_global_mean_count: aplica KD apenas a exemplos localmente incertos.
+
+Resultados:
+- warmup_global_mean_count: local PR-AUC 0.8096, local F1 0.7752; global PR-AUC 0.7303, global F1 0.6176.
+- cluster_mean_count: local PR-AUC 0.8069, local F1 0.7735; global PR-AUC 0.7323, global F1 0.6240.
+- cluster_class_mean_counts: local PR-AUC 0.8068, local F1 0.7776; global PR-AUC 0.7277, global F1 0.6280.
+- uncertain_global_mean_count: local PR-AUC 0.7261, local F1 0.0272; global PR-AUC 0.6340, global F1 0.0276.
+
+Leitura:
+O warmup e a melhor destas estrategias, mas nao supera o payload simples
+global_mean_count. A estrategia de exemplos incertos falhou claramente e deve
+ser descartada ou redesenhada.
+
+
+7. Soft labels por bins de probabilidade
+----------------------------------------
+Montagem:
+Estas experiencias testam a ideia de enviar mais informacao sobre a distribuicao
+das probabilidades. As probabilidades sao divididas em bins fixos em [0,1]. Para
+cada bin, o cliente envia sempre:
+
+- mean
+- std
+- count
+
+So muda o numero de bins.
+
+Variantes e resultados:
+- prob_bins_3: 3 bins, 9 escalares; local PR-AUC 0.8032, local F1 0.7767; global PR-AUC 0.7200, global F1 0.6261.
+- prob_bins_5: 5 bins, 15 escalares; local PR-AUC 0.8043, local F1 0.7821; global PR-AUC 0.7237, global F1 0.6327.
+- prob_bins_10: 10 bins, 30 escalares; local PR-AUC 0.8048, local F1 0.7830; global PR-AUC 0.7256, global F1 0.6335.
+
+Leitura:
+Mais bins melhoram ligeiramente o F1, sobretudo com 10 bins, mas pioram o
+PR-AUC local face ao payload simples. Como o objetivo principal e treino local
+por PR-AUC, os bins nao justificam claramente o custo adicional.
+
+
+8. Soft labels e class prototypes sem pesos - experiencias base antigas
+-----------------------------------------------------------------------
+Montagem:
+Antes das configuracoes local-first, foram testadas variantes sem partilha de
+pesos usando soft-label payloads e class prototypes em configuracoes semelhantes
+as experiencias FedAvg/KD principais.
+
+Resultados globais principais dos resumos antigos:
+- Soft labels sem pesos, melhor global: exp12_final_unweighted, global PR-AUC 0.7320, global F1 0.6016.
+- Soft labels sem pesos, exp11/exp13/exp14 ficam perto em PR-AUC global, aproximadamente 0.731.
+- Class prototypes sem pesos, melhor global: exp11_baseline_final, global PR-AUC 0.7012, global F1 0.6099.
+- Class prototypes exp13/exp14/exp12 ficam muito proximos, aproximadamente 0.700-0.701 PR-AUC global.
+
+Leitura:
+As experiencias base mostraram que soft labels eram melhores globalmente que
+class prototypes, mas os resultados locais so ficaram realmente competitivos
+depois das configuracoes local-first/fine tuning.
+
+
+Conclusoes principais
+---------------------
+1. A melhor performance absoluta continua a vir de FedAvg/KD com partilha de
+pesos, especialmente FedAvg exp12_final_unweighted.
+2. Se a prioridade for reduzir comunicacao e ainda manter bons modelos locais,
+a melhor linha e soft labels local-first: local F1 mais alto entre as tecnicas
+sem pesos e PR-AUC local muito proximo dos class prototypes.
+3. Class prototypes local-first vencem ligeiramente em PR-AUC local entre as
+tecnicas sem pesos, mas com payload muito maior.
+4. Enviar mais estatisticas de soft labels nao melhorou PR-AUC local. Em geral,
+payloads mais ricos aumentam ligeiramente F1, mas nao melhoram ranking/PR-AUC.
+5. A experiencia por bins confirma isto: 10 bins melhora F1, mas nao supera a
+media global simples em PR-AUC local.
+
+
+Top 10 configuracoes por desempenho local
+-----------------------------------------
+Ordenacao por PR-AUC local; F1 local usado como criterio secundario.
+
+| Rank | Familia | Configuracao | Runs | Payload | Local PR-AUC | Local F1 | Global PR-AUC | Global F1 |
+| ---: | --- | --- | ---: | --- | ---: | ---: | ---: | ---: |
+| 1 | FedAvg com pesos | exp12_final_unweighted | 20 | modelo completo | 0.9153 | 0.7674 | 0.9691 | 0.9183 |
+| 2 | KD com partilha de pesos | exp12_final_unweighted | 10 | modelo completo + KD | 0.9143 | 0.7517 | 0.9573 | 0.8661 |
+| 3 | FedAvg com pesos | exp14_final_clustered | 10 | modelo completo | 0.9111 | 0.7656 | 0.9643 | 0.9135 |
+| 4 | FedAvg com pesos | exp13_final_keep_best_local | 13 | modelo completo | 0.9102 | 0.7664 | 0.9646 | 0.9147 |
+| 5 | FedAvg com pesos | exp11_baseline_final | 20 | modelo completo | 0.9091 | 0.7656 | 0.9643 | 0.9135 |
+| 6 | KD com partilha de pesos | exp13_final_keep_best_local | 10 | modelo completo + KD | 0.8974 | 0.7464 | 0.9551 | 0.8812 |
+| 7 | KD com partilha de pesos | exp11_baseline_final | 10 | modelo completo + KD | 0.8963 | 0.7460 | 0.9555 | 0.8797 |
+| 8 | KD com partilha de pesos | exp14_final_clustered | 10 | modelo completo + KD | 0.8941 | 0.7462 | 0.9553 | 0.8798 |
+| 9 | Class prototypes sem pesos | expfinal_clustered_dropout_0.20 | 10 | 2 prototipos 64-D + contagens (~132 escalares) | 0.8186 | 0.7654 | 0.7005 | 0.6146 |
+| 10 | Soft labels sem pesos | expfinal_alpha_0.75 | 10 | media/contagem soft-label (~2 escalares) | 0.8169 | 0.7866 | 0.7365 | 0.6438 |
+
+
+Melhores configuracoes sem partilha de pesos
+--------------------------------------------
+Como a pergunta principal do paper e reduzir comunicacao mantendo bons modelos
+locais, esta sublista e provavelmente a mais importante para discussao:
+
+| Rank sem pesos | Tecnica | Configuracao | Payload | Local PR-AUC | Local F1 | Global PR-AUC | Global F1 |
+| ---: | --- | --- | --- | ---: | ---: | ---: | ---: |
+| 1 | Class prototypes | expfinal_clustered_dropout_0.20 | ~132 escalares | 0.8186 | 0.7654 | 0.7005 | 0.6146 |
+| 2 | Soft labels local-first | expfinal_alpha_0.75 | ~2 escalares | 0.8169 | 0.7866 | 0.7365 | 0.6438 |
+| 3 | Soft labels simples | global_mean_count | 2 escalares | 0.8100 | 0.7760 | 0.7291 | 0.6158 |
+| 4 | Soft labels simples | global_mean_std_count | 3 escalares | 0.8096 | 0.7802 | 0.7298 | 0.6236 |
+| 5 | Soft labels avancado | warmup_global_mean_count | 2 escalares | 0.8096 | 0.7752 | 0.7303 | 0.6176 |
+| 6 | Soft labels avancado | cluster_mean_count | 2 escalares por cluster | 0.8069 | 0.7735 | 0.7323 | 0.6240 |
+| 7 | Soft labels avancado | cluster_class_mean_counts | 4 escalares por cluster | 0.8068 | 0.7776 | 0.7277 | 0.6280 |
+| 8 | Soft labels simples | class_mean_counts | 4 escalares | 0.8065 | 0.7778 | 0.7299 | 0.6300 |
+| 9 | Soft labels simples | class_mean_std_counts | 6 escalares | 0.8058 | 0.7783 | 0.7283 | 0.6308 |
+| 10 | Soft labels simples | class_quantile_stats | 12 escalares | 0.8056 | 0.7766 | 0.7284 | 0.6269 |
+

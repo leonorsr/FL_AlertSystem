@@ -1,0 +1,58 @@
+{
+  "experiment_id": "exp5_cross_dataset",
+  "title": "Experiment 5 - Cross Dataset KD",
+  "description": "Federated KD training on multiple datasets and evaluation on a held-out dataset.",
+  "communication_mode": "soft_labels",
+  "communicates_model_weights": false,
+  "num_train_clients": 70,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.7721556203086786,
+    "balanced_accuracy": 0.7300272485620227,
+    "specificity": 0.8846293255289662,
+    "precision": 0.663091228746184,
+    "recall": 0.5754251715950794,
+    "f1": 0.5968581821220407,
+    "roc_auc": 0.824176776919144,
+    "pr_auc": 0.735673887876117,
+    "far": 0.11537067447103372,
+    "miss_rate": 0.4245748284049207,
+    "tn": 19428.229247267158,
+    "fp": 2533.7707527328434,
+    "fn": 5330.961545452185,
+    "tp": 7225.038454547815
+  },
+  "test_metrics": {
+    "accuracy": 0.7943593318979174,
+    "balanced_accuracy": 0.6132286542192964,
+    "specificity": 0.8693590587445873,
+    "precision": 0.27489061057377534,
+    "recall": 0.3570982496940063,
+    "f1": 0.2857724256096033,
+    "roc_auc": 0.6766384433564347,
+    "pr_auc": 0.282995457780321,
+    "far": 0.13064094125541276,
+    "miss_rate": 0.642901750305994,
+    "tn": 24293.369537558745,
+    "fp": 3650.6304624412537,
+    "fn": 3081.428089216628,
+    "tp": 1711.5719107833718
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.8737244890850727,
+    "balanced_accuracy": 0.8616692434293594,
+    "specificity": 0.926493935123163,
+    "precision": 0.7579825086686999,
+    "recall": 0.6599557090071262,
+    "f1": 0.6942496768941256,
+    "roc_auc": 0.8127272534433405,
+    "pr_auc": 0.7865260683631219,
+    "far": 0.07350606487683695,
+    "miss_rate": 0.20315544826444437
+  },
+  "fine_tune_summary": {},
+  "latest_kd_payload": {
+    "mean_soft_pos": 0.45193954439733114,
+    "count": 666.4804351777321
+  }
+}

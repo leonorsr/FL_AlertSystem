@@ -1,0 +1,58 @@
+{
+  "experiment_id": "exp6_keep_best_local_model",
+  "title": "Experiment 6 - Keep Best Local Model",
+  "description": "Each client keeps the better model between the incoming global model and its previous best local model during KD training.",
+  "communication_mode": "soft_labels",
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.7650682633688386,
+    "balanced_accuracy": 0.708491668361335,
+    "specificity": 0.8505753885062532,
+    "precision": 0.567608603336562,
+    "recall": 0.5664079482164172,
+    "f1": 0.5483313397628479,
+    "roc_auc": 0.7976494437047105,
+    "pr_auc": 0.6337150628488134,
+    "far": 0.14942461149374658,
+    "miss_rate": 0.43359205178358284,
+    "tn": 15457.506535324143,
+    "fp": 2715.4934646758575,
+    "fn": 3391.5570290511855,
+    "tp": 4430.442970948815
+  },
+  "test_metrics": {
+    "accuracy": 0.778828527046199,
+    "balanced_accuracy": 0.7264866773745133,
+    "specificity": 0.8651278034793142,
+    "precision": 0.6025930926128101,
+    "recall": 0.5878455512697122,
+    "f1": 0.578167351230334,
+    "roc_auc": 0.8148284663403806,
+    "pr_auc": 0.6854204591999994,
+    "far": 0.1348721965206859,
+    "miss_rate": 0.4121544487302879,
+    "tn": 15368.130301006535,
+    "fp": 2395.8696989934647,
+    "fn": 3308.363759958021,
+    "tp": 4718.636240041978
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.8780162808781878,
+    "balanced_accuracy": 0.865792635762242,
+    "specificity": 0.9117304186892821,
+    "precision": 0.7246938068621102,
+    "recall": 0.6956598425790366,
+    "f1": 0.7009914448385006,
+    "roc_auc": 0.8177024647310623,
+    "pr_auc": 0.7641536349553478,
+    "far": 0.08826958131071816,
+    "miss_rate": 0.1801451471647978
+  },
+  "fine_tune_summary": {},
+  "latest_kd_payload": {
+    "mean_soft_pos": 0.452793844601145,
+    "count": 741.5846014406335
+  }
+}

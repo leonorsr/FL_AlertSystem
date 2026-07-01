@@ -1,0 +1,58 @@
+{
+  "experiment_id": "exp4_unweighted_aggregation",
+  "title": "Experiment 4 - Unweighted Aggregation",
+  "description": "KD variant with unweighted averaging across participating clients.",
+  "communication_mode": "soft_labels",
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.7649707919010303,
+    "balanced_accuracy": 0.7019529774526335,
+    "specificity": 0.8602128640902604,
+    "precision": 0.5777431392492791,
+    "recall": 0.5436930908150068,
+    "f1": 0.5426101007667918,
+    "roc_auc": 0.7970217532437583,
+    "pr_auc": 0.6312383263966739,
+    "far": 0.13978713590973987,
+    "miss_rate": 0.45630690918499295,
+    "tn": 15632.648379112297,
+    "fp": 2540.3516208877036,
+    "fn": 3569.232643645015,
+    "tp": 4252.767356354985
+  },
+  "test_metrics": {
+    "accuracy": 0.7807556190533229,
+    "balanced_accuracy": 0.7238288477941134,
+    "specificity": 0.874614342047608,
+    "precision": 0.6176954900246152,
+    "recall": 0.5730433535406184,
+    "f1": 0.5792500025685644,
+    "roc_auc": 0.8144466593582567,
+    "pr_auc": 0.6853106813142588,
+    "far": 0.12538565795239198,
+    "miss_rate": 0.42695664645938136,
+    "tn": 15536.649172133708,
+    "fp": 2227.3508278662916,
+    "fn": 3427.1810011294547,
+    "tp": 4599.818998870545
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.8770776977503266,
+    "balanced_accuracy": 0.8624353078635437,
+    "specificity": 0.9188080868914651,
+    "precision": 0.7292788806185284,
+    "recall": 0.6851628099977592,
+    "f1": 0.6939770987992601,
+    "roc_auc": 0.8208927878434106,
+    "pr_auc": 0.7662735385753969,
+    "far": 0.08119191310853457,
+    "miss_rate": 0.19393747116437776
+  },
+  "fine_tune_summary": {},
+  "latest_kd_payload": {
+    "mean_soft_pos": 0.44986344963498215,
+    "count": 603.0869565217391
+  }
+}

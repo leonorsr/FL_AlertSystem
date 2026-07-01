@@ -1,0 +1,8 @@
+Advanced Class-Prototype Experiments
+====================================
+
+Ranking by local PR-AUC:
+- cosine_margin_proto (1 prototypes/class, 130 scalars, runs=1): local PR-AUC=0.5921 +/- nan, local F1=0.4481, global PR-AUC=0.5239, global F1=0.3991
+
+Per-run results:
+- cosine_margin_proto | local PR-AUC=0.5921 | local F1=0.4481 | global PR-AUC=0.5239 | global F1=0.3991 | class-prototype-improvement-experiments\_smoke_results\cosine_margin_proto\run_20260621_215555

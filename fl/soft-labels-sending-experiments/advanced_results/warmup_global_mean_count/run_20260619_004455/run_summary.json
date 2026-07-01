@@ -1,0 +1,67 @@
+{
+  "experiment_id": "exp11_baseline_final",
+  "title": "Experiment 11 - Baseline Final",
+  "advanced_strategy_name": "warmup_global_mean_count",
+  "advanced_strategy_description": "Global mean/count payload, but KD is disabled for the first 5 rounds.",
+  "payload_name": "global_mean_count",
+  "payload_scalar_count": 2,
+  "aggregation_scope": "global",
+  "warmup_rounds": 5,
+  "uncertain_only": false,
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.7960639239451566,
+    "balanced_accuracy": 0.7276431758825683,
+    "specificity": 0.899471728282045,
+    "precision": 0.6256248544275105,
+    "recall": 0.5558146234830912,
+    "f1": 0.5754222185890007,
+    "roc_auc": 0.8203678277352315,
+    "pr_auc": 0.6754020633277336,
+    "far": 0.10052827171795489,
+    "miss_rate": 0.4441853765169087,
+    "tn": 16346.099718069607,
+    "fp": 1826.900281930394,
+    "fn": 3474.41801511526,
+    "tp": 4347.58198488474
+  },
+  "test_metrics": {
+    "accuracy": 0.8118834405731173,
+    "balanced_accuracy": 0.7522188387062301,
+    "specificity": 0.9102561958746487,
+    "precision": 0.6637381726304904,
+    "recall": 0.5941814815378114,
+    "f1": 0.6149825714493892,
+    "roc_auc": 0.8410970869003875,
+    "pr_auc": 0.7292865097023757,
+    "far": 0.08974380412535132,
+    "miss_rate": 0.4058185184621886,
+    "tn": 16169.79106351726,
+    "fp": 1594.2089364827407,
+    "fn": 3257.505247695989,
+    "tp": 4769.494752304011
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.9370601901015893,
+    "balanced_accuracy": 0.9255040592686168,
+    "specificity": 0.9604998158652837,
+    "precision": 0.7933936435037228,
+    "recall": 0.7651558896794597,
+    "f1": 0.7753391464982387,
+    "roc_auc": 0.847435640175945,
+    "pr_auc": 0.810198327970342,
+    "far": 0.03950018413471615,
+    "miss_rate": 0.10949169732805081
+  },
+  "fine_tune_summary": {},
+  "latest_strategy_payload": {
+    "scope": "global",
+    "global": {
+      "payload_type": "global_mean_count",
+      "count": 42209.0,
+      "mean": 0.4304461671801704
+    }
+  }
+}

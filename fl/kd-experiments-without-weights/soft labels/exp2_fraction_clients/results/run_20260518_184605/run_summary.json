@@ -1,0 +1,58 @@
+{
+  "experiment_id": "exp2_fraction_clients",
+  "title": "Experiment 2 - Fraction Of Clients",
+  "description": "KD with partial client participation per round.",
+  "communication_mode": "soft_labels",
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.7540489591915608,
+    "balanced_accuracy": 0.6820131130911697,
+    "specificity": 0.862920447588288,
+    "precision": 0.5300273397172877,
+    "recall": 0.5011057785940511,
+    "f1": 0.4940685991142008,
+    "roc_auc": 0.7718534177049314,
+    "pr_auc": 0.6050506043782348,
+    "far": 0.13707955241171185,
+    "miss_rate": 0.49889422140594875,
+    "tn": 15681.85329402196,
+    "fp": 2491.14670597804,
+    "fn": 3902.350599837332,
+    "tp": 3919.649400162668
+  },
+  "test_metrics": {
+    "accuracy": 0.7668095015790664,
+    "balanced_accuracy": 0.7011404238399106,
+    "specificity": 0.8750822112457407,
+    "precision": 0.5679935358405532,
+    "recall": 0.5271986364340805,
+    "f1": 0.5276714317729099,
+    "roc_auc": 0.7874100755936602,
+    "pr_auc": 0.6567653695991609,
+    "far": 0.12491778875425931,
+    "miss_rate": 0.4728013635659195,
+    "tn": 15544.960400569336,
+    "fp": 2219.0395994306627,
+    "fn": 3795.1765453436356,
+    "tp": 4231.823454656364
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.8733713207107607,
+    "balanced_accuracy": 0.8528529322803653,
+    "specificity": 0.9222287976681868,
+    "precision": 0.6892780644626275,
+    "recall": 0.6201993117075095,
+    "f1": 0.6390029702569416,
+    "roc_auc": 0.7636057478703937,
+    "pr_auc": 0.7129807580222732,
+    "far": 0.07777120233181319,
+    "miss_rate": 0.21652293310745588
+  },
+  "fine_tune_summary": {},
+  "latest_kd_payload": {
+    "mean_soft_pos": 0.44847311351058955,
+    "count": 691.1528060187068
+  }
+}

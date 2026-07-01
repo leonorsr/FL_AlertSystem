@@ -1,0 +1,8 @@
+Soft-label Probability Payload Experiments
+==========================================
+
+Ranking by local PR-AUC:
+- global_mean_count (2 scalars, runs=1): local PR-AUC=0.6147, local F1=0.5126, global PR-AUC=0.5321, global F1=0.4427
+
+Per-run results:
+- global_mean_count | local PR-AUC=0.6147 | local F1=0.5126 | global PR-AUC=0.5321 | global F1=0.4427 | soft-labels-sending-experiments\_smoke_results\global_mean_count\run_20260610_151547

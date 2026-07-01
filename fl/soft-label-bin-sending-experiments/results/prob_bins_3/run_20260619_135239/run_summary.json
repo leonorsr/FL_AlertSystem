@@ -1,0 +1,83 @@
+{
+  "experiment_id": "exp11_baseline_final",
+  "title": "Experiment 11 - Baseline Final",
+  "payload_name": "prob_bins_3",
+  "payload_description": "Three probability bins; each bin sends mean, standard deviation, and count.",
+  "payload_scalar_count": 9,
+  "num_bins": 3,
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.7912707340323556,
+    "balanced_accuracy": 0.7431555690865068,
+    "specificity": 0.863989663644263,
+    "precision": 0.584341140322519,
+    "recall": 0.6223214745287509,
+    "f1": 0.5895479927060935,
+    "roc_auc": 0.8228475135796477,
+    "pr_auc": 0.6689733700033961,
+    "far": 0.13601033635573723,
+    "miss_rate": 0.3776785254712491,
+    "tn": 15701.284157407188,
+    "fp": 2471.715842592812,
+    "fn": 2954.201426236111,
+    "tp": 4867.798573763889
+  },
+  "test_metrics": {
+    "accuracy": 0.8070785932379291,
+    "balanced_accuracy": 0.7651612244351288,
+    "specificity": 0.8761903770276144,
+    "precision": 0.6199837171396247,
+    "recall": 0.6541320718426433,
+    "f1": 0.6237647708372744,
+    "roc_auc": 0.8391430152072008,
+    "pr_auc": 0.7214982502030516,
+    "far": 0.12380962297238578,
+    "miss_rate": 0.34586792815735673,
+    "tn": 15564.645857518539,
+    "fp": 2199.354142481461,
+    "fn": 2776.2818593191028,
+    "tp": 5250.718140680898
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.9360110287423673,
+    "balanced_accuracy": 0.9254644552042668,
+    "specificity": 0.9438471752880871,
+    "precision": 0.7695788270480208,
+    "recall": 0.7817293221279568,
+    "f1": 0.7706340868304447,
+    "roc_auc": 0.8404323571589659,
+    "pr_auc": 0.8012796966931152,
+    "far": 0.05615282471191296,
+    "miss_rate": 0.09291826487955379
+  },
+  "fine_tune_summary": {},
+  "latest_probability_payload": {
+    "payload_type": "prob_bins_3",
+    "num_bins": 3,
+    "edges": [
+      0.0,
+      0.3333333333333333,
+      0.6666666666666666,
+      1.0
+    ],
+    "bins": [
+      {
+        "mean": 0.018945259597938788,
+        "std": 0.037093492399351946,
+        "count": 26082.0
+      },
+      {
+        "mean": 0.48298877857109546,
+        "std": 0.06700709127341961,
+        "count": 2686.0
+      },
+      {
+        "mean": 0.9938339808230049,
+        "std": 0.018337077072402664,
+        "count": 13441.0
+      }
+    ]
+  }
+}

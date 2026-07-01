@@ -1,0 +1,1138 @@
+[
+  {
+    "experiment_id": "exp11_baseline_final",
+    "seed": 4200,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp11_baseline_final\\c1_current_baseline\\results\\run_20260531_200330",
+    "summary": {
+      "experiment_id": "exp11_baseline_final",
+      "title": "Experiment 11 - Baseline Final",
+      "description": "Final KD baseline using the strongest setting found so far: 100 local epochs with standard weighted aggregation.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.7623068319386193,
+        "balanced_accuracy": 0.6633416044897857,
+        "specificity": 0.9118780828524967,
+        "precision": 0.6402726231926837,
+        "recall": 0.41480512612707515,
+        "f1": 0.4550644375757139,
+        "roc_auc": 0.8053600460480044,
+        "pr_auc": 0.6490895149231175,
+        "far": 0.08812191714750343,
+        "miss_rate": 0.5851948738729248,
+        "tn": 16571.56039967842,
+        "fp": 1601.4396003215804,
+        "fn": 4577.394303434018,
+        "tp": 3244.6056965659814
+      },
+      "test_metrics": {
+        "accuracy": 0.7738177038198994,
+        "balanced_accuracy": 0.6846509500703549,
+        "specificity": 0.9208324994135294,
+        "precision": 0.6815947394379716,
+        "recall": 0.44846940072717995,
+        "f1": 0.4948494209707391,
+        "roc_auc": 0.8193280343928142,
+        "pr_auc": 0.6968099186257595,
+        "far": 0.07916750058647008,
+        "miss_rate": 0.55153059927282,
+        "tn": 16357.668519581946,
+        "fp": 1406.3314804180545,
+        "fn": 4427.136120362927,
+        "tp": 3599.8638796370738
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.8485130903505117,
+        "balanced_accuracy": 0.8214272573923483,
+        "specificity": 0.9452342561906755,
+        "precision": 0.7781212460959155,
+        "recall": 0.584492889810284,
+        "f1": 0.6202670694423492,
+        "roc_auc": 0.8222376824682447,
+        "pr_auc": 0.7823629893911502,
+        "far": 0.05476574380932466,
+        "miss_rate": 0.3023797414059786
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.40466890936605937,
+        "count": 43535.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c1_current_baseline",
+      "description": "Current soft-label configuration used as the reference.",
+      "distillation_alpha": 0.5,
+      "distillation_temperature": 2.0,
+      "learning_rate": 0.0008,
+      "dropout": 0.3
+    }
+  },
+  {
+    "experiment_id": "exp11_baseline_final",
+    "seed": 4210,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp11_baseline_final\\c2_local_hard_label_focus\\results\\run_20260531_200620",
+    "summary": {
+      "experiment_id": "exp11_baseline_final",
+      "title": "Experiment 11 - Baseline Final",
+      "description": "Final KD baseline using the strongest setting found so far: 100 local epochs with standard weighted aggregation.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.7905321058279322,
+        "balanced_accuracy": 0.7413945120421895,
+        "specificity": 0.8647962848622434,
+        "precision": 0.6077036512051648,
+        "recall": 0.6179927392221357,
+        "f1": 0.6043486695111517,
+        "roc_auc": 0.8243043187042738,
+        "pr_auc": 0.6672474630240799,
+        "far": 0.1352037151377567,
+        "miss_rate": 0.38200726077786396,
+        "tn": 15715.942884801549,
+        "fp": 2457.057115198451,
+        "fn": 2988.060793804453,
+        "tp": 4833.939206195547
+      },
+      "test_metrics": {
+        "accuracy": 0.8085454008641889,
+        "balanced_accuracy": 0.765664447105015,
+        "specificity": 0.8792459073497353,
+        "precision": 0.6473746643119694,
+        "recall": 0.6520829868602954,
+        "f1": 0.642811339662249,
+        "roc_auc": 0.844358779483432,
+        "pr_auc": 0.7204674883567276,
+        "far": 0.1207540926502648,
+        "miss_rate": 0.34791701313970486,
+        "tn": 15618.924298160697,
+        "fp": 2145.075701839303,
+        "fn": 2792.7298644724106,
+        "tp": 5234.270135527589
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.9185098114010996,
+        "balanced_accuracy": 0.9146049094123554,
+        "specificity": 0.9352601956619778,
+        "precision": 0.77573060448667,
+        "recall": 0.7921345215170408,
+        "f1": 0.7759206110238239,
+        "roc_auc": 0.8652654778208304,
+        "pr_auc": 0.8187241430376748,
+        "far": 0.06473980433802197,
+        "miss_rate": 0.10605037683726636
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.4046379761916422,
+        "count": 41320.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c2_local_hard_label_focus",
+      "description": "Give more weight to local hard labels while preserving the global soft-label signal.",
+      "distillation_alpha": 0.75,
+      "distillation_temperature": 2.0,
+      "learning_rate": 0.0008,
+      "dropout": 0.3
+    }
+  },
+  {
+    "experiment_id": "exp11_baseline_final",
+    "seed": 4220,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp11_baseline_final\\c3_local_lower_dropout\\results\\run_20260531_200946",
+    "summary": {
+      "experiment_id": "exp11_baseline_final",
+      "title": "Experiment 11 - Baseline Final",
+      "description": "Final KD baseline using the strongest setting found so far: 100 local epochs with standard weighted aggregation.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.7815956218271087,
+        "balanced_accuracy": 0.7289881254599618,
+        "specificity": 0.8611040435416916,
+        "precision": 0.5899542925006325,
+        "recall": 0.5968722073782312,
+        "f1": 0.5790947518467091,
+        "roc_auc": 0.8185926430473316,
+        "pr_auc": 0.6571974726587763,
+        "far": 0.13889595645830805,
+        "miss_rate": 0.4031277926217686,
+        "tn": 15648.843783283168,
+        "fp": 2524.1562167168327,
+        "fn": 3153.265593887474,
+        "tp": 4668.734406112526
+      },
+      "test_metrics": {
+        "accuracy": 0.7980772147893126,
+        "balanced_accuracy": 0.75232356688544,
+        "specificity": 0.8735141115181585,
+        "precision": 0.6262785460046535,
+        "recall": 0.6311330222527219,
+        "f1": 0.6161767683229981,
+        "roc_auc": 0.8364862474392439,
+        "pr_auc": 0.7088224614565738,
+        "far": 0.12648588848184153,
+        "miss_rate": 0.36886697774727834,
+        "tn": 15517.104677008567,
+        "fp": 2246.895322991433,
+        "fn": 2960.895230377402,
+        "tp": 5066.104769622598
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.9155018209539508,
+        "balanced_accuracy": 0.9076849901395513,
+        "specificity": 0.9301005676078494,
+        "precision": 0.7680531607351734,
+        "recall": 0.7727665184827832,
+        "f1": 0.7623302405690185,
+        "roc_auc": 0.8495579044543169,
+        "pr_auc": 0.8091760736599827,
+        "far": 0.06989943239215025,
+        "miss_rate": 0.11473058732874712
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.3935315987327043,
+        "count": 43190.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c3_local_lower_dropout",
+      "description": "Prioritize local fitting with stronger hard-label weight and lower dropout.",
+      "distillation_alpha": 0.75,
+      "distillation_temperature": 2.0,
+      "learning_rate": 0.0008,
+      "dropout": 0.2
+    }
+  },
+  {
+    "experiment_id": "exp11_baseline_final",
+    "seed": 4230,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp11_baseline_final\\c4_balanced_lower_lr\\results\\run_20260531_201311",
+    "summary": {
+      "experiment_id": "exp11_baseline_final",
+      "title": "Experiment 11 - Baseline Final",
+      "description": "Final KD baseline using the strongest setting found so far: 100 local epochs with standard weighted aggregation.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.7893188645183691,
+        "balanced_accuracy": 0.7341508932684766,
+        "specificity": 0.8726970639419338,
+        "precision": 0.6109697568252705,
+        "recall": 0.5956047225950197,
+        "f1": 0.5921556029317971,
+        "roc_auc": 0.8231679837084332,
+        "pr_auc": 0.6697947872521076,
+        "far": 0.12730293605806636,
+        "miss_rate": 0.40439527740498027,
+        "tn": 15859.52374301676,
+        "fp": 2313.47625698324,
+        "fn": 3163.1798598617556,
+        "tp": 4658.820140138245
+      },
+      "test_metrics": {
+        "accuracy": 0.8032059125272953,
+        "balanced_accuracy": 0.7533620901118442,
+        "specificity": 0.8853865354150082,
+        "precision": 0.6465248996915275,
+        "recall": 0.6213376448086797,
+        "f1": 0.6235636492046908,
+        "roc_auc": 0.8399192404134103,
+        "pr_auc": 0.717504747411255,
+        "far": 0.11461346458499182,
+        "miss_rate": 0.37866235519132024,
+        "tn": 15728.006415112206,
+        "fp": 2035.9935848877947,
+        "fn": 3039.522725120727,
+        "tp": 4987.477274879273
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.9065617815588624,
+        "balanced_accuracy": 0.8986574739915383,
+        "specificity": 0.9313960028502882,
+        "precision": 0.7737619853063596,
+        "recall": 0.7631587898444635,
+        "f1": 0.7593344134127594,
+        "roc_auc": 0.8560709839224574,
+        "pr_auc": 0.8117896694635902,
+        "far": 0.06860399714971174,
+        "miss_rate": 0.1340810548672115
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.4127389108662496,
+        "count": 42244.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c4_balanced_lower_lr",
+      "description": "Use a moderate local bias with lower learning rate and a softer temperature.",
+      "distillation_alpha": 0.65,
+      "distillation_temperature": 1.5,
+      "learning_rate": 0.0005,
+      "dropout": 0.2
+    }
+  },
+  {
+    "experiment_id": "exp12_final_unweighted",
+    "seed": 4300,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp12_final_unweighted\\c1_current_baseline\\results\\run_20260531_201635",
+    "summary": {
+      "experiment_id": "exp12_final_unweighted",
+      "title": "Experiment 12 - Final Unweighted",
+      "description": "Final KD baseline with 100 local epochs plus unweighted aggregation across participating clients.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.7529932955057296,
+        "balanced_accuracy": 0.6434107369352933,
+        "specificity": 0.9186110663757809,
+        "precision": 0.6294659475330511,
+        "recall": 0.36821040749480605,
+        "f1": 0.4262385146060011,
+        "roc_auc": 0.7926832206048601,
+        "pr_auc": 0.6386464331948604,
+        "far": 0.08138893362421916,
+        "miss_rate": 0.631789592505194,
+        "tn": 16693.918909247066,
+        "fp": 1479.0810907529344,
+        "fn": 4941.858192575627,
+        "tp": 2880.1418074243725
+      },
+      "test_metrics": {
+        "accuracy": 0.7621619975282748,
+        "balanced_accuracy": 0.6631979395360993,
+        "specificity": 0.925330220492883,
+        "precision": 0.6656228671138795,
+        "recall": 0.4010656585793156,
+        "f1": 0.46301819233351604,
+        "roc_auc": 0.8049101528155854,
+        "pr_auc": 0.6821590385241523,
+        "far": 0.07466977950711687,
+        "miss_rate": 0.5989343414206845,
+        "tn": 16437.566036835575,
+        "fp": 1326.433963164424,
+        "fn": 4807.645958583835,
+        "tp": 3219.3540414161657
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.8366494641841485,
+        "balanced_accuracy": 0.8036151938457239,
+        "specificity": 0.9477553850111592,
+        "precision": 0.761732485030095,
+        "recall": 0.5393060934332232,
+        "f1": 0.5960053455816129,
+        "roc_auc": 0.8148251449615074,
+        "pr_auc": 0.7693704572931077,
+        "far": 0.052244614988841066,
+        "miss_rate": 0.34052499731971114
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.39806830080868094,
+        "count": 41916.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c1_current_baseline",
+      "description": "Current soft-label configuration used as the reference.",
+      "distillation_alpha": 0.5,
+      "distillation_temperature": 2.0,
+      "learning_rate": 0.0008,
+      "dropout": 0.3
+    }
+  },
+  {
+    "experiment_id": "exp12_final_unweighted",
+    "seed": 4310,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp12_final_unweighted\\c2_local_hard_label_focus\\results\\run_20260531_202000",
+    "summary": {
+      "experiment_id": "exp12_final_unweighted",
+      "title": "Experiment 12 - Final Unweighted",
+      "description": "Final KD baseline with 100 local epochs plus unweighted aggregation across participating clients.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.7859122237846596,
+        "balanced_accuracy": 0.7320243087097462,
+        "specificity": 0.8673558083109794,
+        "precision": 0.6065798654994273,
+        "recall": 0.596692809108513,
+        "f1": 0.59067675916036,
+        "roc_auc": 0.8230694278952236,
+        "pr_auc": 0.6631717255744206,
+        "far": 0.13264419168902053,
+        "miss_rate": 0.40330719089148703,
+        "tn": 15762.457104435429,
+        "fp": 2410.542895564571,
+        "fn": 3154.6688471532116,
+        "tp": 4667.331152846788
+      },
+      "test_metrics": {
+        "accuracy": 0.8026219958784586,
+        "balanced_accuracy": 0.7545552701757053,
+        "specificity": 0.8818726084318118,
+        "precision": 0.6443908843695582,
+        "recall": 0.6272379319195992,
+        "f1": 0.6269913749942674,
+        "roc_auc": 0.8410894673612522,
+        "pr_auc": 0.7158866305927014,
+        "far": 0.11812739156818818,
+        "miss_rate": 0.3727620680804009,
+        "tn": 15665.585016182706,
+        "fp": 2098.414983817295,
+        "fn": 2992.1611204813785,
+        "tp": 5034.838879518621
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.9099767879626367,
+        "balanced_accuracy": 0.9032224134886183,
+        "specificity": 0.9323152442399064,
+        "precision": 0.7665517965759728,
+        "recall": 0.7701272123129328,
+        "f1": 0.7610283951287131,
+        "roc_auc": 0.8576756598697451,
+        "pr_auc": 0.8081678909602832,
+        "far": 0.06768475576009356,
+        "miss_rate": 0.12587041726266987
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.3682394581201405,
+        "count": 43874.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c2_local_hard_label_focus",
+      "description": "Give more weight to local hard labels while preserving the global soft-label signal.",
+      "distillation_alpha": 0.75,
+      "distillation_temperature": 2.0,
+      "learning_rate": 0.0008,
+      "dropout": 0.3
+    }
+  },
+  {
+    "experiment_id": "exp12_final_unweighted",
+    "seed": 4320,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp12_final_unweighted\\c3_local_lower_dropout\\results\\run_20260531_202257",
+    "summary": {
+      "experiment_id": "exp12_final_unweighted",
+      "title": "Experiment 12 - Final Unweighted",
+      "description": "Final KD baseline with 100 local epochs plus unweighted aggregation across participating clients.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.7886461474711663,
+        "balanced_accuracy": 0.7345723320913906,
+        "specificity": 0.8703706927132892,
+        "precision": 0.6032400648185955,
+        "recall": 0.5987739714694917,
+        "f1": 0.5906906592787314,
+        "roc_auc": 0.8200669474446225,
+        "pr_auc": 0.6666485006934281,
+        "far": 0.1296293072867107,
+        "miss_rate": 0.40122602853050804,
+        "tn": 15817.246598678606,
+        "fp": 2355.753401321393,
+        "fn": 3138.3899951656344,
+        "tp": 4683.610004834365
+      },
+      "test_metrics": {
+        "accuracy": 0.8037032181248455,
+        "balanced_accuracy": 0.7561416414880366,
+        "specificity": 0.8821209598653535,
+        "precision": 0.6372080140673384,
+        "recall": 0.6301623231107204,
+        "f1": 0.625416788118318,
+        "roc_auc": 0.836976239971058,
+        "pr_auc": 0.7179210153444973,
+        "far": 0.11787904013464669,
+        "miss_rate": 0.3698376768892798,
+        "tn": 15669.996731048137,
+        "fp": 2094.0032689518634,
+        "fn": 2968.6870323902485,
+        "tp": 5058.3129676097515
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.9147323923987508,
+        "balanced_accuracy": 0.9136026615118101,
+        "specificity": 0.9320753444562524,
+        "precision": 0.7571102969519152,
+        "recall": 0.7719457432028336,
+        "f1": 0.7549712863290374,
+        "roc_auc": 0.8427570160010596,
+        "pr_auc": 0.8011188163745003,
+        "far": 0.06792465554374752,
+        "miss_rate": 0.10487002143263244
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.3701729160699725,
+        "count": 43439.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c3_local_lower_dropout",
+      "description": "Prioritize local fitting with stronger hard-label weight and lower dropout.",
+      "distillation_alpha": 0.75,
+      "distillation_temperature": 2.0,
+      "learning_rate": 0.0008,
+      "dropout": 0.2
+    }
+  },
+  {
+    "experiment_id": "exp12_final_unweighted",
+    "seed": 4330,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp12_final_unweighted\\c4_balanced_lower_lr\\results\\run_20260531_202555",
+    "summary": {
+      "experiment_id": "exp12_final_unweighted",
+      "title": "Experiment 12 - Final Unweighted",
+      "description": "Final KD baseline with 100 local epochs plus unweighted aggregation across participating clients.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.77813053731116,
+        "balanced_accuracy": 0.7169217897672324,
+        "specificity": 0.8706384734117503,
+        "precision": 0.6112292598253685,
+        "recall": 0.5632051061227139,
+        "f1": 0.566802294428362,
+        "roc_auc": 0.8141130520711874,
+        "pr_auc": 0.6604890925874625,
+        "far": 0.12936152658824945,
+        "miss_rate": 0.4367948938772862,
+        "tn": 15822.112977311743,
+        "fp": 2350.887022688257,
+        "fn": 3416.6096599081334,
+        "tp": 4405.390340091866
+      },
+      "test_metrics": {
+        "accuracy": 0.7939196294333358,
+        "balanced_accuracy": 0.7395374934950701,
+        "specificity": 0.8835828532551411,
+        "precision": 0.6494429139852633,
+        "recall": 0.5954921337349992,
+        "f1": 0.6038837427260185,
+        "roc_auc": 0.8319073684604905,
+        "pr_auc": 0.7098718941424953,
+        "far": 0.11641714674485862,
+        "miss_rate": 0.4045078662650009,
+        "tn": 15695.96580522433,
+        "fp": 2068.034194775669,
+        "fn": 3246.9846425091637,
+        "tp": 4780.015357490836
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.8867471855776637,
+        "balanced_accuracy": 0.8744290964213908,
+        "specificity": 0.9268260582680784,
+        "precision": 0.7737462394112136,
+        "recall": 0.7194710061935037,
+        "f1": 0.730500655435727,
+        "roc_auc": 0.8480694443712582,
+        "pr_auc": 0.7996029881950268,
+        "far": 0.07317394173192172,
+        "miss_rate": 0.17796786542529663
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.39441585992083883,
+        "count": 43106.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c4_balanced_lower_lr",
+      "description": "Use a moderate local bias with lower learning rate and a softer temperature.",
+      "distillation_alpha": 0.65,
+      "distillation_temperature": 1.5,
+      "learning_rate": 0.0005,
+      "dropout": 0.2
+    }
+  },
+  {
+    "experiment_id": "exp13_final_keep_best_local",
+    "seed": 4400,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp13_final_keep_best_local\\c1_current_baseline\\results\\run_20260531_202845",
+    "summary": {
+      "experiment_id": "exp13_final_keep_best_local",
+      "title": "Experiment 13 - Final Keep-Best Local",
+      "description": "Final KD baseline with 100 local epochs plus local selection between the incoming global model and the previous best local model.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.773106431712255,
+        "balanced_accuracy": 0.680121610890849,
+        "specificity": 0.9136391857389257,
+        "precision": 0.6581658887848836,
+        "recall": 0.44660403604277255,
+        "f1": 0.4941190233770945,
+        "roc_auc": 0.8174097406408536,
+        "pr_auc": 0.6633218414887238,
+        "far": 0.08636081426107428,
+        "miss_rate": 0.5533959639572273,
+        "tn": 16603.564922433496,
+        "fp": 1569.435077566503,
+        "fn": 4328.663230073433,
+        "tp": 3493.3367699265673
+      },
+      "test_metrics": {
+        "accuracy": 0.7845350430852485,
+        "balanced_accuracy": 0.7003245550534594,
+        "specificity": 0.9233781338588273,
+        "precision": 0.6938551907988766,
+        "recall": 0.4772709762480918,
+        "f1": 0.5298366344824942,
+        "roc_auc": 0.8331057878714478,
+        "pr_auc": 0.7129078954747315,
+        "far": 0.07662186614117258,
+        "miss_rate": 0.5227290237519082,
+        "tn": 16402.88916986821,
+        "fp": 1361.1108301317902,
+        "fn": 4195.9458736565675,
+        "tp": 3831.0541263434325
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.8624655029720587,
+        "balanced_accuracy": 0.836646274026661,
+        "specificity": 0.9542806830980786,
+        "precision": 0.8069575286662718,
+        "recall": 0.6287283460134547,
+        "f1": 0.6739270560432132,
+        "roc_auc": 0.8614501922261888,
+        "pr_auc": 0.8216689996977258,
+        "far": 0.0457193169019216,
+        "miss_rate": 0.2809881350447567
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.4195290786789235,
+        "count": 41126.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c1_current_baseline",
+      "description": "Current soft-label configuration used as the reference.",
+      "distillation_alpha": 0.5,
+      "distillation_temperature": 2.0,
+      "learning_rate": 0.0008,
+      "dropout": 0.3
+    }
+  },
+  {
+    "experiment_id": "exp13_final_keep_best_local",
+    "seed": 4410,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp13_final_keep_best_local\\c2_local_hard_label_focus\\results\\run_20260531_203141",
+    "summary": {
+      "experiment_id": "exp13_final_keep_best_local",
+      "title": "Experiment 13 - Final Keep-Best Local",
+      "description": "Final KD baseline with 100 local epochs plus local selection between the incoming global model and the previous best local model.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.7905131223993526,
+        "balanced_accuracy": 0.7464438750087289,
+        "specificity": 0.8571172482015849,
+        "precision": 0.6033616118710603,
+        "recall": 0.6357705018158734,
+        "f1": 0.6066764254204534,
+        "roc_auc": 0.8234057023509149,
+        "pr_auc": 0.6684174585533236,
+        "far": 0.14288275179841536,
+        "miss_rate": 0.3642294981841266,
+        "tn": 15576.391751567398,
+        "fp": 2596.608248432602,
+        "fn": 2849.003134796238,
+        "tp": 4972.996865203761
+      },
+      "test_metrics": {
+        "accuracy": 0.805309167622931,
+        "balanced_accuracy": 0.7664866625700981,
+        "specificity": 0.8693182562660634,
+        "precision": 0.635570138548548,
+        "recall": 0.6636550688741328,
+        "f1": 0.6381557514303574,
+        "roc_auc": 0.8394066522415619,
+        "pr_auc": 0.7199466132800109,
+        "far": 0.13068174373393693,
+        "miss_rate": 0.33634493112586705,
+        "tn": 15442.569504310344,
+        "fp": 2321.4304956896553,
+        "fn": 2699.840762147335,
+        "tp": 5327.159237852665
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.9121322719599598,
+        "balanced_accuracy": 0.9073541947540236,
+        "specificity": 0.925570111651918,
+        "precision": 0.7639737006280238,
+        "recall": 0.7854206054423353,
+        "f1": 0.7659980230551642,
+        "roc_auc": 0.8579504762764694,
+        "pr_auc": 0.8075839056722629,
+        "far": 0.07442988834808195,
+        "miss_rate": 0.11086172214387191
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.4118971445731116,
+        "count": 40832.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c2_local_hard_label_focus",
+      "description": "Give more weight to local hard labels while preserving the global soft-label signal.",
+      "distillation_alpha": 0.75,
+      "distillation_temperature": 2.0,
+      "learning_rate": 0.0008,
+      "dropout": 0.3
+    }
+  },
+  {
+    "experiment_id": "exp13_final_keep_best_local",
+    "seed": 4420,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp13_final_keep_best_local\\c3_local_lower_dropout\\results\\run_20260531_203436",
+    "summary": {
+      "experiment_id": "exp13_final_keep_best_local",
+      "title": "Experiment 13 - Final Keep-Best Local",
+      "description": "Final KD baseline with 100 local epochs plus local selection between the incoming global model and the previous best local model.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.7911903208983294,
+        "balanced_accuracy": 0.7428668803884195,
+        "specificity": 0.8642240281089404,
+        "precision": 0.6012790420107907,
+        "recall": 0.6215097326678987,
+        "f1": 0.6011563994822812,
+        "roc_auc": 0.82292339188114,
+        "pr_auc": 0.6688492628909393,
+        "far": 0.13577597189105955,
+        "miss_rate": 0.3784902673321013,
+        "tn": 15705.543262823774,
+        "fp": 2467.4567371762255,
+        "fn": 2960.5508710716967,
+        "tp": 4861.449128928303
+      },
+      "test_metrics": {
+        "accuracy": 0.8076230176510124,
+        "balanced_accuracy": 0.7654306664833289,
+        "specificity": 0.8771881820390159,
+        "precision": 0.6370189591493625,
+        "recall": 0.6536731509276423,
+        "f1": 0.6376306439102953,
+        "roc_auc": 0.8405228732112777,
+        "pr_auc": 0.7197641548773767,
+        "far": 0.1228118179609842,
+        "miss_rate": 0.34632684907235783,
+        "tn": 15582.370865741077,
+        "fp": 2181.629134258923,
+        "fn": 2779.9656175038162,
+        "tp": 5247.034382496184
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.9170421251599163,
+        "balanced_accuracy": 0.9121738288811387,
+        "specificity": 0.9313453116850258,
+        "precision": 0.7584233648375759,
+        "recall": 0.780647423734687,
+        "f1": 0.7617591220486702,
+        "roc_auc": 0.8504327816358509,
+        "pr_auc": 0.8040925043723414,
+        "far": 0.068654688314974,
+        "miss_rate": 0.10699765392274815
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.40891901006264236,
+        "count": 41271.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c3_local_lower_dropout",
+      "description": "Prioritize local fitting with stronger hard-label weight and lower dropout.",
+      "distillation_alpha": 0.75,
+      "distillation_temperature": 2.0,
+      "learning_rate": 0.0008,
+      "dropout": 0.2
+    }
+  },
+  {
+    "experiment_id": "exp13_final_keep_best_local",
+    "seed": 4430,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp13_final_keep_best_local\\c4_balanced_lower_lr\\results\\run_20260531_203741",
+    "summary": {
+      "experiment_id": "exp13_final_keep_best_local",
+      "title": "Experiment 13 - Final Keep-Best Local",
+      "description": "Final KD baseline with 100 local epochs plus local selection between the incoming global model and the previous best local model.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.785223285479791,
+        "balanced_accuracy": 0.7331314053031739,
+        "specificity": 0.8639524298603329,
+        "precision": 0.6071224256491393,
+        "recall": 0.6023103807460142,
+        "f1": 0.5910375766929326,
+        "roc_auc": 0.8178676288255218,
+        "pr_auc": 0.670623413762975,
+        "far": 0.13604757013966673,
+        "miss_rate": 0.3976896192539857,
+        "tn": 15700.607507851837,
+        "fp": 2472.392492148163,
+        "fn": 3110.7282018046762,
+        "tp": 4711.271798195324
+      },
+      "test_metrics": {
+        "accuracy": 0.8034386642456979,
+        "balanced_accuracy": 0.7573113862434033,
+        "specificity": 0.8794915882519456,
+        "precision": 0.6476140118752918,
+        "recall": 0.6351311842348616,
+        "f1": 0.6298145437149347,
+        "roc_auc": 0.8386180906263665,
+        "pr_auc": 0.7248632227218402,
+        "far": 0.12050841174805431,
+        "miss_rate": 0.36486881576513847,
+        "tn": 15623.288573707563,
+        "fp": 2140.7114262924374,
+        "fn": 2928.801984146767,
+        "tp": 5098.198015853233
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.9104035588655192,
+        "balanced_accuracy": 0.8992741618337301,
+        "specificity": 0.9375853486945368,
+        "precision": 0.7825152345815756,
+        "recall": 0.763824533375636,
+        "f1": 0.7676460849678698,
+        "roc_auc": 0.8636154875565698,
+        "pr_auc": 0.8200082211360006,
+        "far": 0.06241465130546327,
+        "miss_rate": 0.13903702502707588
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.43244288987249585,
+        "count": 40118.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c4_balanced_lower_lr",
+      "description": "Use a moderate local bias with lower learning rate and a softer temperature.",
+      "distillation_alpha": 0.65,
+      "distillation_temperature": 1.5,
+      "learning_rate": 0.0005,
+      "dropout": 0.2
+    }
+  },
+  {
+    "experiment_id": "exp14_final_clustered",
+    "seed": 4500,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp14_final_clustered\\c1_current_baseline\\results\\run_20260531_204102",
+    "summary": {
+      "experiment_id": "exp14_final_clustered",
+      "title": "Experiment 14 - Final Clustered",
+      "description": "Final KD baseline with 100 local epochs plus clustered aggregation over similar clients before the global update.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.7648519641103807,
+        "balanced_accuracy": 0.6685261352190738,
+        "specificity": 0.9104341558962562,
+        "precision": 0.6405974030321762,
+        "recall": 0.4266181145418917,
+        "f1": 0.47081809697627747,
+        "roc_auc": 0.804054628255512,
+        "pr_auc": 0.6490391736932534,
+        "far": 0.08956584410374381,
+        "miss_rate": 0.5733818854581082,
+        "tn": 16545.319915102664,
+        "fp": 1627.6800848973362,
+        "fn": 4484.993108053323,
+        "tp": 3337.0068919466767
+      },
+      "test_metrics": {
+        "accuracy": 0.7760424816706081,
+        "balanced_accuracy": 0.6885628525263199,
+        "specificity": 0.9202756095624025,
+        "precision": 0.6826636631953255,
+        "recall": 0.4568500954902368,
+        "f1": 0.5077636308509604,
+        "roc_auc": 0.8205949705429058,
+        "pr_auc": 0.6968594725471972,
+        "far": 0.07972439043759735,
+        "miss_rate": 0.5431499045097633,
+        "tn": 16347.775928266521,
+        "fp": 1416.2240717334796,
+        "fn": 4359.864283499869,
+        "tp": 3667.1357165001314
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.864218970289392,
+        "balanced_accuracy": 0.8372304886834673,
+        "specificity": 0.9530776712849698,
+        "precision": 0.7930855514609902,
+        "recall": 0.6089420307141161,
+        "f1": 0.658503658492286,
+        "roc_auc": 0.8348708889476187,
+        "pr_auc": 0.7909755768534102,
+        "far": 0.04692232871503028,
+        "miss_rate": 0.27861669391803506
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.4194431416666363,
+        "count": 41933.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c1_current_baseline",
+      "description": "Current soft-label configuration used as the reference.",
+      "distillation_alpha": 0.5,
+      "distillation_temperature": 2.0,
+      "learning_rate": 0.0008,
+      "dropout": 0.3
+    }
+  },
+  {
+    "experiment_id": "exp14_final_clustered",
+    "seed": 4510,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp14_final_clustered\\c2_local_hard_label_focus\\results\\run_20260531_204420",
+    "summary": {
+      "experiment_id": "exp14_final_clustered",
+      "title": "Experiment 14 - Final Clustered",
+      "description": "Final KD baseline with 100 local epochs plus clustered aggregation over similar clients before the global update.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.7876954507318537,
+        "balanced_accuracy": 0.7478778100496128,
+        "specificity": 0.8478739041018629,
+        "precision": 0.5983582808838236,
+        "recall": 0.6478817159973628,
+        "f1": 0.611715917420289,
+        "roc_auc": 0.8224664122905156,
+        "pr_auc": 0.6676050784429223,
+        "far": 0.1521260958981369,
+        "miss_rate": 0.35211828400263745,
+        "tn": 15408.412459243158,
+        "fp": 2764.5875407568424,
+        "fn": 2754.2692174686294,
+        "tp": 5067.73078253137
+      },
+      "test_metrics": {
+        "accuracy": 0.8020324713822656,
+        "balanced_accuracy": 0.7668952351821123,
+        "specificity": 0.8599654271137298,
+        "precision": 0.6289774441744294,
+        "recall": 0.6738250432504949,
+        "f1": 0.6422262907768238,
+        "roc_auc": 0.8397958043528619,
+        "pr_auc": 0.7191605137566363,
+        "far": 0.14003457288627028,
+        "miss_rate": 0.3261749567495052,
+        "tn": 15276.425847248296,
+        "fp": 2487.5741527517043,
+        "fn": 2618.2063778282777,
+        "tp": 5408.793622171722
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.90705468018501,
+        "balanced_accuracy": 0.9049610190341454,
+        "specificity": 0.9174824669760961,
+        "precision": 0.7608326851296567,
+        "recall": 0.795043068770289,
+        "f1": 0.7677280663253617,
+        "far": 0.08251753302390366,
+        "miss_rate": 0.10756042890780639,
+        "roc_auc": 0.8614433790612598,
+        "pr_auc": 0.8147321168550643
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.4190018743560428,
+        "count": 40484.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c2_local_hard_label_focus",
+      "description": "Give more weight to local hard labels while preserving the global soft-label signal.",
+      "distillation_alpha": 0.75,
+      "distillation_temperature": 2.0,
+      "learning_rate": 0.0008,
+      "dropout": 0.3
+    }
+  },
+  {
+    "experiment_id": "exp14_final_clustered",
+    "seed": 4520,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp14_final_clustered\\c3_local_lower_dropout\\results\\run_20260531_204735",
+    "summary": {
+      "experiment_id": "exp14_final_clustered",
+      "title": "Experiment 14 - Final Clustered",
+      "description": "Final KD baseline with 100 local epochs plus clustered aggregation over similar clients before the global update.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.789426089491479,
+        "balanced_accuracy": 0.7438562805120116,
+        "specificity": 0.8582980913922408,
+        "precision": 0.6014361033581278,
+        "recall": 0.6294144696317816,
+        "f1": 0.6058525347322877,
+        "roc_auc": 0.8240588737552894,
+        "pr_auc": 0.666599150456792,
+        "far": 0.14170190860775905,
+        "miss_rate": 0.3705855303682181,
+        "tn": 15597.851214871194,
+        "fp": 2575.1487851288057,
+        "fn": 2898.720018540203,
+        "tp": 4923.279981459797
+      },
+      "test_metrics": {
+        "accuracy": 0.8046262365318692,
+        "balanced_accuracy": 0.7644553637138282,
+        "specificity": 0.8708584633184392,
+        "precision": 0.6344231272868404,
+        "recall": 0.6580522641092171,
+        "f1": 0.6380374498597106,
+        "roc_auc": 0.8410692709576074,
+        "pr_auc": 0.7161344395501201,
+        "far": 0.12914153668156056,
+        "miss_rate": 0.34194773589078314,
+        "tn": 15469.929742388758,
+        "fp": 2294.0702576112412,
+        "fn": 2744.814475995316,
+        "tp": 5282.185524004683
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.918076390084313,
+        "balanced_accuracy": 0.912903619452251,
+        "specificity": 0.9296218141287586,
+        "precision": 0.7728453182335879,
+        "recall": 0.8016059946430346,
+        "f1": 0.7794427784453151,
+        "roc_auc": 0.869889319857857,
+        "pr_auc": 0.8182949686761699,
+        "far": 0.07037818587124156,
+        "miss_rate": 0.10381457522425663
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.4090729095695168,
+        "count": 40992.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c3_local_lower_dropout",
+      "description": "Prioritize local fitting with stronger hard-label weight and lower dropout.",
+      "distillation_alpha": 0.75,
+      "distillation_temperature": 2.0,
+      "learning_rate": 0.0008,
+      "dropout": 0.2
+    }
+  },
+  {
+    "experiment_id": "exp14_final_clustered",
+    "seed": 4530,
+    "run_dir": "C:\\Users\\leono\\Desktop\\iscte\\Tese\\FL_MasterThesis\\kd-experiments-without-weights\\soft labels fine tuning\\exp14_final_clustered\\c4_balanced_lower_lr\\results\\run_20260531_205053",
+    "summary": {
+      "experiment_id": "exp14_final_clustered",
+      "title": "Experiment 14 - Final Clustered",
+      "description": "Final KD baseline with 100 local epochs plus clustered aggregation over similar clients before the global update.",
+      "communication_mode": "soft_labels",
+      "communicates_model_weights": false,
+      "num_train_clients": 69,
+      "feature_count": 32,
+      "dev_metrics": {
+        "accuracy": 0.7811134617040093,
+        "balanced_accuracy": 0.7203004422129772,
+        "specificity": 0.8730233135944253,
+        "precision": 0.5905238820884053,
+        "recall": 0.5675775708315293,
+        "f1": 0.5632066244055206,
+        "roc_auc": 0.8116960337629442,
+        "pr_auc": 0.6510220909621827,
+        "far": 0.12697668640557458,
+        "miss_rate": 0.4324224291684706,
+        "tn": 15865.452677951493,
+        "fp": 2307.5473220485073,
+        "fn": 3382.4082409557786,
+        "tp": 4439.591759044221
+      },
+      "test_metrics": {
+        "accuracy": 0.7964585994849258,
+        "balanced_accuracy": 0.7419780582611435,
+        "specificity": 0.8862840702466196,
+        "precision": 0.628373522451681,
+        "recall": 0.5976720462756677,
+        "f1": 0.5993832280898177,
+        "roc_auc": 0.8276942818545604,
+        "pr_auc": 0.7007230068473362,
+        "far": 0.11371592975338086,
+        "miss_rate": 0.4023279537243323,
+        "tn": 15743.950223860942,
+        "fp": 2020.0497761390573,
+        "fn": 3229.4864845452153,
+        "tp": 4797.513515454785
+      },
+      "local_metrics_summary": {
+        "accuracy": 0.8995494513881298,
+        "balanced_accuracy": 0.8902957574195116,
+        "specificity": 0.9329494380074922,
+        "precision": 0.7433139578950149,
+        "recall": 0.7156000340704994,
+        "f1": 0.7161711150111721,
+        "roc_auc": 0.8276167671567123,
+        "pr_auc": 0.7822136338656842,
+        "far": 0.06705056199250792,
+        "miss_rate": 0.1523579231684691
+      },
+      "fine_tune_summary": {},
+      "latest_kd_payload": {
+        "mean_soft_pos": 0.40539336067681225,
+        "count": 41767.0
+      }
+    },
+    "candidate": {
+      "candidate_id": "c4_balanced_lower_lr",
+      "description": "Use a moderate local bias with lower learning rate and a softer temperature.",
+      "distillation_alpha": 0.65,
+      "distillation_temperature": 1.5,
+      "learning_rate": 0.0005,
+      "dropout": 0.2
+    }
+  }
+]

@@ -1,0 +1,67 @@
+{
+  "experiment_id": "exp11_baseline_final",
+  "title": "Experiment 11 - Baseline Final",
+  "advanced_strategy_name": "warmup_global_mean_count",
+  "advanced_strategy_description": "Global mean/count payload, but KD is disabled for the first 5 rounds.",
+  "payload_name": "global_mean_count",
+  "payload_scalar_count": 2,
+  "aggregation_scope": "global",
+  "warmup_rounds": 5,
+  "uncertain_only": false,
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.795273915865167,
+    "balanced_accuracy": 0.7282208855460257,
+    "specificity": 0.8966146178565348,
+    "precision": 0.6208095133219186,
+    "recall": 0.5598271532355167,
+    "f1": 0.577175737836732,
+    "roc_auc": 0.8213510252884699,
+    "pr_auc": 0.6764274947411907,
+    "far": 0.10338538214346522,
+    "miss_rate": 0.44017284676448326,
+    "tn": 16294.177450306806,
+    "fp": 1878.8225496931934,
+    "fn": 3443.0320073917883,
+    "tp": 4378.967992608212
+  },
+  "test_metrics": {
+    "accuracy": 0.8115947124423456,
+    "balanced_accuracy": 0.753043576316466,
+    "specificity": 0.9081316272379567,
+    "precision": 0.6592867605936417,
+    "recall": 0.5979555253949759,
+    "f1": 0.6168412223877289,
+    "roc_auc": 0.8416058214961271,
+    "pr_auc": 0.730274548178803,
+    "far": 0.09186837276204322,
+    "miss_rate": 0.40204447460502424,
+    "tn": 16132.050226255064,
+    "fp": 1631.949773744936,
+    "fn": 3227.2109976545285,
+    "tp": 4799.789002345471
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.9364844462072233,
+    "balanced_accuracy": 0.9253630107654833,
+    "specificity": 0.9590111096753922,
+    "precision": 0.7907460058722352,
+    "recall": 0.7663624988630849,
+    "f1": 0.7745607999941206,
+    "roc_auc": 0.847378297802739,
+    "pr_auc": 0.808899584216059,
+    "far": 0.04098889032460781,
+    "miss_rate": 0.1082850881444254
+  },
+  "fine_tune_summary": {},
+  "latest_strategy_payload": {
+    "scope": "global",
+    "global": {
+      "payload_type": "global_mean_count",
+      "count": 42209.0,
+      "mean": 0.43052304567471167
+    }
+  }
+}

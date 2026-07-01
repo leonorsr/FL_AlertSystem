@@ -1,0 +1,25 @@
+{
+  "losses_centralized": [],
+  "metrics_centralized": {},
+  "losses_distributed": [],
+  "metrics_distributed": {},
+  "metrics_distributed_fit": {},
+  "latest_probability_payload": {
+    "payload_type": "class_quantile_stats",
+    "count": 42209.0,
+    "mean": 0.35766750460073665,
+    "std": 0.4675260396412755,
+    "pos_count": 15015.0,
+    "pos_mean": 0.983199994694882,
+    "pos_std": 0.050651142444186004,
+    "pos_q25": 0.9832397376165126,
+    "pos_q50": 0.9901056123581721,
+    "pos_q75": 0.9934666184973328,
+    "neg_count": 27194.0,
+    "neg_mean": 0.012283583928397398,
+    "neg_std": 0.05013051865404348,
+    "neg_q25": 0.0026554643948917163,
+    "neg_q50": 0.004385975806952573,
+    "neg_q75": 0.010208030080955409
+  }
+}

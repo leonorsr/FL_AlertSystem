@@ -1,0 +1,31 @@
+{
+  "experiment_id": "exp9_final_local_finetuning",
+  "title": "Experiment 9 - Final Local Fine-Tuning",
+  "description": "Standard FedAvg followed by a short local fine-tuning stage on held-out test clients.",
+  "scenario": "byclient",
+  "holdout_dataset": null,
+  "num_rounds": 25,
+  "fraction_fit": 1.0,
+  "min_fit_clients": 2,
+  "min_available_clients": 2,
+  "local_epochs": 10,
+  "weighted_aggregation": true,
+  "local_model_selection": false,
+  "clustered_aggregation": false,
+  "num_similarity_groups": 3,
+  "personalized_head": false,
+  "final_local_finetune_epochs": 3,
+  "random_seed": 3,
+  "model": {
+    "hidden_layers": [
+      256,
+      128,
+      64
+    ],
+    "dropout": 0.3,
+    "learning_rate": 0.0008,
+    "weight_decay": 0.0001,
+    "batch_size": 256,
+    "use_batchnorm": false
+  }
+}

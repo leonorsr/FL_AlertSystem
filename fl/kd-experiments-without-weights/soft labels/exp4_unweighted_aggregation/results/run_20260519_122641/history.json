@@ -1,0 +1,11 @@
+{
+  "losses_centralized": [],
+  "metrics_centralized": {},
+  "losses_distributed": [],
+  "metrics_distributed": {},
+  "metrics_distributed_fit": {},
+  "latest_kd_payload": {
+    "mean_soft_pos": 0.44851260282014327,
+    "count": 601.3768115942029
+  }
+}

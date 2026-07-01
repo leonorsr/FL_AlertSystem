@@ -1,0 +1,73 @@
+Class Prototype Final Local-First Experiment
+============================================
+
+Selection rationale
+-------------------
+This final experiment uses the best local-first configuration found during the
+lightweight class-prototype search: exp14_final_clustered with c2_lower_dropout.
+
+Configuration
+-------------
+- base experiment: exp14_final_clustered
+- communication mode: class_prototype
+- communicates model weights: no
+- runs aggregated: 10
+- available training clients: 69
+- client participation fraction per round: 1.00
+- global rounds: 25
+- local epochs: 100
+- learning rate: 0.000800
+- dropout: 0.20
+- weighted aggregation: 1
+- local model selection: 0
+- clustered aggregation: 1
+- similarity groups: 3
+- base random seed: 5600
+- results directory: C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\kd-experiments-without-weights\class prototype fine tuning\expfinal\results
+
+Final local metrics
+-------------------
+- accuracy: 0.9119 +/- 0.0060
+- balanced_accuracy: 0.8949 +/- 0.0085
+- specificity: 0.9391 +/- 0.0037
+- precision: 0.7914 +/- 0.0082
+- recall: 0.7589 +/- 0.0158
+- f1: 0.7654 +/- 0.0107
+- roc_auc: 0.8696 +/- 0.0040
+- pr_auc: 0.8186 +/- 0.0064
+- far: 0.0609 +/- 0.0037
+- miss_rate: 0.1493 +/- 0.0173
+
+Final global dev metrics
+------------------------
+- accuracy: 0.7886 +/- 0.0024
+- balanced_accuracy: 0.7330 +/- 0.0047
+- specificity: 0.8726 +/- 0.0033
+- precision: 0.6087 +/- 0.0051
+- recall: 0.5933 +/- 0.0114
+- f1: 0.5853 +/- 0.0079
+- roc_auc: 0.8197 +/- 0.0026
+- pr_auc: 0.6513 +/- 0.0042
+- far: 0.1274 +/- 0.0033
+- miss_rate: 0.4067 +/- 0.0114
+- tn: 15858.2924 +/- 59.7337
+- fp: 2314.7076 +/- 59.7337
+- fn: 3181.0090 +/- 89.4087
+- tp: 4640.9910 +/- 89.4087
+
+Final global test metrics
+-------------------------
+- accuracy: 0.8014 +/- 0.0033
+- balanced_accuracy: 0.7517 +/- 0.0059
+- specificity: 0.8833 +/- 0.0029
+- precision: 0.6414 +/- 0.0067
+- recall: 0.6201 +/- 0.0132
+- f1: 0.6146 +/- 0.0097
+- roc_auc: 0.8357 +/- 0.0029
+- pr_auc: 0.7005 +/- 0.0055
+- far: 0.1167 +/- 0.0029
+- miss_rate: 0.3799 +/- 0.0132
+- tn: 15690.4100 +/- 52.2571
+- fp: 2073.5900 +/- 52.2571
+- fn: 3049.6052 +/- 105.7975
+- tp: 4977.3948 +/- 105.7975

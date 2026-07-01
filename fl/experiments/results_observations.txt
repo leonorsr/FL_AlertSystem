@@ -1,0 +1,195 @@
+EXPERIMENT RESULTS OBSERVATIONS
+================================
+
+This file summarizes the most important results across the four evaluation techniques currently implemented in the project:
+- baseline
+- byclient
+- onedatasetout
+- kfoldbyclient
+
+Adopted ranking criterion
+- Higher PR-AUC
+- Lower Miss Rate
+- Lower FAR
+- Higher Balanced Accuracy
+- Higher F1
+
+
+1. Baseline (trial-disjoint split)
+
+Best overall combination under the adopted ranking
+- Preprocessing strategy: magnitude_features
+- Model: neural_network
+- Selected candidate: mlp_wide
+- Combined label: magnitude_features + neural_network (mlp_wide)
+
+Key metrics
+- PR-AUC: 0.995453
+- Miss Rate: 0.026596
+- FAR: 0.021527
+- Balanced Accuracy: 0.975939
+- F1: 0.966839
+
+Closest competitor
+- magnitude_features + xgboost (xgb_deep)
+- PR-AUC: 0.995068
+- Miss Rate: 0.031915
+- FAR: 0.018252
+- Balanced Accuracy: 0.974916
+- F1: 0.967045
+
+Main observations
+- magnitude_features is the strongest preprocessing strategy in the centralized baseline setting.
+- The top two candidates are both nonlinear models: neural_network and xgboost.
+- The neural network ranks first because it slightly improves PR-AUC and Miss Rate, even though xgboost has a lower FAR.
+- zscore is still competitive, but clearly below magnitude_features.
+
+
+2. ByClient (client-disjoint split)
+
+Best overall combination under the adopted ranking
+- Preprocessing strategy: magnitude_features
+- Model: neural_network
+- Selected candidate: mlp_wide
+- Combined label: magnitude_features + neural_network (mlp_wide)
+
+Key metrics
+- PR-AUC: 0.993702
+- Miss Rate: 0.023047
+- FAR: 0.027753
+- Balanced Accuracy: 0.974600
+- F1: 0.958563
+
+Closest competitor
+- magnitude_features + xgboost (xgb_deep)
+- PR-AUC: 0.993697
+- Miss Rate: 0.029276
+- FAR: 0.019365
+- Balanced Accuracy: 0.975679
+- F1: 0.964177
+
+Main observations
+- magnitude_features remains the best preprocessing strategy even when evaluation is done on unseen clients.
+- The best model remains the neural_network with candidate mlp_wide.
+- xgboost remains extremely competitive and provides a lower FAR, but the neural network keeps the best ranking because of its stronger PR-AUC / Miss Rate balance.
+- client_zscore and magnitude_only are considerably weaker than magnitude_features and zscore in the client-disjoint setting.
+
+
+3. OneDatasetOut (leave-one-dataset-out split)
+
+Best overall combination under the adopted ranking
+- Preprocessing strategy: magnitude_features
+- Model: xgboost
+- Selected candidate: xgb_deep
+- Combined label: magnitude_features + xgboost (xgb_deep)
+
+Key metrics
+- PR-AUC: 0.851410
+- Miss Rate: 0.275105
+- FAR: 0.047459
+- Balanced Accuracy: 0.838718
+- F1: 0.764376
+
+Closest competitor
+- magnitude_features + neural_network (mlp_wide)
+- PR-AUC: 0.833119
+- Miss Rate: 0.223733
+- FAR: 0.063912
+- Balanced Accuracy: 0.856177
+- F1: 0.779237
+
+Main observations
+- onedatasetout is clearly the hardest evaluation setting among all the techniques tested so far.
+- The best preprocessing strategy is still magnitude_features, but the best model switches from neural_network to xgboost.
+- This suggests that xgboost is slightly more robust under stronger domain shift, even though the neural network keeps a lower Miss Rate and higher F1.
+- The large gap relative to baseline/byclient/kfoldbyclient confirms that cross-dataset generalization is the main unresolved challenge.
+
+
+4. KFoldByClient (cross-validated client-disjoint split)
+
+Best overall combination under the adopted ranking
+- Preprocessing strategy: magnitude_features
+- Model: neural_network
+- Selected candidate: mlp_wide
+- Combined label: magnitude_features + neural_network (mlp_wide)
+
+Key metrics
+- PR-AUC: 0.991267
+- Miss Rate: 0.034965
+- FAR: 0.025577
+- Balanced Accuracy: 0.969729
+- F1: 0.958091
+
+Closest competitor
+- magnitude_features + xgboost (xgb_deep)
+- PR-AUC: 0.990861
+- Miss Rate: 0.042430
+- FAR: 0.021684
+- Balanced Accuracy: 0.967943
+- F1: 0.957428
+
+Main observations
+- kfoldbyclient confirms the same overall pattern observed in byclient.
+- magnitude_features remains the strongest preprocessing strategy when testing generalization to unseen clients.
+- neural_network (mlp_wide) remains the strongest overall candidate, while xgboost is again the most competitive alternative because of its lower FAR.
+- The cross-validated setting gives a more stable estimate than a single client split and strengthens confidence in the chosen configuration.
+
+
+5. Cross-Technique Comparison
+
+Best combination per evaluation technique
+
+| Technique      | Best preprocessing    | Best model       | Candidate | PR-AUC   | Miss Rate | FAR      | Balanced Accuracy | F1       |
+|----------------|-----------------------|------------------|-----------|----------|-----------|----------|-------------------|----------|
+| baseline       | magnitude_features    | neural_network   | mlp_wide  | 0.995453 | 0.026596  | 0.021527 | 0.975939          | 0.966839 |
+| byclient       | magnitude_features    | neural_network   | mlp_wide  | 0.993702 | 0.023047  | 0.027753 | 0.974600          | 0.958563 |
+| onedatasetout  | magnitude_features    | xgboost          | xgb_deep  | 0.851410 | 0.275105  | 0.047459 | 0.838718          | 0.764376 |
+| kfoldbyclient  | magnitude_features    | neural_network   | mlp_wide  | 0.991267 | 0.034965  | 0.025577 | 0.969729          | 0.958091 |
+
+Most important global pattern
+- magnitude_features is the strongest preprocessing strategy in every evaluation technique tested so far.
+- neural_network (mlp_wide) is the best overall model in three out of four techniques.
+- xgboost becomes the best candidate only in onedatasetout, the harshest domain-shift scenario.
+
+Relative difficulty of the techniques
+- baseline is the easiest setting and produces the strongest global metrics.
+- byclient is slightly stricter, but performance remains very strong.
+- kfoldbyclient is also strong and confirms the same overall winner with a more robust evaluation protocol.
+- onedatasetout is by far the hardest setting and should be interpreted as the strongest test of cross-dataset robustness.
+
+Interpretation
+- The consistency between baseline, byclient, and kfoldbyclient is a strong sign that the selected preprocessing strategy is reliable.
+- The fact that the winner changes in onedatasetout is not a contradiction; it indicates that domain shift across datasets stresses the models differently from client-level generalization.
+- If the next stage is federated learning, the byclient and kfoldbyclient settings are the most relevant references, because they better reflect generalization across clients.
+
+
+6. Best Result by Dataset Across All Techniques
+
+Best KFall result
+- baseline | magnitude_features + xgboost (xgb_deep)
+- PR-AUC: 0.999408
+- Miss Rate: 0.014008
+- FAR: 0.007268
+- Balanced Accuracy: 0.989362
+- F1: 0.988352
+
+Best SisFall result
+- byclient | magnitude_features + xgboost (xgb_deep)
+- PR-AUC: 0.996617
+- Miss Rate: 0.016092
+- FAR: 0.019580
+- Balanced Accuracy: 0.982164
+- F1: 0.968874
+
+Best UpFall result
+- baseline | magnitude_features + neural_network (mlp_wide)
+- PR-AUC: 0.915284
+- Miss Rate: 0.130526
+- FAR: 0.041042
+- Balanced Accuracy: 0.914216
+- F1: 0.823529
+
+Dataset-level note
+- UpFall remains the most challenging dataset overall.
+- KFall is the easiest dataset and yields near-saturated results for the best models.
+- SisFall is also strong, but still slightly below KFall for the best configurations.

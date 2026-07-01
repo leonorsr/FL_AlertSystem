@@ -1,0 +1,91 @@
+{
+  "experiment_id": "exp11_baseline_final",
+  "title": "Experiment 11 - Baseline Final",
+  "advanced_strategy_name": "cluster_class_mean_counts",
+  "advanced_strategy_description": "Cluster-specific class-conditional soft-label means and counts.",
+  "payload_name": "class_mean_counts",
+  "payload_scalar_count": 4,
+  "aggregation_scope": "cluster",
+  "warmup_rounds": 0,
+  "uncertain_only": false,
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.7943522235186925,
+    "balanced_accuracy": 0.7481847374334322,
+    "specificity": 0.8641275256458115,
+    "precision": 0.5926136576843062,
+    "recall": 0.6322419492210533,
+    "f1": 0.5962369056572524,
+    "roc_auc": 0.8283282879570034,
+    "pr_auc": 0.6773227506794676,
+    "far": 0.13587247435418887,
+    "miss_rate": 0.36775805077894663,
+    "tn": 15703.789523561325,
+    "fp": 2469.210476438674,
+    "fn": 2876.603473192921,
+    "tp": 4945.396526807079
+  },
+  "test_metrics": {
+    "accuracy": 0.810518230044024,
+    "balanced_accuracy": 0.7708102509464231,
+    "specificity": 0.8759872550448331,
+    "precision": 0.6270452118435553,
+    "recall": 0.6656332468480132,
+    "f1": 0.6309418384099627,
+    "roc_auc": 0.845811863377709,
+    "pr_auc": 0.728997374235943,
+    "far": 0.12401274495516729,
+    "miss_rate": 0.33436675315198655,
+    "tn": 15561.037598616409,
+    "fp": 2202.962401383591,
+    "fn": 2683.9619275509963,
+    "tp": 5343.038072449004
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.9419034974987407,
+    "balanced_accuracy": 0.9315602239895219,
+    "specificity": 0.9449484651443978,
+    "precision": 0.781141368933838,
+    "recall": 0.7928195698421563,
+    "f1": 0.7782945341473948,
+    "roc_auc": 0.847178388476745,
+    "pr_auc": 0.8076900608270553,
+    "far": 0.055051534855602505,
+    "miss_rate": 0.08182801716535412
+  },
+  "fine_tune_summary": {},
+  "latest_strategy_payload": {
+    "scope": "cluster",
+    "clusters": {
+      "0": {
+        "payload_type": "class_mean_counts",
+        "count": 11633.0,
+        "mean": 0.4433105319256436,
+        "pos_count": 5129.0,
+        "pos_mean": 0.9786264049388623,
+        "neg_count": 6504.0,
+        "neg_mean": 0.021164911894155435
+      },
+      "1": {
+        "payload_type": "class_mean_counts",
+        "count": 23157.0,
+        "mean": 0.4344984767091446,
+        "pos_count": 9549.0,
+        "pos_mean": 0.9626044146427903,
+        "neg_count": 13608.0,
+        "neg_mean": 0.06391620147925164
+      },
+      "2": {
+        "payload_type": "class_mean_counts",
+        "count": 7419.0,
+        "mean": 0.07231628995285912,
+        "pos_count": 337.0,
+        "pos_mean": 0.821106379370838,
+        "neg_count": 7082.0,
+        "neg_mean": 0.03668479318162799
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "experiment_id": "exp11_baseline_final",
+  "title": "Experiment 11 - Baseline Final",
+  "description": "Final KD baseline using the strongest setting found so far: 100 local epochs with standard weighted aggregation.",
+  "scenario": "byclient",
+  "holdout_dataset": null,
+  "num_rounds": 25,
+  "fraction_fit": 1.0,
+  "min_fit_clients": 2,
+  "min_available_clients": 2,
+  "local_epochs": 100,
+  "weighted_aggregation": true,
+  "teacher_student_distillation": true,
+  "distillation_temperature": 2.0,
+  "distillation_alpha": 0.5,
+  "local_model_selection": false,
+  "clustered_aggregation": false,
+  "num_similarity_groups": 3,
+  "personalized_head": false,
+  "final_local_finetune_epochs": 0,
+  "random_seed": 42,
+  "model": {
+    "hidden_layers": [
+      256,
+      128,
+      64
+    ],
+    "dropout": 0.3,
+    "learning_rate": 0.0008,
+    "weight_decay": 0.0001,
+    "batch_size": 256,
+    "use_batchnorm": false
+  },
+  "advanced_strategy_name": "uncertain_global_mean_count",
+  "advanced_strategy_description": "Global mean/count payload applied only to locally uncertain examples.",
+  "payload_name": "global_mean_count",
+  "payload_scalar_count": 2,
+  "aggregation_scope": "global",
+  "warmup_rounds": 0,
+  "uncertain_only": true,
+  "communicates_model_weights": false
+}

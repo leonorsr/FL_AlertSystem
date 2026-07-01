@@ -1,0 +1,143 @@
+Soft Labels Fine Tuning Results
+===============================
+
+Objective
+---------
+Improve local training without exchanging model weights. Candidate selection prioritizes
+local PR-AUC, then global test PR-AUC, local F1 and global test F1.
+
+Search setup
+------------
+- Experiments: exp11_baseline_final, exp12_final_unweighted, exp13_final_keep_best_local, exp14_final_clustered
+- Search runs per candidate: 1
+- Search global rounds: 3
+- Search local epochs: 20
+- Communication mode: soft_labels
+- Communicates model weights: no
+
+Validation note
+---------------
+The complete exploratory grid below used one lightweight run per candidate. A follow-up
+matched-seed comparison completed for exp11_baseline_final and confirmed the same selected
+candidate (c2_local_hard_label_focus). The matched-seed rerun stalled during exp12 startup,
+so its partial artifacts are excluded from the rankings below. The runner now uses matched
+seeds across candidates for future validation runs.
+
+Candidates
+----------
+- c1_current_baseline: Current soft-label configuration used as the reference.
+  alpha=0.50, temperature=2.00, learning_rate=0.000800, dropout=0.30
+- c2_local_hard_label_focus: Give more weight to local hard labels while preserving the global soft-label signal.
+  alpha=0.75, temperature=2.00, learning_rate=0.000800, dropout=0.30
+- c3_local_lower_dropout: Prioritize local fitting with stronger hard-label weight and lower dropout.
+  alpha=0.75, temperature=2.00, learning_rate=0.000800, dropout=0.20
+- c4_balanced_lower_lr: Use a moderate local bias with lower learning rate and a softer temperature.
+  alpha=0.65, temperature=1.50, learning_rate=0.000500, dropout=0.20
+
+Selected configurations
+-----------------------
+
+exp11_baseline_final
+~~~~~~~~~~~~~~~~~~~~
+Selected candidate: c2_local_hard_label_focus
+Description: Give more weight to local hard labels while preserving the global soft-label signal.
+Local PR-AUC: 0.8187
+Local F1: 0.7759
+Global test PR-AUC: 0.7205
+Global test F1: 0.6428
+Recommended full-run configuration:
+- global rounds: 25
+- local epochs: 100
+- distillation alpha: 0.75
+- distillation temperature: 2.00
+- learning rate: 0.000800
+- dropout: 0.30
+- weighted aggregation: 1
+- local model selection: 0
+- clustered aggregation: 0
+
+Candidate ranking:
+1. c2_local_hard_label_focus: local PR-AUC=0.8187, local F1=0.7759, global PR-AUC=0.7205, global F1=0.6428
+2. c4_balanced_lower_lr: local PR-AUC=0.8118, local F1=0.7593, global PR-AUC=0.7175, global F1=0.6236
+3. c3_local_lower_dropout: local PR-AUC=0.8092, local F1=0.7623, global PR-AUC=0.7088, global F1=0.6162
+4. c1_current_baseline: local PR-AUC=0.7824, local F1=0.6203, global PR-AUC=0.6968, global F1=0.4948
+
+exp12_final_unweighted
+~~~~~~~~~~~~~~~~~~~~~~
+Selected candidate: c2_local_hard_label_focus
+Description: Give more weight to local hard labels while preserving the global soft-label signal.
+Local PR-AUC: 0.8082
+Local F1: 0.7610
+Global test PR-AUC: 0.7159
+Global test F1: 0.6270
+Recommended full-run configuration:
+- global rounds: 25
+- local epochs: 100
+- distillation alpha: 0.75
+- distillation temperature: 2.00
+- learning rate: 0.000800
+- dropout: 0.30
+- weighted aggregation: 0
+- local model selection: 0
+- clustered aggregation: 0
+
+Candidate ranking:
+1. c2_local_hard_label_focus: local PR-AUC=0.8082, local F1=0.7610, global PR-AUC=0.7159, global F1=0.6270
+2. c3_local_lower_dropout: local PR-AUC=0.8011, local F1=0.7550, global PR-AUC=0.7179, global F1=0.6254
+3. c4_balanced_lower_lr: local PR-AUC=0.7996, local F1=0.7305, global PR-AUC=0.7099, global F1=0.6039
+4. c1_current_baseline: local PR-AUC=0.7694, local F1=0.5960, global PR-AUC=0.6822, global F1=0.4630
+
+exp13_final_keep_best_local
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Selected candidate: c1_current_baseline
+Description: Current soft-label configuration used as the reference.
+Local PR-AUC: 0.8217
+Local F1: 0.6739
+Global test PR-AUC: 0.7129
+Global test F1: 0.5298
+Recommended full-run configuration:
+- global rounds: 25
+- local epochs: 100
+- distillation alpha: 0.50
+- distillation temperature: 2.00
+- learning rate: 0.000800
+- dropout: 0.30
+- weighted aggregation: 1
+- local model selection: 1
+- clustered aggregation: 0
+
+Candidate ranking:
+1. c1_current_baseline: local PR-AUC=0.8217, local F1=0.6739, global PR-AUC=0.7129, global F1=0.5298
+2. c4_balanced_lower_lr: local PR-AUC=0.8200, local F1=0.7676, global PR-AUC=0.7249, global F1=0.6298
+3. c2_local_hard_label_focus: local PR-AUC=0.8076, local F1=0.7660, global PR-AUC=0.7199, global F1=0.6382
+4. c3_local_lower_dropout: local PR-AUC=0.8041, local F1=0.7618, global PR-AUC=0.7198, global F1=0.6376
+
+exp14_final_clustered
+~~~~~~~~~~~~~~~~~~~~~
+Selected candidate: c3_local_lower_dropout
+Description: Prioritize local fitting with stronger hard-label weight and lower dropout.
+Local PR-AUC: 0.8183
+Local F1: 0.7794
+Global test PR-AUC: 0.7161
+Global test F1: 0.6380
+Recommended full-run configuration:
+- global rounds: 25
+- local epochs: 100
+- distillation alpha: 0.75
+- distillation temperature: 2.00
+- learning rate: 0.000800
+- dropout: 0.20
+- weighted aggregation: 1
+- local model selection: 0
+- clustered aggregation: 1
+
+Candidate ranking:
+1. c3_local_lower_dropout: local PR-AUC=0.8183, local F1=0.7794, global PR-AUC=0.7161, global F1=0.6380
+2. c2_local_hard_label_focus: local PR-AUC=0.8147, local F1=0.7677, global PR-AUC=0.7192, global F1=0.6422
+3. c1_current_baseline: local PR-AUC=0.7910, local F1=0.6585, global PR-AUC=0.6969, global F1=0.5078
+4. c4_balanced_lower_lr: local PR-AUC=0.7822, local F1=0.7162, global PR-AUC=0.7007, global F1=0.5994
+
+Interpretation note
+-------------------
+These are lightweight search runs. The recommended settings should be validated with
+full-length repeated runs before using them as final article results.

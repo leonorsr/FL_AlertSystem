@@ -1,0 +1,654 @@
+KD Experiments Summary
+==========================
+
+Results are aggregated across all available runs for each experiment/variant.
+Uncertainty is reported as sample standard deviation across runs (mean +/- std).
+
+Knowledge Distillation Configuration:
+- Type: Response-based KD (output distribution matching)
+- Loss: alpha * BCE(hard_labels) + (1-alpha) * KL_divergence(soft_targets)
+- Parameters: distillation_alpha=0.5, distillation_temperature=2.0
+- Teacher: Global model (previous round)
+- Student: Local model being trained
+
+Ranked experiments by final global test PR-AUC:
+  1. exp12_final_unweighted - test PR-AUC: 0.9586, test F1: 0.8687
+  2. exp13_final_keep_best_local - test PR-AUC: 0.9550, test F1: 0.8803
+  3. exp11_baseline_final - test PR-AUC: 0.9547, test F1: 0.8806
+  4. exp14_final_clustered - test PR-AUC: 0.9544, test F1: 0.8802
+  5. exp4_unweighted_aggregation - test PR-AUC: 0.9518, test F1: 0.8707
+  6. exp2_fraction_clients - test PR-AUC: 0.9494, test F1: 0.8781
+  7. exp1_kkd_base - test PR-AUC: 0.9491, test F1: 0.8789
+  8. exp9_final_local_finetuning - test PR-AUC: 0.9490, test F1: 0.8788
+  9. exp3_local_epochs - test PR-AUC: 0.9489, test F1: 0.8781
+  10. exp6_keep_best_local_model - test PR-AUC: 0.9487, test F1: 0.8785
+  11. exp10_clustered_keep_best_local - test PR-AUC: 0.9487, test F1: 0.8785
+  12. exp7_clustered_aggregation - test PR-AUC: 0.9483, test F1: 0.8788
+  13. exp8_personalized_fedavg - test PR-AUC: 0.9472, test F1: 0.8570
+  14. exp5_cross_dataset - test PR-AUC: 0.3030, test F1: 0.3298
+
+
+exp12_final_unweighted
+----------------------
+Title: Experiment 12 - Final Unweighted (KD)
+Description: KD with 100 global rounds, 5 local epochs, unweighted aggregation (matches FedAvg exp12 best result).
+Runs aggregated: 10
+Global rounds: 25
+Local epochs: 100
+Weighted aggregation: 0
+Local model selection: 0
+Clustered aggregation: 0
+Personalized head: 0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3000
+Model learning rate: 0.000800
+Model weight decay: 0.0001000
+Model batch size: 256
+
+Final global dev metrics:
+  accuracy: 0.8860 +/- 0.0041
+  balanced_accuracy: 0.8943 +/- 0.0016
+  specificity: 0.8734 +/- 0.0083
+  precision: 0.7570 +/- 0.0107
+  recall: 0.9151 +/- 0.0063
+  f1: 0.8285 +/- 0.0042
+  roc_auc: 0.9615 +/- 0.0011
+  pr_auc: 0.9232 +/- 0.0043
+  far: 0.1266 +/- 0.0083
+  miss_rate: 0.0849 +/- 0.0063
+
+Final global test metrics:
+  accuracy: 0.9111 +/- 0.0057
+  balanced_accuracy: 0.9202 +/- 0.0035
+  specificity: 0.8961 +/- 0.0096
+  precision: 0.8045 +/- 0.0138
+  recall: 0.9444 +/- 0.0039
+  f1: 0.8687 +/- 0.0069
+  roc_auc: 0.9779 +/- 0.0009
+  pr_auc: 0.9586 +/- 0.0025
+  far: 0.1039 +/- 0.0096
+  miss_rate: 0.0556 +/- 0.0039
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp13_final_keep_best_local
+---------------------------
+Title: Experiment 13 - Final Keep-Best Local (KD)
+Description: KD with 100 global rounds, weighted aggregation, local model selection strategy.
+Runs aggregated: 10
+Global rounds: 25
+Local epochs: 100
+Weighted aggregation: 1
+Local model selection: 1
+Clustered aggregation: 0
+Personalized head: 0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3000
+Model learning rate: 0.000800
+Model weight decay: 0.0001000
+Model batch size: 256
+
+Final global dev metrics:
+  accuracy: 0.8941 +/- 0.0034
+  balanced_accuracy: 0.8927 +/- 0.0023
+  specificity: 0.8961 +/- 0.0066
+  precision: 0.7867 +/- 0.0100
+  recall: 0.8893 +/- 0.0064
+  f1: 0.8348 +/- 0.0041
+  roc_auc: 0.9598 +/- 0.0014
+  pr_auc: 0.9184 +/- 0.0034
+  far: 0.1039 +/- 0.0066
+  miss_rate: 0.1107 +/- 0.0064
+
+Final global test metrics:
+  accuracy: 0.9208 +/- 0.0039
+  balanced_accuracy: 0.9247 +/- 0.0029
+  specificity: 0.9143 +/- 0.0060
+  precision: 0.8315 +/- 0.0097
+  recall: 0.9351 +/- 0.0035
+  f1: 0.8803 +/- 0.0052
+  roc_auc: 0.9768 +/- 0.0009
+  pr_auc: 0.9550 +/- 0.0028
+  far: 0.0857 +/- 0.0060
+  miss_rate: 0.0649 +/- 0.0035
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp11_baseline_final
+--------------------
+Title: Experiment 11 - Baseline Final (KD)
+Description: KD final baseline with 100 global rounds, 5 local epochs, weighted aggregation (matches FedAvg exp11).
+Runs aggregated: 10
+Global rounds: 25
+Local epochs: 100
+Weighted aggregation: 1
+Local model selection: 0
+Clustered aggregation: 0
+Personalized head: 0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3000
+Model learning rate: 0.000800
+Model weight decay: 0.0001000
+Model batch size: 256
+
+Final global dev metrics:
+  accuracy: 0.8942 +/- 0.0038
+  balanced_accuracy: 0.8929 +/- 0.0029
+  specificity: 0.8962 +/- 0.0072
+  precision: 0.7869 +/- 0.0107
+  recall: 0.8895 +/- 0.0078
+  f1: 0.8350 +/- 0.0046
+  roc_auc: 0.9595 +/- 0.0010
+  pr_auc: 0.9180 +/- 0.0030
+  far: 0.1038 +/- 0.0072
+  miss_rate: 0.1105 +/- 0.0078
+
+Final global test metrics:
+  accuracy: 0.9210 +/- 0.0039
+  balanced_accuracy: 0.9249 +/- 0.0029
+  specificity: 0.9145 +/- 0.0061
+  precision: 0.8319 +/- 0.0098
+  recall: 0.9353 +/- 0.0040
+  f1: 0.8806 +/- 0.0051
+  roc_auc: 0.9767 +/- 0.0007
+  pr_auc: 0.9547 +/- 0.0020
+  far: 0.0855 +/- 0.0061
+  miss_rate: 0.0647 +/- 0.0040
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp14_final_clustered
+---------------------
+Title: Experiment 14 - Final Clustered (KD)
+Description: KD with 100 global rounds, weighted aggregation, clustering strategy.
+Runs aggregated: 10
+Global rounds: 25
+Local epochs: 100
+Weighted aggregation: 1
+Local model selection: 0
+Clustered aggregation: 1
+Personalized head: 0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3000
+Model learning rate: 0.000800
+Model weight decay: 0.0001000
+Model batch size: 256
+
+Final global dev metrics:
+  accuracy: 0.8937 +/- 0.0043
+  balanced_accuracy: 0.8919 +/- 0.0031
+  specificity: 0.8964 +/- 0.0072
+  precision: 0.7868 +/- 0.0112
+  recall: 0.8874 +/- 0.0056
+  f1: 0.8340 +/- 0.0055
+  roc_auc: 0.9594 +/- 0.0014
+  pr_auc: 0.9179 +/- 0.0040
+  far: 0.1036 +/- 0.0072
+  miss_rate: 0.1126 +/- 0.0056
+
+Final global test metrics:
+  accuracy: 0.9208 +/- 0.0040
+  balanced_accuracy: 0.9247 +/- 0.0026
+  specificity: 0.9143 +/- 0.0065
+  precision: 0.8315 +/- 0.0103
+  recall: 0.9352 +/- 0.0023
+  f1: 0.8802 +/- 0.0052
+  roc_auc: 0.9766 +/- 0.0007
+  pr_auc: 0.9544 +/- 0.0020
+  far: 0.0857 +/- 0.0065
+  miss_rate: 0.0648 +/- 0.0023
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp4_unweighted_aggregation
+---------------------------
+Title: Experiment 4 - Unweighted Aggregation (KD)
+Description: KD variant with unweighted averaging across participating clients.
+Runs aggregated: 10
+Global rounds: 25
+Local epochs: 10
+Weighted aggregation: 0
+Local model selection: 0
+Clustered aggregation: 0
+Personalized head: 0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3000
+Model learning rate: 0.000800
+Model weight decay: 0.0001000
+Model batch size: 256
+
+Final global dev metrics:
+  accuracy: 0.8879 +/- 0.0030
+  balanced_accuracy: 0.8882 +/- 0.0015
+  specificity: 0.8873 +/- 0.0087
+  precision: 0.7728 +/- 0.0117
+  recall: 0.8892 +/- 0.0107
+  f1: 0.8268 +/- 0.0025
+  roc_auc: 0.9565 +/- 0.0012
+  pr_auc: 0.9140 +/- 0.0050
+  far: 0.1127 +/- 0.0087
+  miss_rate: 0.1108 +/- 0.0107
+
+Final global test metrics:
+  accuracy: 0.9141 +/- 0.0035
+  balanced_accuracy: 0.9182 +/- 0.0024
+  specificity: 0.9073 +/- 0.0065
+  precision: 0.8192 +/- 0.0099
+  recall: 0.9292 +/- 0.0056
+  f1: 0.8707 +/- 0.0044
+  roc_auc: 0.9749 +/- 0.0010
+  pr_auc: 0.9518 +/- 0.0034
+  far: 0.0927 +/- 0.0065
+  miss_rate: 0.0708 +/- 0.0056
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp2_fraction_clients
+---------------------
+Title: Experiment 2 - Fraction Of Clients (KD)
+Description: KD with partial client participation (50%) per round.
+Runs aggregated: 10
+Global rounds: 25
+Local epochs: 10
+Weighted aggregation: 1
+Local model selection: 0
+Clustered aggregation: 0
+Personalized head: 0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3000
+Model learning rate: 0.000800
+Model weight decay: 0.0001000
+Model batch size: 256
+
+Final global dev metrics:
+  accuracy: 0.8963 +/- 0.0032
+  balanced_accuracy: 0.8892 +/- 0.0017
+  specificity: 0.9070 +/- 0.0084
+  precision: 0.8016 +/- 0.0128
+  recall: 0.8715 +/- 0.0099
+  f1: 0.8349 +/- 0.0031
+  roc_auc: 0.9545 +/- 0.0013
+  pr_auc: 0.9089 +/- 0.0020
+  far: 0.0930 +/- 0.0084
+  miss_rate: 0.1285 +/- 0.0099
+
+Final global test metrics:
+  accuracy: 0.9204 +/- 0.0017
+  balanced_accuracy: 0.9208 +/- 0.0018
+  specificity: 0.9196 +/- 0.0041
+  precision: 0.8383 +/- 0.0062
+  recall: 0.9220 +/- 0.0061
+  f1: 0.8781 +/- 0.0022
+  roc_auc: 0.9745 +/- 0.0007
+  pr_auc: 0.9494 +/- 0.0018
+  far: 0.0804 +/- 0.0041
+  miss_rate: 0.0780 +/- 0.0061
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp1_kkd_base
+-------------
+Title: Experiment 1 - KD Base
+Description: Baseline with Knowledge Distillation enabled (25 rounds, 5 epochs, weighted aggregation).
+Runs aggregated: 10
+Global rounds: 25
+Local epochs: 10
+Weighted aggregation: 1
+Local model selection: 0
+Clustered aggregation: 0
+Personalized head: 0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3000
+Model learning rate: 0.000800
+Model weight decay: 0.0001000
+Model batch size: 256
+
+Final global dev metrics:
+  accuracy: 0.8974 +/- 0.0036
+  balanced_accuracy: 0.8899 +/- 0.0027
+  specificity: 0.9087 +/- 0.0063
+  precision: 0.8044 +/- 0.0102
+  recall: 0.8711 +/- 0.0059
+  f1: 0.8364 +/- 0.0047
+  roc_auc: 0.9549 +/- 0.0014
+  pr_auc: 0.9101 +/- 0.0028
+  far: 0.0913 +/- 0.0063
+  miss_rate: 0.1289 +/- 0.0059
+
+Final global test metrics:
+  accuracy: 0.9209 +/- 0.0027
+  balanced_accuracy: 0.9212 +/- 0.0022
+  specificity: 0.9204 +/- 0.0042
+  precision: 0.8397 +/- 0.0070
+  recall: 0.9220 +/- 0.0036
+  f1: 0.8789 +/- 0.0037
+  roc_auc: 0.9745 +/- 0.0006
+  pr_auc: 0.9491 +/- 0.0010
+  far: 0.0796 +/- 0.0042
+  miss_rate: 0.0780 +/- 0.0036
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp9_final_local_finetuning
+---------------------------
+Title: Experiment 9 - Final Local Fine-Tuning (KD)
+Description: KD followed by short local fine-tuning stage on held-out test clients.
+Runs aggregated: 10
+Global rounds: 25
+Local epochs: 10
+Weighted aggregation: 1
+Local model selection: 0
+Clustered aggregation: 0
+Personalized head: 0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3000
+Model learning rate: 0.000800
+Model weight decay: 0.0001000
+Model batch size: 256
+
+Final global dev metrics:
+  accuracy: 0.8971 +/- 0.0023
+  balanced_accuracy: 0.8898 +/- 0.0017
+  specificity: 0.9081 +/- 0.0059
+  precision: 0.8035 +/- 0.0088
+  recall: 0.8715 +/- 0.0074
+  f1: 0.8360 +/- 0.0026
+  roc_auc: 0.9553 +/- 0.0016
+  pr_auc: 0.9111 +/- 0.0043
+  far: 0.0919 +/- 0.0059
+  miss_rate: 0.1285 +/- 0.0074
+
+Final global test metrics:
+  accuracy: 0.9208 +/- 0.0025
+  balanced_accuracy: 0.9210 +/- 0.0020
+  specificity: 0.9205 +/- 0.0043
+  precision: 0.8397 +/- 0.0071
+  recall: 0.9216 +/- 0.0039
+  f1: 0.8788 +/- 0.0034
+  roc_auc: 0.9744 +/- 0.0009
+  pr_auc: 0.9490 +/- 0.0028
+  far: 0.0795 +/- 0.0043
+  miss_rate: 0.0784 +/- 0.0039
+
+Final fine-tuned test-client metrics:
+  accuracy: 0.9295 +/- 0.0092
+  balanced_accuracy: 0.9379 +/- 0.0048
+  specificity: 0.9198 +/- 0.0126
+  precision: 0.6077 +/- 0.0198
+  recall: 0.7339 +/- 0.0100
+  f1: 0.6495 +/- 0.0161
+  roc_auc: 0.9654 +/- 0.0054
+  pr_auc: 0.8770 +/- 0.0222
+  far: 0.0802 +/- 0.0126
+  miss_rate: 0.0439 +/- 0.0100
+
+exp3_local_epochs
+-----------------
+Title: Experiment 3 - Local Epochs Comparison (KD)
+Description: KD comparison across different numbers of local epochs (10, 25, 50, 75, 100).
+Runs aggregated: 10
+Global rounds: 25
+Local epochs: 10
+Weighted aggregation: 1
+Local model selection: 0
+Clustered aggregation: 0
+Personalized head: 0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3000
+Model learning rate: 0.000800
+Model weight decay: 0.0001000
+Model batch size: 256
+
+Final global dev metrics:
+  accuracy: 0.8969 +/- 0.0031
+  balanced_accuracy: 0.8897 +/- 0.0018
+  specificity: 0.9078 +/- 0.0065
+  precision: 0.8028 +/- 0.0103
+  recall: 0.8715 +/- 0.0063
+  f1: 0.8357 +/- 0.0036
+  roc_auc: 0.9545 +/- 0.0014
+  pr_auc: 0.9089 +/- 0.0034
+  far: 0.0922 +/- 0.0065
+  miss_rate: 0.1285 +/- 0.0063
+
+Final global test metrics:
+  accuracy: 0.9204 +/- 0.0024
+  balanced_accuracy: 0.9206 +/- 0.0018
+  specificity: 0.9200 +/- 0.0039
+  precision: 0.8388 +/- 0.0064
+  recall: 0.9212 +/- 0.0030
+  f1: 0.8781 +/- 0.0032
+  roc_auc: 0.9743 +/- 0.0009
+  pr_auc: 0.9489 +/- 0.0028
+  far: 0.0800 +/- 0.0039
+  miss_rate: 0.0788 +/- 0.0030
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp6_keep_best_local_model
+--------------------------
+Title: Experiment 6 - Keep Best Local Model (KD)
+Description: KD where each client keeps the better model between incoming global and previous best local.
+Runs aggregated: 10
+Global rounds: 25
+Local epochs: 10
+Weighted aggregation: 1
+Local model selection: 1
+Clustered aggregation: 0
+Personalized head: 0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3000
+Model learning rate: 0.000800
+Model weight decay: 0.0001000
+Model batch size: 256
+
+Final global dev metrics:
+  accuracy: 0.8969 +/- 0.0030
+  balanced_accuracy: 0.8888 +/- 0.0020
+  specificity: 0.9092 +/- 0.0069
+  precision: 0.8047 +/- 0.0109
+  recall: 0.8684 +/- 0.0079
+  f1: 0.8352 +/- 0.0034
+  roc_auc: 0.9544 +/- 0.0016
+  pr_auc: 0.9087 +/- 0.0044
+  far: 0.0908 +/- 0.0069
+  miss_rate: 0.1316 +/- 0.0079
+
+Final global test metrics:
+  accuracy: 0.9209 +/- 0.0038
+  balanced_accuracy: 0.9204 +/- 0.0030
+  specificity: 0.9216 +/- 0.0057
+  precision: 0.8414 +/- 0.0095
+  recall: 0.9192 +/- 0.0040
+  f1: 0.8785 +/- 0.0051
+  roc_auc: 0.9743 +/- 0.0010
+  pr_auc: 0.9487 +/- 0.0034
+  far: 0.0784 +/- 0.0057
+  miss_rate: 0.0808 +/- 0.0040
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp10_clustered_keep_best_local
+-------------------------------
+Title: Experiment 10 - Clustered Keep-Best Local (KD)
+Description: KD combining clustering + local selection between incoming and previous best local model.
+Runs aggregated: 10
+Global rounds: 25
+Local epochs: 10
+Weighted aggregation: 1
+Local model selection: 1
+Clustered aggregation: 1
+Personalized head: 0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3000
+Model learning rate: 0.000800
+Model weight decay: 0.0001000
+Model batch size: 256
+
+Final global dev metrics:
+  accuracy: 0.8975 +/- 0.0034
+  balanced_accuracy: 0.8897 +/- 0.0029
+  specificity: 0.9094 +/- 0.0063
+  precision: 0.8053 +/- 0.0101
+  recall: 0.8700 +/- 0.0073
+  f1: 0.8363 +/- 0.0044
+  roc_auc: 0.9546 +/- 0.0016
+  pr_auc: 0.9091 +/- 0.0039
+  far: 0.0906 +/- 0.0063
+  miss_rate: 0.1300 +/- 0.0073
+
+Final global test metrics:
+  accuracy: 0.9206 +/- 0.0029
+  balanced_accuracy: 0.9209 +/- 0.0027
+  specificity: 0.9202 +/- 0.0034
+  precision: 0.8392 +/- 0.0059
+  recall: 0.9217 +/- 0.0032
+  f1: 0.8785 +/- 0.0041
+  roc_auc: 0.9742 +/- 0.0009
+  pr_auc: 0.9487 +/- 0.0031
+  far: 0.0798 +/- 0.0034
+  miss_rate: 0.0783 +/- 0.0032
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp7_clustered_aggregation
+--------------------------
+Title: Experiment 7 - Clustered Aggregation (KD)
+Description: KD with K-means clustering of similar clients before aggregation.
+Runs aggregated: 10
+Global rounds: 25
+Local epochs: 10
+Weighted aggregation: 1
+Local model selection: 0
+Clustered aggregation: 1
+Personalized head: 0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3000
+Model learning rate: 0.000800
+Model weight decay: 0.0001000
+Model batch size: 256
+
+Final global dev metrics:
+  accuracy: 0.8981 +/- 0.0031
+  balanced_accuracy: 0.8900 +/- 0.0021
+  specificity: 0.9103 +/- 0.0065
+  precision: 0.8069 +/- 0.0103
+  recall: 0.8697 +/- 0.0071
+  f1: 0.8370 +/- 0.0037
+  roc_auc: 0.9546 +/- 0.0018
+  pr_auc: 0.9098 +/- 0.0031
+  far: 0.0897 +/- 0.0065
+  miss_rate: 0.1303 +/- 0.0071
+
+Final global test metrics:
+  accuracy: 0.9209 +/- 0.0030
+  balanced_accuracy: 0.9208 +/- 0.0025
+  specificity: 0.9211 +/- 0.0048
+  precision: 0.8407 +/- 0.0079
+  recall: 0.9205 +/- 0.0041
+  f1: 0.8788 +/- 0.0041
+  roc_auc: 0.9740 +/- 0.0010
+  pr_auc: 0.9483 +/- 0.0024
+  far: 0.0789 +/- 0.0048
+  miss_rate: 0.0795 +/- 0.0041
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp8_personalized_fedavg
+------------------------
+Title: Experiment 8 - Personalized FedAvg (KD)
+Description: KD with personalized local head kept on each client (not aggregated).
+Runs aggregated: 10
+Global rounds: 25
+Local epochs: 10
+Weighted aggregation: 1
+Local model selection: 0
+Clustered aggregation: 0
+Personalized head: 1
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3000
+Model learning rate: 0.000800
+Model weight decay: 0.0001000
+Model batch size: 256
+
+Final global dev metrics:
+  accuracy: 0.8898 +/- 0.0168
+  balanced_accuracy: 0.8481 +/- 0.0410
+  specificity: 0.9526 +/- 0.0262
+  precision: 0.8790 +/- 0.0472
+  recall: 0.7437 +/- 0.1052
+  f1: 0.7988 +/- 0.0497
+  roc_auc: 0.9505 +/- 0.0034
+  pr_auc: 0.8944 +/- 0.0086
+  far: 0.0474 +/- 0.0262
+  miss_rate: 0.2563 +/- 0.1052
+
+Final global test metrics:
+  accuracy: 0.9165 +/- 0.0144
+  balanced_accuracy: 0.8892 +/- 0.0333
+  specificity: 0.9614 +/- 0.0247
+  precision: 0.9114 +/- 0.0452
+  recall: 0.8170 +/- 0.0875
+  f1: 0.8570 +/- 0.0353
+  roc_auc: 0.9736 +/- 0.0018
+  pr_auc: 0.9472 +/- 0.0039
+  far: 0.0386 +/- 0.0247
+  miss_rate: 0.1830 +/- 0.0875
+
+Final fine-tuned test-client metrics:
+  n/a
+
+exp5_cross_dataset
+------------------
+Title: Experiment 5 - Cross Dataset Federated (KD)
+Description: KD with federated training on two datasets and evaluation on held-out dataset.
+Runs aggregated: 10
+Global rounds: 25
+Local epochs: 10
+Weighted aggregation: 1
+Local model selection: 0
+Clustered aggregation: 0
+Personalized head: 0
+Model hidden layers: [256, 128, 64]
+Model dropout: 0.3000
+Model learning rate: 0.000800
+Model weight decay: 0.0001000
+Model batch size: 256
+
+Final global dev metrics:
+  accuracy: 0.9316 +/- 0.0055
+  balanced_accuracy: 0.9284 +/- 0.0063
+  specificity: 0.9403 +/- 0.0054
+  precision: 0.8980 +/- 0.0088
+  recall: 0.9166 +/- 0.0120
+  f1: 0.9071 +/- 0.0062
+  roc_auc: 0.9805 +/- 0.0029
+  pr_auc: 0.9640 +/- 0.0057
+  far: 0.0597 +/- 0.0054
+  miss_rate: 0.0834 +/- 0.0120
+
+Final global test metrics:
+  accuracy: 0.7935 +/- 0.0057
+  balanced_accuracy: 0.6085 +/- 0.0070
+  specificity: 0.8702 +/- 0.0066
+  precision: 0.3145 +/- 0.0129
+  recall: 0.3468 +/- 0.0132
+  f1: 0.3298 +/- 0.0115
+  roc_auc: 0.7598 +/- 0.0107
+  pr_auc: 0.3030 +/- 0.0119
+  far: 0.1298 +/- 0.0066
+  miss_rate: 0.6532 +/- 0.0132
+
+Final fine-tuned test-client metrics:
+  n/a

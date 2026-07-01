@@ -1,0 +1,16 @@
+{
+  "losses_centralized": [],
+  "metrics_centralized": {},
+  "losses_distributed": [],
+  "metrics_distributed": {},
+  "metrics_distributed_fit": {},
+  "latest_probability_payload": {
+    "payload_type": "class_mean_counts",
+    "count": 42209.0,
+    "mean": 0.3795944372850868,
+    "pos_count": 15015.0,
+    "pos_mean": 0.9546096311344372,
+    "neg_count": 27194.0,
+    "neg_mean": 0.06210333131877087
+  }
+}

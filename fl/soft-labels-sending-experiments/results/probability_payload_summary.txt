@@ -1,0 +1,61 @@
+Soft-label Probability Payload Experiments
+==========================================
+
+Ranking by local PR-AUC:
+- global_mean_count (2 scalars, runs=10): local PR-AUC=0.8100, local F1=0.7760, global PR-AUC=0.7291, global F1=0.6158
+- global_mean_std_count (3 scalars, runs=10): local PR-AUC=0.8096, local F1=0.7802, global PR-AUC=0.7298, global F1=0.6236
+- class_mean_counts (4 scalars, runs=10): local PR-AUC=0.8065, local F1=0.7778, global PR-AUC=0.7299, global F1=0.6300
+- class_mean_std_counts (6 scalars, runs=10): local PR-AUC=0.8058, local F1=0.7783, global PR-AUC=0.7283, global F1=0.6308
+- class_quantile_stats (12 scalars, runs=10): local PR-AUC=0.8056, local F1=0.7766, global PR-AUC=0.7284, global F1=0.6269
+
+Per-run results:
+- class_mean_counts | local PR-AUC=0.8048 | local F1=0.7763 | global PR-AUC=0.7262 | global F1=0.6283 | soft-labels-sending-experiments\results\class_mean_counts\run_20260616_012036
+- class_mean_counts | local PR-AUC=0.8043 | local F1=0.7771 | global PR-AUC=0.7257 | global F1=0.6276 | soft-labels-sending-experiments\results\class_mean_counts\run_20260616_014831
+- class_mean_counts | local PR-AUC=0.8069 | local F1=0.7775 | global PR-AUC=0.7346 | global F1=0.6332 | soft-labels-sending-experiments\results\class_mean_counts\run_20260616_021634
+- class_mean_counts | local PR-AUC=0.8087 | local F1=0.7794 | global PR-AUC=0.7310 | global F1=0.6310 | soft-labels-sending-experiments\results\class_mean_counts\run_20260616_024437
+- class_mean_counts | local PR-AUC=0.8062 | local F1=0.7775 | global PR-AUC=0.7295 | global F1=0.6279 | soft-labels-sending-experiments\results\class_mean_counts\run_20260616_031250
+- class_mean_counts | local PR-AUC=0.8058 | local F1=0.7777 | global PR-AUC=0.7312 | global F1=0.6317 | soft-labels-sending-experiments\results\class_mean_counts\run_20260616_034121
+- class_mean_counts | local PR-AUC=0.8046 | local F1=0.7778 | global PR-AUC=0.7298 | global F1=0.6267 | soft-labels-sending-experiments\results\class_mean_counts\run_20260616_040928
+- class_mean_counts | local PR-AUC=0.8058 | local F1=0.7762 | global PR-AUC=0.7312 | global F1=0.6312 | soft-labels-sending-experiments\results\class_mean_counts\run_20260616_043711
+- class_mean_counts | local PR-AUC=0.8095 | local F1=0.7787 | global PR-AUC=0.7304 | global F1=0.6283 | soft-labels-sending-experiments\results\class_mean_counts\run_20260616_050526
+- class_mean_counts | local PR-AUC=0.8080 | local F1=0.7797 | global PR-AUC=0.7295 | global F1=0.6340 | soft-labels-sending-experiments\results\class_mean_counts\run_20260616_053304
+- class_mean_std_counts | local PR-AUC=0.8063 | local F1=0.7778 | global PR-AUC=0.7224 | global F1=0.6265 | soft-labels-sending-experiments\results\class_mean_std_counts\run_20260616_060016
+- class_mean_std_counts | local PR-AUC=0.8067 | local F1=0.7776 | global PR-AUC=0.7321 | global F1=0.6320 | soft-labels-sending-experiments\results\class_mean_std_counts\run_20260616_062737
+- class_mean_std_counts | local PR-AUC=0.8047 | local F1=0.7772 | global PR-AUC=0.7296 | global F1=0.6344 | soft-labels-sending-experiments\results\class_mean_std_counts\run_20260616_065507
+- class_mean_std_counts | local PR-AUC=0.8078 | local F1=0.7779 | global PR-AUC=0.7304 | global F1=0.6302 | soft-labels-sending-experiments\results\class_mean_std_counts\run_20260616_072219
+- class_mean_std_counts | local PR-AUC=0.8037 | local F1=0.7782 | global PR-AUC=0.7248 | global F1=0.6303 | soft-labels-sending-experiments\results\class_mean_std_counts\run_20260616_074927
+- class_mean_std_counts | local PR-AUC=0.8051 | local F1=0.7795 | global PR-AUC=0.7256 | global F1=0.6337 | soft-labels-sending-experiments\results\class_mean_std_counts\run_20260616_081643
+- class_mean_std_counts | local PR-AUC=0.8045 | local F1=0.7770 | global PR-AUC=0.7269 | global F1=0.6260 | soft-labels-sending-experiments\results\class_mean_std_counts\run_20260616_084355
+- class_mean_std_counts | local PR-AUC=0.8062 | local F1=0.7793 | global PR-AUC=0.7301 | global F1=0.6320 | soft-labels-sending-experiments\results\class_mean_std_counts\run_20260616_091131
+- class_mean_std_counts | local PR-AUC=0.8075 | local F1=0.7801 | global PR-AUC=0.7323 | global F1=0.6335 | soft-labels-sending-experiments\results\class_mean_std_counts\run_20260616_093857
+- class_mean_std_counts | local PR-AUC=0.8053 | local F1=0.7779 | global PR-AUC=0.7293 | global F1=0.6298 | soft-labels-sending-experiments\results\class_mean_std_counts\run_20260616_100624
+- class_quantile_stats | local PR-AUC=0.8063 | local F1=0.7774 | global PR-AUC=0.7276 | global F1=0.6276 | soft-labels-sending-experiments\results\class_quantile_stats\run_20260616_103409
+- class_quantile_stats | local PR-AUC=0.8066 | local F1=0.7773 | global PR-AUC=0.7309 | global F1=0.6304 | soft-labels-sending-experiments\results\class_quantile_stats\run_20260616_110157
+- class_quantile_stats | local PR-AUC=0.8057 | local F1=0.7771 | global PR-AUC=0.7329 | global F1=0.6296 | soft-labels-sending-experiments\results\class_quantile_stats\run_20260616_113035
+- class_quantile_stats | local PR-AUC=0.8061 | local F1=0.7756 | global PR-AUC=0.7278 | global F1=0.6259 | soft-labels-sending-experiments\results\class_quantile_stats\run_20260616_115837
+- class_quantile_stats | local PR-AUC=0.8042 | local F1=0.7765 | global PR-AUC=0.7292 | global F1=0.6280 | soft-labels-sending-experiments\results\class_quantile_stats\run_20260616_122652
+- class_quantile_stats | local PR-AUC=0.8052 | local F1=0.7779 | global PR-AUC=0.7254 | global F1=0.6214 | soft-labels-sending-experiments\results\class_quantile_stats\run_20260616_125514
+- class_quantile_stats | local PR-AUC=0.8063 | local F1=0.7769 | global PR-AUC=0.7256 | global F1=0.6271 | soft-labels-sending-experiments\results\class_quantile_stats\run_20260616_132341
+- class_quantile_stats | local PR-AUC=0.8053 | local F1=0.7756 | global PR-AUC=0.7322 | global F1=0.6256 | soft-labels-sending-experiments\results\class_quantile_stats\run_20260616_135254
+- class_quantile_stats | local PR-AUC=0.8023 | local F1=0.7758 | global PR-AUC=0.7214 | global F1=0.6248 | soft-labels-sending-experiments\results\class_quantile_stats\run_20260616_142147
+- class_quantile_stats | local PR-AUC=0.8080 | local F1=0.7762 | global PR-AUC=0.7312 | global F1=0.6288 | soft-labels-sending-experiments\results\class_quantile_stats\run_20260616_145008
+- global_mean_count | local PR-AUC=0.8093 | local F1=0.7767 | global PR-AUC=0.7279 | global F1=0.6176 | soft-labels-sending-experiments\results\global_mean_count\run_20260615_145444
+- global_mean_count | local PR-AUC=0.8115 | local F1=0.7754 | global PR-AUC=0.7304 | global F1=0.6184 | soft-labels-sending-experiments\results\global_mean_count\run_20260615_153424
+- global_mean_count | local PR-AUC=0.8087 | local F1=0.7738 | global PR-AUC=0.7297 | global F1=0.6149 | soft-labels-sending-experiments\results\global_mean_count\run_20260615_160811
+- global_mean_count | local PR-AUC=0.8073 | local F1=0.7753 | global PR-AUC=0.7289 | global F1=0.6175 | soft-labels-sending-experiments\results\global_mean_count\run_20260615_164117
+- global_mean_count | local PR-AUC=0.8118 | local F1=0.7758 | global PR-AUC=0.7308 | global F1=0.6077 | soft-labels-sending-experiments\results\global_mean_count\run_20260615_171600
+- global_mean_count | local PR-AUC=0.8084 | local F1=0.7783 | global PR-AUC=0.7279 | global F1=0.6190 | soft-labels-sending-experiments\results\global_mean_count\run_20260615_180947
+- global_mean_count | local PR-AUC=0.8106 | local F1=0.7762 | global PR-AUC=0.7269 | global F1=0.6143 | soft-labels-sending-experiments\results\global_mean_count\run_20260615_184152
+- global_mean_count | local PR-AUC=0.8127 | local F1=0.7763 | global PR-AUC=0.7273 | global F1=0.6152 | soft-labels-sending-experiments\results\global_mean_count\run_20260615_191212
+- global_mean_count | local PR-AUC=0.8102 | local F1=0.7757 | global PR-AUC=0.7303 | global F1=0.6164 | soft-labels-sending-experiments\results\global_mean_count\run_20260615_194146
+- global_mean_count | local PR-AUC=0.8092 | local F1=0.7762 | global PR-AUC=0.7305 | global F1=0.6166 | soft-labels-sending-experiments\results\global_mean_count\run_20260615_201123
+- global_mean_std_count | local PR-AUC=0.8111 | local F1=0.7807 | global PR-AUC=0.7328 | global F1=0.6256 | soft-labels-sending-experiments\results\global_mean_std_count\run_20260615_203958
+- global_mean_std_count | local PR-AUC=0.8091 | local F1=0.7794 | global PR-AUC=0.7281 | global F1=0.6196 | soft-labels-sending-experiments\results\global_mean_std_count\run_20260615_210816
+- global_mean_std_count | local PR-AUC=0.8097 | local F1=0.7799 | global PR-AUC=0.7268 | global F1=0.6191 | soft-labels-sending-experiments\results\global_mean_std_count\run_20260615_213619
+- global_mean_std_count | local PR-AUC=0.8112 | local F1=0.7805 | global PR-AUC=0.7308 | global F1=0.6251 | soft-labels-sending-experiments\results\global_mean_std_count\run_20260615_220426
+- global_mean_std_count | local PR-AUC=0.8095 | local F1=0.7796 | global PR-AUC=0.7312 | global F1=0.6222 | soft-labels-sending-experiments\results\global_mean_std_count\run_20260615_223231
+- global_mean_std_count | local PR-AUC=0.8106 | local F1=0.7801 | global PR-AUC=0.7286 | global F1=0.6233 | soft-labels-sending-experiments\results\global_mean_std_count\run_20260615_230047
+- global_mean_std_count | local PR-AUC=0.8079 | local F1=0.7813 | global PR-AUC=0.7297 | global F1=0.6241 | soft-labels-sending-experiments\results\global_mean_std_count\run_20260615_232908
+- global_mean_std_count | local PR-AUC=0.8092 | local F1=0.7810 | global PR-AUC=0.7295 | global F1=0.6228 | soft-labels-sending-experiments\results\global_mean_std_count\run_20260615_235707
+- global_mean_std_count | local PR-AUC=0.8105 | local F1=0.7798 | global PR-AUC=0.7319 | global F1=0.6290 | soft-labels-sending-experiments\results\global_mean_std_count\run_20260616_002501
+- global_mean_std_count | local PR-AUC=0.8075 | local F1=0.7798 | global PR-AUC=0.7282 | global F1=0.6256 | soft-labels-sending-experiments\results\global_mean_std_count\run_20260616_005241

@@ -1,0 +1,58 @@
+{
+  "experiment_id": "exp12_final_unweighted",
+  "title": "Experiment 12 - Final Unweighted",
+  "description": "Final KD baseline with 100 local epochs plus unweighted aggregation across participating clients.",
+  "communication_mode": "soft_labels",
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.7952522760261597,
+    "balanced_accuracy": 0.7232358553739664,
+    "specificity": 0.9040944057414445,
+    "precision": 0.6417660592928922,
+    "recall": 0.5423773050064888,
+    "f1": 0.565248214848429,
+    "roc_auc": 0.8252482678732022,
+    "pr_auc": 0.6823906603723668,
+    "far": 0.09590559425855592,
+    "miss_rate": 0.4576226949935112,
+    "tn": 16430.10763553926,
+    "fp": 1742.892364460737,
+    "fn": 3579.524720239244,
+    "tp": 4242.475279760756
+  },
+  "test_metrics": {
+    "accuracy": 0.8128769022299968,
+    "balanced_accuracy": 0.7502326654028102,
+    "specificity": 0.9161623677762286,
+    "precision": 0.6806679940245833,
+    "recall": 0.5843029630293914,
+    "f1": 0.609967394225824,
+    "roc_auc": 0.8448938704024039,
+    "pr_auc": 0.7373233400534046,
+    "far": 0.08383763222377144,
+    "miss_rate": 0.4156970369706081,
+    "tn": 16274.708301176925,
+    "fp": 1489.2916988230754,
+    "fn": 3336.8001157630715,
+    "tp": 4690.1998842369285
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.9210045776321759,
+    "balanced_accuracy": 0.9085533396417218,
+    "specificity": 0.9606283626007787,
+    "precision": 0.7963081662832617,
+    "recall": 0.7361570741590292,
+    "f1": 0.7509015344714199,
+    "roc_auc": 0.8515449397004398,
+    "pr_auc": 0.8125745038474083,
+    "far": 0.039371637399221046,
+    "miss_rate": 0.14352168331733564
+  },
+  "fine_tune_summary": {},
+  "latest_kd_payload": {
+    "mean_soft_pos": 0.4174007785138121,
+    "count": 600.927536231884
+  }
+}

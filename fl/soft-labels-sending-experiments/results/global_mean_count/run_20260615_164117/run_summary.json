@@ -1,0 +1,60 @@
+{
+  "experiment_id": "exp11_baseline_final",
+  "title": "Experiment 11 - Baseline Final",
+  "payload_name": "global_mean_count",
+  "payload_description": "Baseline payload: one global mean predicted fall probability plus count.",
+  "payload_scalar_count": 2,
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.7955842320123534,
+    "balanced_accuracy": 0.728971403370521,
+    "specificity": 0.8962596345119016,
+    "precision": 0.6207600253227932,
+    "recall": 0.5616831722291405,
+    "f1": 0.5767681461509376,
+    "roc_auc": 0.8201476249439035,
+    "pr_auc": 0.6747872977951044,
+    "far": 0.10374036548809829,
+    "miss_rate": 0.4383168277708597,
+    "tn": 16287.72633798479,
+    "fp": 1885.27366201521,
+    "fn": 3428.514226823663,
+    "tp": 4393.485773176337
+  },
+  "test_metrics": {
+    "accuracy": 0.8122075991315326,
+    "balanced_accuracy": 0.75432872543176,
+    "specificity": 0.9076361128807516,
+    "precision": 0.6589980579737097,
+    "recall": 0.6010213379827682,
+    "f1": 0.617547341099501,
+    "roc_auc": 0.8410276416809986,
+    "pr_auc": 0.72889750532219,
+    "far": 0.09236388711924819,
+    "miss_rate": 0.3989786620172319,
+    "tn": 16123.247909213675,
+    "fp": 1640.7520907863252,
+    "fn": 3202.6017200123197,
+    "tp": 4824.39827998768
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.9368368407090065,
+    "balanced_accuracy": 0.9258020932938228,
+    "specificity": 0.9573545814364405,
+    "precision": 0.7885405830531769,
+    "recall": 0.7688971921587145,
+    "f1": 0.7752585984154439,
+    "roc_auc": 0.846492686647485,
+    "pr_auc": 0.8073071747135633,
+    "far": 0.04264541856355944,
+    "miss_rate": 0.10575039484879545
+  },
+  "fine_tune_summary": {},
+  "latest_probability_payload": {
+    "payload_type": "global_mean_count",
+    "count": 42209.0,
+    "mean": 0.43192165386911485
+  }
+}

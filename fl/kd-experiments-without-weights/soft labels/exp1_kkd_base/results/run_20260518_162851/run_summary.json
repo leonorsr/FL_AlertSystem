@@ -1,0 +1,58 @@
+{
+  "experiment_id": "exp1_kkd_base",
+  "title": "Experiment 1 - KKD Base",
+  "description": "Standard KKD federated training using the same MLP architecture and byclient split.",
+  "communication_mode": "soft_labels",
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.7631440963004471,
+    "balanced_accuracy": 0.7152635372527342,
+    "specificity": 0.8355084539221663,
+    "precision": 0.5608003777728781,
+    "recall": 0.5950186205833017,
+    "f1": 0.5564303844299306,
+    "roc_auc": 0.8005075205461303,
+    "pr_auc": 0.6396035140355247,
+    "far": 0.16449154607783345,
+    "miss_rate": 0.4049813794166985,
+    "tn": 15183.695133127532,
+    "fp": 2989.3048668724678,
+    "fn": 3167.7643497974145,
+    "tp": 4654.235650202585
+  },
+  "test_metrics": {
+    "accuracy": 0.7775992140789667,
+    "balanced_accuracy": 0.7326913521532321,
+    "specificity": 0.8516416106442073,
+    "precision": 0.5962239851481685,
+    "recall": 0.6137410936622566,
+    "f1": 0.5866101048360554,
+    "roc_auc": 0.8169752280919639,
+    "pr_auc": 0.6910144690943218,
+    "far": 0.14835838935579276,
+    "miss_rate": 0.38625890633774324,
+    "tn": 15128.561571483697,
+    "fp": 2635.4384285163032,
+    "fn": 3100.5002411730657,
+    "tp": 4926.499758826934
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.8778699687772782,
+    "balanced_accuracy": 0.8693788498060607,
+    "specificity": 0.9031770436853949,
+    "precision": 0.7196586751495866,
+    "recall": 0.7152594134030922,
+    "f1": 0.705281590268618,
+    "roc_auc": 0.8226815311567188,
+    "pr_auc": 0.7700897277955382,
+    "far": 0.09682295631460536,
+    "miss_rate": 0.16441934407327283
+  },
+  "fine_tune_summary": {},
+  "latest_kd_payload": {
+    "mean_soft_pos": 0.4587413950839599,
+    "count": 733.8385105151457
+  }
+}

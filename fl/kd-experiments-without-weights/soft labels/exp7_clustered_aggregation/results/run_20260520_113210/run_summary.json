@@ -1,0 +1,59 @@
+{
+  "experiment_id": "exp7_clustered_aggregation",
+  "title": "Experiment 7 - Clustered Aggregation",
+  "description": "Aggregate similar clients into subgroup models before sending them to the global server in a KD workflow.",
+  "communication_mode": "soft_labels",
+  "communicates_model_weights": false,
+  "num_train_clients": 69,
+  "feature_count": 32,
+  "dev_metrics": {
+    "accuracy": 0.768084524720119,
+    "balanced_accuracy": 0.7066903417902292,
+    "specificity": 0.8608727188806053,
+    "precision": 0.576370531216835,
+    "recall": 0.552507964699853,
+    "f1": 0.5467715280744477,
+    "roc_auc": 0.7990291355085318,
+    "pr_auc": 0.6357264916423697,
+    "far": 0.1391272811193947,
+    "miss_rate": 0.4474920353001471,
+    "tn": 15644.63992021724,
+    "fp": 2528.3600797827603,
+    "fn": 3500.2827001177516,
+    "tp": 4321.717299882248
+  },
+  "test_metrics": {
+    "accuracy": 0.782828289816462,
+    "balanced_accuracy": 0.7266885738133538,
+    "specificity": 0.8753893456564439,
+    "precision": 0.6141662597852786,
+    "recall": 0.577987801970263,
+    "f1": 0.5799286044207764,
+    "roc_auc": 0.8163040669639077,
+    "pr_auc": 0.6891612566155614,
+    "far": 0.12461065434355555,
+    "miss_rate": 0.4220121980297368,
+    "tn": 15550.416336241078,
+    "fp": 2213.5836637589214,
+    "fn": 3387.491913584697,
+    "tp": 4639.508086415303
+  },
+  "local_metrics_summary": {
+    "accuracy": 0.8843780934109087,
+    "balanced_accuracy": 0.8696838905562315,
+    "specificity": 0.920278562491971,
+    "precision": 0.7367109711245513,
+    "recall": 0.6981894997826292,
+    "f1": 0.7074923561422813,
+    "roc_auc": 0.821039352289438,
+    "pr_auc": 0.7709923100818854,
+    "far": 0.07972143750802878,
+    "miss_rate": 0.18091078137950767
+  },
+  "fine_tune_summary": {},
+  "latest_kd_payload": {
+    "mean_soft_pos": 0.4562444140001671,
+    "count": 724.8193833657751,
+    "cluster_id": 0.6345853459255522
+  }
+}

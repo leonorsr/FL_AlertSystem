@@ -1,0 +1,39 @@
+Binned Soft-label Probability Payload Experiments
+================================================
+
+Ranking by local PR-AUC:
+- prob_bins_10 (10 bins, 30 scalars, runs=10): local PR-AUC=0.8048, local F1=0.7830, global PR-AUC=0.7256, global F1=0.6335
+- prob_bins_5 (5 bins, 15 scalars, runs=10): local PR-AUC=0.8043, local F1=0.7821, global PR-AUC=0.7237, global F1=0.6327
+- prob_bins_3 (3 bins, 9 scalars, runs=10): local PR-AUC=0.8032, local F1=0.7767, global PR-AUC=0.7200, global F1=0.6261
+
+Per-run results:
+- prob_bins_10 | local PR-AUC=0.8042 | local F1=0.7829 | global PR-AUC=0.7229 | global F1=0.6328 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_10\run_20260619_230555
+- prob_bins_10 | local PR-AUC=0.8061 | local F1=0.7836 | global PR-AUC=0.7227 | global F1=0.6311 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_10\run_20260619_234051
+- prob_bins_10 | local PR-AUC=0.8044 | local F1=0.7832 | global PR-AUC=0.7247 | global F1=0.6303 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_10\run_20260620_001517
+- prob_bins_10 | local PR-AUC=0.8081 | local F1=0.7848 | global PR-AUC=0.7289 | global F1=0.6377 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_10\run_20260620_004938
+- prob_bins_10 | local PR-AUC=0.8048 | local F1=0.7843 | global PR-AUC=0.7258 | global F1=0.6322 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_10\run_20260620_012451
+- prob_bins_10 | local PR-AUC=0.8056 | local F1=0.7840 | global PR-AUC=0.7279 | global F1=0.6327 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_10\run_20260620_020030
+- prob_bins_10 | local PR-AUC=0.8030 | local F1=0.7822 | global PR-AUC=0.7246 | global F1=0.6324 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_10\run_20260620_023536
+- prob_bins_10 | local PR-AUC=0.8031 | local F1=0.7812 | global PR-AUC=0.7279 | global F1=0.6351 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_10\run_20260620_030911
+- prob_bins_10 | local PR-AUC=0.8043 | local F1=0.7814 | global PR-AUC=0.7269 | global F1=0.6342 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_10\run_20260620_034315
+- prob_bins_10 | local PR-AUC=0.8049 | local F1=0.7826 | global PR-AUC=0.7240 | global F1=0.6366 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_10\run_20260620_041742
+- prob_bins_3 | local PR-AUC=0.8036 | local F1=0.7749 | global PR-AUC=0.7208 | global F1=0.6254 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_3\run_20260619_110213
+- prob_bins_3 | local PR-AUC=0.8037 | local F1=0.7772 | global PR-AUC=0.7169 | global F1=0.6179 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_3\run_20260619_113524
+- prob_bins_3 | local PR-AUC=0.8017 | local F1=0.7741 | global PR-AUC=0.7209 | global F1=0.6266 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_3\run_20260619_120847
+- prob_bins_3 | local PR-AUC=0.8057 | local F1=0.7770 | global PR-AUC=0.7215 | global F1=0.6267 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_3\run_20260619_124224
+- prob_bins_3 | local PR-AUC=0.8027 | local F1=0.7752 | global PR-AUC=0.7211 | global F1=0.6258 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_3\run_20260619_131627
+- prob_bins_3 | local PR-AUC=0.8013 | local F1=0.7706 | global PR-AUC=0.7215 | global F1=0.6238 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_3\run_20260619_135239
+- prob_bins_3 | local PR-AUC=0.8013 | local F1=0.7762 | global PR-AUC=0.7164 | global F1=0.6215 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_3\run_20260619_142741
+- prob_bins_3 | local PR-AUC=0.8045 | local F1=0.7797 | global PR-AUC=0.7196 | global F1=0.6306 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_3\run_20260619_150306
+- prob_bins_3 | local PR-AUC=0.8051 | local F1=0.7826 | global PR-AUC=0.7224 | global F1=0.6331 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_3\run_20260619_153918
+- prob_bins_3 | local PR-AUC=0.8029 | local F1=0.7798 | global PR-AUC=0.7186 | global F1=0.6294 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_3\run_20260619_161559
+- prob_bins_5 | local PR-AUC=0.8022 | local F1=0.7825 | global PR-AUC=0.7226 | global F1=0.6346 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_5\run_20260619_165225
+- prob_bins_5 | local PR-AUC=0.8059 | local F1=0.7840 | global PR-AUC=0.7236 | global F1=0.6318 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_5\run_20260619_173220
+- prob_bins_5 | local PR-AUC=0.8026 | local F1=0.7816 | global PR-AUC=0.7232 | global F1=0.6322 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_5\run_20260619_181148
+- prob_bins_5 | local PR-AUC=0.8047 | local F1=0.7823 | global PR-AUC=0.7257 | global F1=0.6339 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_5\run_20260619_185112
+- prob_bins_5 | local PR-AUC=0.8036 | local F1=0.7814 | global PR-AUC=0.7231 | global F1=0.6347 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_5\run_20260619_192854
+- prob_bins_5 | local PR-AUC=0.8051 | local F1=0.7826 | global PR-AUC=0.7205 | global F1=0.6293 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_5\run_20260619_200721
+- prob_bins_5 | local PR-AUC=0.8047 | local F1=0.7808 | global PR-AUC=0.7274 | global F1=0.6320 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_5\run_20260619_204519
+- prob_bins_5 | local PR-AUC=0.8035 | local F1=0.7817 | global PR-AUC=0.7240 | global F1=0.6327 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_5\run_20260619_212108
+- prob_bins_5 | local PR-AUC=0.8064 | local F1=0.7826 | global PR-AUC=0.7212 | global F1=0.6306 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_5\run_20260619_215600
+- prob_bins_5 | local PR-AUC=0.8045 | local F1=0.7819 | global PR-AUC=0.7258 | global F1=0.6358 | C:\Users\leono\Desktop\iscte\Tese\FL_MasterThesis\soft-label-bin-sending-experiments\results\prob_bins_5\run_20260619_223051
