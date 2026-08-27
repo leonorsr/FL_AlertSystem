@@ -1,0 +1,13 @@
+Best smoke partitions by FL model
+=================================
+
+Selection score = mean of available test ROC-AUC and PR-AUC.
+
+class_prototype: smote / 70_synthetic_30_original / score=0.6347
+  - smote: 70_synthetic_30_original (score=0.6347)
+
+fedavg: smote / 25_synthetic_75_original / score=0.6855
+  - smote: 25_synthetic_75_original (score=0.6855)
+
+soft_labels: smote / 70_synthetic_30_original / score=0.6426
+  - smote: 70_synthetic_30_original (score=0.6426)

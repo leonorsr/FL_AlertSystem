@@ -1,0 +1,21 @@
+{
+  "method": "SMOTE",
+  "datasets_dir": "gen_syntdata/baseline_smote/full_data_datasets",
+  "strategies": [
+    "fedavg",
+    "soft_labels",
+    "class_prototype"
+  ],
+  "mixtures": [
+    "25_synthetic_75_original",
+    "50_synthetic_50_original",
+    "70_synthetic_30_original",
+    "90_synthetic_10_original"
+  ],
+  "seeds": [
+    1
+  ],
+  "num_rounds": 1,
+  "local_epochs": 1,
+  "run_count": 12
+}

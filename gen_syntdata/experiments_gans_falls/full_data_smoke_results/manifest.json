@@ -1,0 +1,33 @@
+{
+  "datasets_dir": "gen_syntdata/experiments_gans_falls/full_data_datasets",
+  "output_dir": "gen_syntdata/experiments_gans_falls/full_data_smoke_results",
+  "generators": [
+    "timegan",
+    "rcgan_lite",
+    "crnngan_lite",
+    "wavegan_lite",
+    "doppelganger_lite"
+  ],
+  "models": [
+    "fedavg",
+    "soft_labels",
+    "class_prototype"
+  ],
+  "mixtures": [
+    "25_synthetic_75_original",
+    "50_synthetic_50_original",
+    "70_synthetic_30_original",
+    "90_synthetic_10_original"
+  ],
+  "seeds": [
+    1
+  ],
+  "num_rounds": 1,
+  "local_epochs": 1,
+  "experiments": {
+    "fedavg": "exp_synthetic_mlp_unweighted",
+    "kd": "exp13_final_keep_best_local",
+    "soft_labels": "exp13_final_keep_best_local",
+    "class_prototype": "exp13_final_keep_best_local"
+  }
+}

@@ -1,0 +1,11 @@
+Best smoke partitions by FL model
+=================================
+
+Selection score = mean of available test ROC-AUC and PR-AUC.
+
+class_prototype: rcgan_lite / 90_synthetic_10_original / score=0.4487
+  - rcgan_lite: 90_synthetic_10_original (score=0.4487)
+  - wavegan_lite: 90_synthetic_10_original (score=0.3463)
+
+soft_labels: rcgan_lite / 90_synthetic_10_original / score=0.8757
+  - rcgan_lite: 90_synthetic_10_original (score=0.8757)

@@ -1,0 +1,95 @@
+{
+  "method": "SMOTE",
+  "implementation": "standardized k-nearest-neighbor interpolation",
+  "formula": "x_new = x_i + lambda * (x_neighbor - x_i)",
+  "minority_label": 1,
+  "k_neighbors": 5,
+  "seed": 42,
+  "source_original": "fl/data/preprocessing_results/composed/sequence_ready_nn/windows.csv",
+  "original_rows_fixed": 259942,
+  "smote_fit_rows": 208401,
+  "real_split_rows": {
+    "train": 208401,
+    "dev": 25750,
+    "test": 25791
+  },
+  "smote_fit_split": "train_only",
+  "dev_test_used_for_smote": false,
+  "feature_count": 41,
+  "ratios": {
+    "25_synthetic_75_original": 0.25,
+    "50_synthetic_50_original": 0.5,
+    "70_synthetic_30_original": 0.7,
+    "90_synthetic_10_original": 0.9
+  },
+  "datasets": [
+    {
+      "method": "SMOTE",
+      "minority_label": 1,
+      "original_rows": 259942,
+      "synthetic_rows": 86648,
+      "total_rows": 346590,
+      "target_synthetic_ratio": 0.25,
+      "actual_synthetic_ratio_by_rows": 0.25000144262673474,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "1": 86648
+      },
+      "mixture": "25_synthetic_75_original"
+    },
+    {
+      "method": "SMOTE",
+      "minority_label": 1,
+      "original_rows": 259942,
+      "synthetic_rows": 259942,
+      "total_rows": 519884,
+      "target_synthetic_ratio": 0.5,
+      "actual_synthetic_ratio_by_rows": 0.5,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "1": 259942
+      },
+      "mixture": "50_synthetic_50_original"
+    },
+    {
+      "method": "SMOTE",
+      "minority_label": 1,
+      "original_rows": 259942,
+      "synthetic_rows": 606532,
+      "total_rows": 866474,
+      "target_synthetic_ratio": 0.7,
+      "actual_synthetic_ratio_by_rows": 0.700000230820544,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "1": 606532
+      },
+      "mixture": "70_synthetic_30_original"
+    },
+    {
+      "method": "SMOTE",
+      "minority_label": 1,
+      "original_rows": 259942,
+      "synthetic_rows": 2339478,
+      "total_rows": 2599420,
+      "target_synthetic_ratio": 0.9,
+      "actual_synthetic_ratio_by_rows": 0.9,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "1": 2339478
+      },
+      "mixture": "90_synthetic_10_original"
+    }
+  ]
+}

@@ -1,0 +1,275 @@
+COMPARAÇÃO FINAL: GANs DUAS CLASSES, GANs APENAS QUEDAS, SMOTE E DADOS REAIS
+============================================================================
+
+1. Objetivo e métricas
+----------------------
+
+- Comparar: (a) experiments_gans, que gera quedas e não-quedas; (b)
+  experiments_gans_falls, que gera apenas quedas; (c) baseline_smote, que cria
+  quedas por interpolação; e (d) referências treinadas só com dados reais.
+- Métricas principais: ROC-AUC e PR-AUC. Métricas complementares: Balanced
+  Accuracy, F1, Recall e FAR (False Alarm Rate; menor é melhor).
+- Score de seleção smoke = média(ROC-AUC de teste, PR-AUC de teste).
+
+
+2. Metodologia corrigida e divisão dos dados
+--------------------------------------------
+
+- O protocolo antigo usava apenas 5 000 linhas reais. É mantido apenas como
+  histórico e não é misturado com os resultados full_data.
+- O protocolo corrigido usa todas as 259 942 linhas reais de
+  fl/data/preprocessing_results/composed/sequence_ready_nn/windows.csv.
+- Fontes reais: KFall, SisFall e UpFall; 41 features numéricas de acelerómetro e
+  giroscópio.
+- Classes reais: 171 646 não-quedas (label=0) e 88 296 quedas (label=1).
+- Split fixo por cliente, igual em todas as abordagens:
+  - treino: 208 401 linhas reais, 69 clientes;
+  - desenvolvimento: 25 750 linhas reais;
+  - teste: 25 791 linhas reais.
+- Um cliente de dev/test não aparece no treino, evitando fuga de informação
+  entre janelas do mesmo participante.
+- GAN e SMOTE são ajustados exclusivamente com linhas dos clientes de treino.
+  Dev/test não são usados para ajustar geradores, escolher vizinhos ou produzir
+  sintéticos.
+- Os sintéticos são atribuídos a KFall/SA06, cliente pertencente ao treino.
+- Desenvolvimento e teste permanecem 100% reais.
+- As 259 942 linhas reais ficam fixas; varia apenas a quantidade sintética:
+  - 25/75: +86 648 sintéticas = 346 590 linhas;
+  - 50/50: +259 942 sintéticas = 519 884 linhas;
+  - 70/30: +606 532 sintéticas = 866 474 linhas;
+  - 90/10: +2 339 478 sintéticas = 2 599 420 linhas.
+
+
+3. Preparação sintética
+-----------------------
+
+experiments_gans — duas classes:
+
+- Geradores: TimeGAN, RCGAN-lite, C-RNN-GAN-lite, WaveGAN-lite e
+  DoppelGANger-lite.
+- Cada classe é modelada separadamente. A TimeGAN usa um modelo por classe; as
+  GANs-lite recebem referências de treino separadas por label.
+- A distribuição sintética segue o treino: cerca de 65,24% label=0 e 34,76%
+  label=1.
+- TimeGAN: 100 épocas de embedding, 100 supervisionadas e 200 conjuntas.
+- Validação obrigatória da presença das duas classes nos CSVs sintéticos.
+
+experiments_gans_falls — apenas quedas:
+
+- Mesmos cinco geradores, ajustados exclusivamente com quedas dos clientes de
+  treino.
+- Todas as linhas sintéticas têm label=1; os dados reais mantêm ambas as classes.
+- A preparação aborta se encontrar qualquer label sintético diferente de 1.
+
+baseline_smote:
+
+- SMOTE aplicado apenas às quedas dos clientes de treino.
+- Imputação pela mediana, normalização standard e k=5 vizinhos.
+- x_novo = x_i + lambda * (x_vizinho - x_i); todas as novas linhas têm label=1.
+
+
+4. Aprendizagem federada
+------------------------
+
+- FedAvg: treino local e agregação dos pesos no servidor.
+- Soft Labels: comunicação de previsões suaves sem partilha direta de pesos.
+- Class Prototype: comunicação de protótipos de classe sem partilha de pesos.
+- Classificador MLP com 41 features; 69 clientes de treino.
+
+
+5. Smoke tests
+--------------
+
+- GAN duas classes: 5 geradores x 4 repartições x 3 estratégias = 60 testes.
+- GAN apenas quedas: 5 x 4 x 3 = 60 testes.
+- SMOTE: 4 repartições x 3 estratégias = 12 testes.
+- Configuração: seed=1, 1 ronda e 1 época local. Servem apenas para seleção.
+
+Tabela 1 — melhor smoke de cada método em cada repartição
+
+| Método | Synth/real | Estratégia + gerador | Score | ROC-AUC | PR-AUC | F1 | Recall | FAR |
+|--------|------------|-----------------------|-------|---------|--------|----|--------|-----|
+| GAN duas classes | 25/75 | FedAvg + WaveGAN-lite | 0.6742 | 0.7386 | 0.6098 | 0.4156 | 0.2884 | 0.0449 |
+| GAN duas classes | 50/50 | Class Prototype + RCGAN-lite | 0.7394 | 0.7881 | 0.6907 | 0.6014 | 0.7104 | 0.2871 |
+| GAN duas classes | 70/30 | Soft Labels + RCGAN-lite | 0.7968 | 0.8405 | 0.7532 | 0.6372 | 0.7707 | 0.2876 |
+| GAN duas classes | 90/10 | Soft Labels + RCGAN-lite | 0.8570 | 0.8922 | 0.8218 | 0.6856 | 0.8827 | 0.3096 |
+| GAN apenas quedas | 25/75 | FedAvg + WaveGAN-lite | 0.6642 | 0.7471 | 0.5812 | 0.5318 | 0.4069 | 0.0557 |
+| GAN apenas quedas | 50/50 | FedAvg + TimeGAN | 0.6667 | 0.7203 | 0.6132 | 0.5080 | 0.7259 | 0.5117 |
+| GAN apenas quedas | 70/30 | Soft Labels + RCGAN-lite | 0.6627 | 0.7325 | 0.5929 | 0.5119 | 0.8168 | 0.5912 |
+| GAN apenas quedas | 90/10 | FedAvg + WaveGAN-lite | 0.6682 | 0.7103 | 0.6261 | 0.5539 | 0.5499 | 0.1969 |
+| SMOTE | 25/75 | FedAvg + SMOTE | 0.6855 | 0.7649 | 0.6061 | 0.2342 | 0.1411 | 0.0289 |
+| SMOTE | 50/50 | FedAvg + SMOTE | 0.6537 | 0.7246 | 0.5828 | 0.5023 | 0.8288 | 0.6649 |
+| SMOTE | 70/30 | FedAvg + SMOTE | 0.6590 | 0.7461 | 0.5720 | 0.5040 | 0.3907 | 0.0722 |
+| SMOTE | 90/10 | FedAvg + SMOTE | 0.6731 | 0.7410 | 0.6052 | 0.0388 | 0.0199 | 0.0037 |
+
+Análise smoke:
+
+- GAN duas classes melhora progressivamente até 90/10 (score 0.8570).
+- GAN-falls fica praticamente estável entre repartições, sem benefício claro de
+  aumentar muito os sintéticos.
+- SMOTE é melhor em 25/75. No smoke 90/10, F1=0.0388 e Recall=0.0199 revelam um
+  classificador quase sempre negativo, apesar do score de 0.6731.
+- Melhor smoke global: Soft Labels + RCGAN-lite + duas classes + 90/10.
+
+
+6. Treinos completos
+--------------------
+
+- Selecionou-se o top 3 de cada grelha GAN e o melhor SMOTE.
+- Cada configuração final: seeds 1–10, 25 rondas, 100 épocas locais por ronda.
+- Resultados = média ± desvio-padrão no teste global exclusivamente real.
+
+Tabela 2 — resultados finais full_data
+
+| Método | Configuração | Balanced Acc. | F1 | ROC-AUC | PR-AUC | Recall | FAR |
+|--------|--------------|---------------|----|---------|--------|--------|-----|
+| GAN duas classes | Soft Labels + RCGAN-lite + 90/10 | 0.8144 ± 0.0055 | 0.7296 ± 0.0073 | 0.9073 ± 0.0035 | 0.8441 ± 0.0077 | 0.8158 ± 0.0195 | 0.1869 ± 0.0173 |
+| GAN duas classes | Class Prototype + RCGAN-lite + 90/10 | 0.5183 ± 0.0531 | 0.3123 ± 0.1655 | 0.5467 ± 0.0916 | 0.3506 ± 0.0610 | 0.4070 ± 0.2791 | 0.3704 ± 0.2762 |
+| GAN duas classes | Class Prototype + WaveGAN-lite + 90/10 | 0.5112 ± 0.0146 | 0.4299 ± 0.1298 | 0.4215 ± 0.0650 | 0.2710 ± 0.0253 | 0.8408 ± 0.2859 | 0.8183 ± 0.2729 |
+| GAN apenas quedas | FedAvg + TimeGAN + 50/50 | 0.7789 ± 0.0164 | 0.6998 ± 0.0243 | 0.8705 ± 0.0106 | 0.7329 ± 0.0279 | 0.6608 ± 0.0311 | 0.1031 ± 0.0264 |
+| GAN apenas quedas | FedAvg + WaveGAN-lite + 25/75 | 0.7720 ± 0.0109 | 0.6892 ± 0.0157 | 0.8632 ± 0.0089 | 0.7040 ± 0.0213 | 0.6557 ± 0.0215 | 0.1117 ± 0.0152 |
+| GAN apenas quedas | FedAvg + WaveGAN-lite + 90/10 | 0.7727 ± 0.0104 | 0.6922 ± 0.0145 | 0.8618 ± 0.0103 | 0.7002 ± 0.0185 | 0.6390 ± 0.0241 | 0.0935 ± 0.0121 |
+| SMOTE | FedAvg + SMOTE + 25/75 | 0.7800 ± 0.0104 | 0.7003 ± 0.0156 | 0.8708 ± 0.0099 | 0.7101 ± 0.0285 | 0.6718 ± 0.0158 | 0.1118 ± 0.0187 |
+
+
+7. Resultados locais e comparação local–global
+-----------------------------------------------
+
+Definição das duas avaliações:
+
+- Resultado global: desempenho do modelo final no test global, constituído por
+  clientes reais nunca usados no treino. Mede generalização para participantes
+  não observados e é a referência principal para comparar métodos.
+- Resultado local: desempenho dos modelos locais na partição de validação de
+  cada cliente de treino, reservada por trial; as métricas são depois agregadas
+  entre clientes. Mede adaptação aos clientes conhecidos.
+- Como local e global usam populações diferentes, o gap não é apenas efeito do
+  modelo: inclui também heterogeneidade entre clientes e domain shift.
+
+Tabela 3 — modelos locais (média ± desvio-padrão em 10 seeds)
+
+| Método | Configuração | Balanced Acc. local | F1 local | ROC-AUC local | PR-AUC local | Recall local | FAR local |
+|--------|--------------|---------------------|----------|---------------|--------------|--------------|-----------|
+| GAN duas classes | Class Prototype + RCGAN-lite + 90/10 | 0.5317 ± 0.0419 | 0.3568 ± 0.1774 | 0.5359 ± 0.0655 | 0.3867 ± 0.0525 | 0.4569 ± 0.2945 | 0.4011 ± 0.2981 |
+| GAN duas classes | Class Prototype + WaveGAN-lite + 90/10 | 0.5237 ± 0.0074 | 0.4888 ± 0.1018 | 0.4543 ± 0.0744 | 0.3311 ± 0.0429 | 0.8709 ± 0.2578 | 0.8311 ± 0.2635 |
+| GAN duas classes | Soft Labels + RCGAN-lite + 90/10 | 0.9165 ± 0.0022 | 0.8817 ± 0.0021 | 0.9640 ± 0.0011 | 0.9450 ± 0.0011 | 0.8953 ± 0.0093 | 0.0699 ± 0.0057 |
+| GAN apenas quedas | FedAvg + TimeGAN + 50/50 | 0.8482 ± 0.0058 | 0.6416 ± 0.0065 | 0.8717 ± 0.0064 | 0.7815 ± 0.0061 | 0.7257 ± 0.0107 | 0.1743 ± 0.0119 |
+| GAN apenas quedas | FedAvg + WaveGAN-lite + 25/75 | 0.8487 ± 0.0053 | 0.6442 ± 0.0049 | 0.8734 ± 0.0061 | 0.7855 ± 0.0071 | 0.7296 ± 0.0113 | 0.1770 ± 0.0095 |
+| GAN apenas quedas | FedAvg + WaveGAN-lite + 90/10 | 0.8426 ± 0.0051 | 0.6432 ± 0.0055 | 0.8643 ± 0.0056 | 0.7781 ± 0.0099 | 0.7213 ± 0.0129 | 0.1809 ± 0.0116 |
+| SMOTE | FedAvg + SMOTE + 25/75 | 0.8476 ± 0.0050 | 0.6423 ± 0.0046 | 0.8731 ± 0.0049 | 0.7824 ± 0.0080 | 0.7301 ± 0.0122 | 0.1798 ± 0.0101 |
+
+Tabela 4 — gap local menos global (valores médios)
+
+| Método/configuração | Δ Balanced Acc. | Δ F1 | Δ ROC-AUC | Δ PR-AUC | Δ Recall | Δ FAR |
+|----------------------|-----------------|------|------------|-----------|----------|-------|
+| GAN duas classes — Class Prototype + RCGAN-lite 90/10 | +0.0134 | +0.0445 | -0.0108 | +0.0361 | +0.0499 | +0.0307 |
+| GAN duas classes — Class Prototype + WaveGAN-lite 90/10 | +0.0125 | +0.0589 | +0.0328 | +0.0600 | +0.0301 | +0.0128 |
+| GAN duas classes — Soft Labels + RCGAN-lite 90/10 | +0.1021 | +0.1521 | +0.0568 | +0.1009 | +0.0795 | -0.1170 |
+| GAN apenas quedas — FedAvg + TimeGAN 50/50 | +0.0693 | -0.0583 | +0.0013 | +0.0485 | +0.0649 | +0.0711 |
+| GAN apenas quedas — FedAvg + WaveGAN-lite 25/75 | +0.0767 | -0.0449 | +0.0102 | +0.0815 | +0.0738 | +0.0653 |
+| GAN apenas quedas — FedAvg + WaveGAN-lite 90/10 | +0.0699 | -0.0489 | +0.0025 | +0.0778 | +0.0823 | +0.0874 |
+| SMOTE — FedAvg 25/75 | +0.0676 | -0.0580 | +0.0023 | +0.0723 | +0.0583 | +0.0681 |
+
+Análise local–global:
+
+- Soft Labels + RCGAN-lite é também a melhor configuração local. A passagem de
+  local para clientes globais desconhecidos reduz PR-AUC de 0.9450 para 0.8441,
+  F1 de 0.8817 para 0.7296 e Balanced Accuracy de 0.9165 para 0.8144; a FAR
+  aumenta de 0.0699 para 0.1869. Existe um gap de generalização relevante,
+  embora continue a ser a melhor solução sintética global.
+- Nas três configurações GAN-falls e no SMOTE, as métricas locais são quase
+  idênticas entre métodos. A PR-AUC local ronda 0.78, mas desce no teste global
+  para 0.70–0.73. Isto sugere comportamento semelhante nos clientes conhecidos e
+  perda de generalização para clientes reservados.
+- Nesses modelos FedAvg, F1 global é superior ao F1 local apesar de Balanced
+  Accuracy/PR-AUC locais superiores. Não é contradição: os conjuntos têm
+  prevalências e clientes diferentes, e F1 depende do limiar e da distribuição
+  de classes.
+- As duas configurações Class Prototype apresentam elevada variabilidade local e
+  global. O caso WaveGAN tem Recall muito alto, mas FAR também muito alta,
+  indicando tendência para prever queda em excesso.
+- Os resultados locais não substituem o teste global: podem mostrar boa adaptação
+  aos clientes de treino enquanto escondem perda de generalização.
+
+
+8. Análise comparativa full_data
+--------------------------------
+
+- Melhor solução sintética: GAN duas classes + Soft Labels + RCGAN-lite 90/10.
+- Face ao melhor GAN-falls (TimeGAN 50/50), ganha +0.0355 Balanced Accuracy,
+  +0.0298 F1, +0.0368 ROC-AUC, +0.1112 PR-AUC e +0.1550 Recall, mas a FAR
+  piora +0.0838.
+- Face ao SMOTE, ganha +0.0344 Balanced Accuracy, +0.0293 F1, +0.0365 ROC-AUC,
+  +0.1340 PR-AUC e +0.1440 Recall, mas a FAR piora +0.0751.
+- GAN-falls TimeGAN 50/50 e SMOTE 25/75 são muito próximos em Balanced Accuracy,
+  F1 e ROC-AUC. GAN-falls tem PR-AUC superior (0.7329 vs 0.7101) e FAR menor
+  (0.1031 vs 0.1118); SMOTE tem Recall maior (0.6718 vs 0.6608).
+- Gerar ambas as classes favorece discriminação e Recall, mas causa mais falsos
+  alarmes. GAN-falls/SMOTE fornecem um compromisso mais conservador.
+- WaveGAN-falls 25/75 e 90/10 têm resultados muito semelhantes: acrescentar
+  2,34 milhões de quedas não trouxe vantagem clara sobre acrescentar 86 648.
+
+
+9. Resultados antigos (5 000 linhas) versus corrigidos
+------------------------------------------------------
+
+- Melhor smoke GAN duas classes: 0.7809 -> 0.8570 (+0.0761).
+- Melhor smoke GAN-falls: 0.7377 -> 0.6682 (-0.0695).
+- Melhor smoke SMOTE: 0.6821 -> 0.6855 (+0.0034; praticamente estável).
+- Melhor final GAN duas classes antigo: Soft Labels + C-RNN-GAN-lite 90/10,
+  ROC-AUC=0.7942, PR-AUC=0.7620, F1=0.6829, FAR=0.2511.
+- Melhor final corrigido: Soft Labels + RCGAN-lite 90/10, ROC-AUC=0.9073,
+  PR-AUC=0.8441, F1=0.7296, FAR=0.1869. Melhorou, mas o gerador selecionado
+  também mudou; não é efeito isolado apenas do maior conjunto real.
+- Melhor GAN-falls antigo: FedAvg + WaveGAN-lite 90/10, ROC-AUC=0.8011 e
+  PR-AUC=0.7535. O novo TimeGAN 50/50 melhora ROC-AUC para 0.8705, mas PR-AUC
+  desce para 0.7329; novamente, a configuração mudou.
+- O SMOTE final antigo tinha uma seed e outra configuração. O novo resultado com
+  10 seeds é estatisticamente mais robusto.
+
+
+10. Comparação indicativa com treino sem dados sintéticos
+---------------------------------------------------------
+
+Referências anteriores real-only (10 runs):
+
+| Estratégia | ROC-AUC | PR-AUC | F1 | Recall | FAR |
+|------------|---------|--------|----|--------|-----|
+| FedAvg exp12_final_unweighted | 0.9839 ± 0.0010 | 0.9676 ± 0.0024 | 0.9171 ± 0.0041 | 0.9019 ± 0.0063 | 0.0293 ± 0.0034 |
+| Soft Labels exp12_final_unweighted | 0.8415 ± 0.0033 | 0.7320 ± 0.0055 | 0.6016 ± 0.0074 | 0.5753 ± 0.0082 | 0.0843 ± 0.0038 |
+| Class Prototype exp11_baseline_final | 0.8337 ± 0.0037 | 0.7012 ± 0.0066 | 0.6099 ± 0.0093 | 0.6268 ± 0.0134 | 0.1194 ± 0.0044 |
+
+Houve melhoria relativamente a não usar GANs?
+
+- Dentro de Soft Labels, a melhor GAN de duas classes supera a referência em
+  ROC-AUC (0.9073 vs 0.8415), PR-AUC (0.8441 vs 0.7320), F1 (0.7296 vs 0.6016)
+  e Recall (0.8158 vs 0.5753), mas piora FAR (0.1869 vs 0.0843).
+- Face à melhor solução real-only global, não houve melhoria: FedAvg real-only
+  mantém ROC-AUC=0.9839, PR-AUC=0.9676, F1=0.9171 e FAR=0.0293, superiores a
+  todas as abordagens sintéticas.
+- GAN-falls e SMOTE, ambos com FedAvg, também ficam abaixo do FedAvg real-only.
+- Conclusão: há melhoria indicativa da GAN de duas classes relativamente à
+  referência Soft Labels, mas os sintéticos não superam o melhor resultado geral
+  obtido apenas com dados reais.
+- A comparação não é causalmente perfeita porque as referências real-only usam
+  experiências FL anteriores. Uma comparação estritamente controlada exige
+  repetir real-only com exatamente o mesmo runner, estratégia, seeds, 25 rondas
+  e 100 épocas da configuração sintética correspondente.
+
+
+11. Limitações e conclusão
+---------------------------
+
+- Smoke: só uma seed, uma ronda e uma época; serve apenas para seleção.
+- O score smoke usa test. O desenho ideal selecionaria por dev e reservaria test
+  exclusivamente para a avaliação final.
+- Quatro geradores são variantes “lite”, não implementações completas dos
+  modelos publicados em larga escala.
+- Comparar configurações com gerador/estratégia diferentes não isola um fator.
+- Não foram treinadas as quatro repartições finais mantendo GAN e estratégia
+  fixas; o efeito causal da percentagem sintética continua limitado.
+- Melhor resultado sintético: duas classes + RCGAN-lite + Soft Labels 90/10,
+  PR-AUC=0.8441 e ROC-AUC=0.9073.
+- GAN-falls e SMOTE são muito semelhantes; GAN-falls tem ligeira vantagem em
+  PR-AUC/FAR e SMOTE em Recall.
+- Nenhuma abordagem sintética superou a melhor baseline real-only FedAvg.

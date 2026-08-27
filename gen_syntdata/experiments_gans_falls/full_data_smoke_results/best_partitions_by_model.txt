@@ -1,0 +1,58 @@
+Top 10 smoke configurations (global ranking)
+============================================
+
+Selection score = mean of test ROC-AUC and PR-AUC.
+Smoke setup = 1 round, 1 local epoch, seed 1.
+
+ 1. fedavg / wavegan_lite / 90_synthetic_10_original / score=0.6682 / ROC-AUC=0.7103 / PR-AUC=0.6261
+ 2. fedavg / timegan / 50_synthetic_50_original / score=0.6667 / ROC-AUC=0.7203 / PR-AUC=0.6132
+ 3. fedavg / wavegan_lite / 25_synthetic_75_original / score=0.6642 / ROC-AUC=0.7471 / PR-AUC=0.5812
+ 4. soft_labels / rcgan_lite / 70_synthetic_30_original / score=0.6627 / ROC-AUC=0.7325 / PR-AUC=0.5929
+ 5. soft_labels / crnngan_lite / 70_synthetic_30_original / score=0.6574 / ROC-AUC=0.7164 / PR-AUC=0.5985
+ 6. fedavg / doppelganger_lite / 90_synthetic_10_original / score=0.6573 / ROC-AUC=0.7462 / PR-AUC=0.5683
+ 7. class_prototype / crnngan_lite / 70_synthetic_30_original / score=0.6540 / ROC-AUC=0.7117 / PR-AUC=0.5963
+ 8. fedavg / timegan / 70_synthetic_30_original / score=0.6518 / ROC-AUC=0.7332 / PR-AUC=0.5704
+ 9. fedavg / timegan / 25_synthetic_75_original / score=0.6512 / ROC-AUC=0.7323 / PR-AUC=0.5700
+10. fedavg / wavegan_lite / 50_synthetic_50_original / score=0.6510 / ROC-AUC=0.7267 / PR-AUC=0.5753
+
+Full training commands for the top 3
+====================================
+
+Each command runs 10 seeds, 25 rounds and 100 local epochs.
+They use all 259942 real rows; GAN fitting uses training clients only.
+
+Top 1: fedavg / wavegan_lite / 90_synthetic_10_original
+--------------------------------------------------------------------------------
+for seed in {1..10}; do
+  venv/bin/python fl/fedavg-experiments/run_experiment.py \
+    --experiment exp_synthetic_mlp_unweighted \
+    --results-dir gen_syntdata/experiments_gans_falls/full_data_full_results/top_01_fedavg_wavegan_lite_90_synthetic_10_original \
+    --num-rounds 25 \
+    --local-epochs 100 \
+    --random-seed "$seed" \
+    --windows-path gen_syntdata/experiments_gans_falls/full_data_datasets/wavegan_lite/90_synthetic_10_original/mixed_windows.csv
+done
+
+Top 2: fedavg / timegan / 50_synthetic_50_original
+--------------------------------------------------------------------------------
+for seed in {1..10}; do
+  venv/bin/python fl/fedavg-experiments/run_experiment.py \
+    --experiment exp_synthetic_mlp_unweighted \
+    --results-dir gen_syntdata/experiments_gans_falls/full_data_full_results/top_02_fedavg_timegan_50_synthetic_50_original \
+    --num-rounds 25 \
+    --local-epochs 100 \
+    --random-seed "$seed" \
+    --windows-path gen_syntdata/experiments_gans_falls/full_data_datasets/timegan/50_synthetic_50_original/mixed_windows.csv
+done
+
+Top 3: fedavg / wavegan_lite / 25_synthetic_75_original
+--------------------------------------------------------------------------------
+for seed in {1..10}; do
+  venv/bin/python fl/fedavg-experiments/run_experiment.py \
+    --experiment exp_synthetic_mlp_unweighted \
+    --results-dir gen_syntdata/experiments_gans_falls/full_data_full_results/top_03_fedavg_wavegan_lite_25_synthetic_75_original \
+    --num-rounds 25 \
+    --local-epochs 100 \
+    --random-seed "$seed" \
+    --windows-path gen_syntdata/experiments_gans_falls/full_data_datasets/wavegan_lite/25_synthetic_75_original/mixed_windows.csv
+done

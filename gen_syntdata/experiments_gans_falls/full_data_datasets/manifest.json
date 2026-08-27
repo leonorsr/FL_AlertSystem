@@ -1,0 +1,33 @@
+{
+  "original": "fl/data/preprocessing_results/composed/sequence_ready_nn/windows.csv",
+  "timegan_synthetic": "gen_syntdata/experiments_gans_falls/timegan_runs/class_1/synthetic_falls_full.csv",
+  "original_rows_fixed": 259942,
+  "generator_training_rows": 208401,
+  "real_split_rows": {
+    "train": 208401,
+    "dev": 25750,
+    "test": 25791
+  },
+  "generator_fit_split": "train_only",
+  "dev_test_used_for_generation": false,
+  "seq_len": 32,
+  "synthetic_sequences_per_generator": 73109,
+  "ratios": {
+    "25_synthetic_75_original": 0.25,
+    "50_synthetic_50_original": 0.5,
+    "70_synthetic_30_original": 0.7,
+    "90_synthetic_10_original": 0.9
+  },
+  "generators": {
+    "timegan": "TimeGAN already trained in gen_syntdata/runs/falls_timegan.",
+    "rcgan_lite": "RCGAN-style smoke generator: real fall sequences plus conditional scale/jitter.",
+    "crnngan_lite": "C-RNN-GAN-style smoke generator: transition sampling over temporal deltas.",
+    "wavegan_lite": "WaveGAN-style smoke generator: frequency-domain phase/noise perturbation.",
+    "doppelganger_lite": "DoppelGANger-style smoke generator: sequence attributes plus AR dynamics."
+  },
+  "experiment": "gans_falls_only_smoke_grid",
+  "synthetic_class": "falls_only",
+  "synthetic_label": 1,
+  "dataset_count": 20,
+  "timegan_run_dir": "gen_syntdata/experiments_gans_falls/timegan_runs/class_1"
+}

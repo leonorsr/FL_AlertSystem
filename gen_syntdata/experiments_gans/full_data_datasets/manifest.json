@@ -1,0 +1,403 @@
+{
+  "experiment": "gans_both_classes_smoke_grid",
+  "synthetic_class_policy": "both_classes",
+  "required_synthetic_labels": [
+    0,
+    1
+  ],
+  "original": "fl/data/preprocessing_results/composed/sequence_ready_nn/windows.csv",
+  "original_rows": 259942,
+  "generator_training_rows": 208401,
+  "real_split_rows": {
+    "train": 208401,
+    "dev": 25750,
+    "test": 25791
+  },
+  "generator_fit_split": "train_only",
+  "dev_test_used_for_generation": false,
+  "class_proportions": {
+    "0": 0.6523673110973556,
+    "1": 0.3476326889026444
+  },
+  "ratios": {
+    "25_synthetic_75_original": 0.25,
+    "50_synthetic_50_original": 0.5,
+    "70_synthetic_30_original": 0.7,
+    "90_synthetic_10_original": 0.9
+  },
+  "generators": {
+    "timegan": "TimeGAN already trained in gen_syntdata/runs/falls_timegan.",
+    "rcgan_lite": "RCGAN-style smoke generator: real fall sequences plus conditional scale/jitter.",
+    "crnngan_lite": "C-RNN-GAN-style smoke generator: transition sampling over temporal deltas.",
+    "wavegan_lite": "WaveGAN-style smoke generator: frequency-domain phase/noise perturbation.",
+    "doppelganger_lite": "DoppelGANger-style smoke generator: sequence attributes plus AR dynamics."
+  },
+  "dataset_count": 20,
+  "timegan_training_epochs": {
+    "embedding": 100,
+    "supervised": 100,
+    "joint": 200
+  },
+  "datasets": [
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 86648,
+      "total_rows": 346590,
+      "target_synthetic_ratio": 0.25,
+      "actual_synthetic_ratio_by_rows": 0.25000144262673474,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 56526,
+        "1": 30122
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "timegan",
+      "mixture": "25_synthetic_75_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 259942,
+      "total_rows": 519884,
+      "target_synthetic_ratio": 0.5,
+      "actual_synthetic_ratio_by_rows": 0.5,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 169578,
+        "1": 90364
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "timegan",
+      "mixture": "50_synthetic_50_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 606532,
+      "total_rows": 866474,
+      "target_synthetic_ratio": 0.7,
+      "actual_synthetic_ratio_by_rows": 0.700000230820544,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 395682,
+        "1": 210850
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "timegan",
+      "mixture": "70_synthetic_30_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 2339478,
+      "total_rows": 2599420,
+      "target_synthetic_ratio": 0.9,
+      "actual_synthetic_ratio_by_rows": 0.9,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 1526199,
+        "1": 813279
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "timegan",
+      "mixture": "90_synthetic_10_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 86648,
+      "total_rows": 346590,
+      "target_synthetic_ratio": 0.25,
+      "actual_synthetic_ratio_by_rows": 0.25000144262673474,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 56526,
+        "1": 30122
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "rcgan_lite",
+      "mixture": "25_synthetic_75_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 259942,
+      "total_rows": 519884,
+      "target_synthetic_ratio": 0.5,
+      "actual_synthetic_ratio_by_rows": 0.5,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 169578,
+        "1": 90364
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "rcgan_lite",
+      "mixture": "50_synthetic_50_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 606532,
+      "total_rows": 866474,
+      "target_synthetic_ratio": 0.7,
+      "actual_synthetic_ratio_by_rows": 0.700000230820544,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 395682,
+        "1": 210850
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "rcgan_lite",
+      "mixture": "70_synthetic_30_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 2339478,
+      "total_rows": 2599420,
+      "target_synthetic_ratio": 0.9,
+      "actual_synthetic_ratio_by_rows": 0.9,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 1526199,
+        "1": 813279
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "rcgan_lite",
+      "mixture": "90_synthetic_10_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 86648,
+      "total_rows": 346590,
+      "target_synthetic_ratio": 0.25,
+      "actual_synthetic_ratio_by_rows": 0.25000144262673474,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 56526,
+        "1": 30122
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "crnngan_lite",
+      "mixture": "25_synthetic_75_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 259942,
+      "total_rows": 519884,
+      "target_synthetic_ratio": 0.5,
+      "actual_synthetic_ratio_by_rows": 0.5,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 169578,
+        "1": 90364
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "crnngan_lite",
+      "mixture": "50_synthetic_50_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 606532,
+      "total_rows": 866474,
+      "target_synthetic_ratio": 0.7,
+      "actual_synthetic_ratio_by_rows": 0.700000230820544,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 395682,
+        "1": 210850
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "crnngan_lite",
+      "mixture": "70_synthetic_30_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 2339478,
+      "total_rows": 2599420,
+      "target_synthetic_ratio": 0.9,
+      "actual_synthetic_ratio_by_rows": 0.9,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 1526199,
+        "1": 813279
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "crnngan_lite",
+      "mixture": "90_synthetic_10_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 86648,
+      "total_rows": 346590,
+      "target_synthetic_ratio": 0.25,
+      "actual_synthetic_ratio_by_rows": 0.25000144262673474,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 56526,
+        "1": 30122
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "wavegan_lite",
+      "mixture": "25_synthetic_75_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 259942,
+      "total_rows": 519884,
+      "target_synthetic_ratio": 0.5,
+      "actual_synthetic_ratio_by_rows": 0.5,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 169578,
+        "1": 90364
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "wavegan_lite",
+      "mixture": "50_synthetic_50_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 606532,
+      "total_rows": 866474,
+      "target_synthetic_ratio": 0.7,
+      "actual_synthetic_ratio_by_rows": 0.700000230820544,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 395682,
+        "1": 210850
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "wavegan_lite",
+      "mixture": "70_synthetic_30_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 2339478,
+      "total_rows": 2599420,
+      "target_synthetic_ratio": 0.9,
+      "actual_synthetic_ratio_by_rows": 0.9,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 1526199,
+        "1": 813279
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "wavegan_lite",
+      "mixture": "90_synthetic_10_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 86648,
+      "total_rows": 346590,
+      "target_synthetic_ratio": 0.25,
+      "actual_synthetic_ratio_by_rows": 0.25000144262673474,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 56526,
+        "1": 30122
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "doppelganger_lite",
+      "mixture": "25_synthetic_75_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 259942,
+      "total_rows": 519884,
+      "target_synthetic_ratio": 0.5,
+      "actual_synthetic_ratio_by_rows": 0.5,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 169578,
+        "1": 90364
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "doppelganger_lite",
+      "mixture": "50_synthetic_50_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 606532,
+      "total_rows": 866474,
+      "target_synthetic_ratio": 0.7,
+      "actual_synthetic_ratio_by_rows": 0.700000230820544,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 395682,
+        "1": 210850
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "doppelganger_lite",
+      "mixture": "70_synthetic_30_original"
+    },
+    {
+      "original_rows": 259942,
+      "synthetic_rows": 2339478,
+      "total_rows": 2599420,
+      "target_synthetic_ratio": 0.9,
+      "actual_synthetic_ratio_by_rows": 0.9,
+      "original_labels_by_rows": {
+        "0": 171646,
+        "1": 88296
+      },
+      "synthetic_labels_by_rows": {
+        "0": 1526199,
+        "1": 813279
+      },
+      "synthetic_class_policy": "both_classes",
+      "generator": "doppelganger_lite",
+      "mixture": "90_synthetic_10_original"
+    }
+  ]
+}

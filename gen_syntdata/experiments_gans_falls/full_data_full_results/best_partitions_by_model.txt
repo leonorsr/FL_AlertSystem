@@ -1,0 +1,8 @@
+Best smoke partitions by FL model
+=================================
+
+Selection score = mean of available test ROC-AUC and PR-AUC.
+
+fedavg: timegan / 50_synthetic_50_original / score=0.8017
+  - timegan: 50_synthetic_50_original (score=0.8017)
+  - wavegan_lite: 25_synthetic_75_original (score=0.7836)

@@ -1,0 +1,58 @@
+Top 10 smoke configurations — synthetic falls and non-falls
+==========================================================
+
+Selection score = mean of test ROC-AUC and PR-AUC.
+Smoke setup = 1 round, 1 local epoch, seed 1.
+
+ 1. soft_labels / rcgan_lite / 90_synthetic_10_original / score=0.8570 / ROC-AUC=0.8922 / PR-AUC=0.8218
+ 2. class_prototype / rcgan_lite / 90_synthetic_10_original / score=0.8561 / ROC-AUC=0.8918 / PR-AUC=0.8204
+ 3. class_prototype / wavegan_lite / 90_synthetic_10_original / score=0.7998 / ROC-AUC=0.8322 / PR-AUC=0.7673
+ 4. soft_labels / rcgan_lite / 70_synthetic_30_original / score=0.7968 / ROC-AUC=0.8405 / PR-AUC=0.7532
+ 5. class_prototype / rcgan_lite / 70_synthetic_30_original / score=0.7947 / ROC-AUC=0.8364 / PR-AUC=0.7530
+ 6. soft_labels / wavegan_lite / 90_synthetic_10_original / score=0.7942 / ROC-AUC=0.8268 / PR-AUC=0.7617
+ 7. class_prototype / wavegan_lite / 70_synthetic_30_original / score=0.7678 / ROC-AUC=0.8113 / PR-AUC=0.7244
+ 8. soft_labels / wavegan_lite / 70_synthetic_30_original / score=0.7623 / ROC-AUC=0.8055 / PR-AUC=0.7190
+ 9. soft_labels / crnngan_lite / 90_synthetic_10_original / score=0.7539 / ROC-AUC=0.7871 / PR-AUC=0.7208
+10. class_prototype / crnngan_lite / 90_synthetic_10_original / score=0.7525 / ROC-AUC=0.7875 / PR-AUC=0.7175
+
+Full training commands for the top 3
+====================================
+
+Top 1: soft_labels / rcgan_lite / 90_synthetic_10_original
+--------------------------------------------------------------------------------
+for seed in {1..10}; do
+  venv/bin/python fl/kd-experiments-without-weights/run_experiment_no_weights.py \
+    --experiment exp13_final_keep_best_local \
+    --mode soft_labels \
+    --results-dir gen_syntdata/experiments_gans/full_data_full_results/top_01_soft_labels_rcgan_lite_90_synthetic_10_original \
+    --num-rounds 25 \
+    --local-epochs 100 \
+    --random-seed "$seed" \
+    --windows-path gen_syntdata/experiments_gans/full_data_datasets/rcgan_lite/90_synthetic_10_original/mixed_windows.csv
+done
+
+Top 2: class_prototype / rcgan_lite / 90_synthetic_10_original
+--------------------------------------------------------------------------------
+for seed in {1..10}; do
+  venv/bin/python fl/kd-experiments-without-weights/run_experiment_no_weights.py \
+    --experiment exp13_final_keep_best_local \
+    --mode class_prototype \
+    --results-dir gen_syntdata/experiments_gans/full_data_full_results/top_02_class_prototype_rcgan_lite_90_synthetic_10_original \
+    --num-rounds 25 \
+    --local-epochs 100 \
+    --random-seed "$seed" \
+    --windows-path gen_syntdata/experiments_gans/full_data_datasets/rcgan_lite/90_synthetic_10_original/mixed_windows.csv
+done
+
+Top 3: class_prototype / wavegan_lite / 90_synthetic_10_original
+--------------------------------------------------------------------------------
+for seed in {1..10}; do
+  venv/bin/python fl/kd-experiments-without-weights/run_experiment_no_weights.py \
+    --experiment exp13_final_keep_best_local \
+    --mode class_prototype \
+    --results-dir gen_syntdata/experiments_gans/full_data_full_results/top_03_class_prototype_wavegan_lite_90_synthetic_10_original \
+    --num-rounds 25 \
+    --local-epochs 100 \
+    --random-seed "$seed" \
+    --windows-path gen_syntdata/experiments_gans/full_data_datasets/wavegan_lite/90_synthetic_10_original/mixed_windows.csv
+done

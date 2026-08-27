@@ -1,0 +1,42 @@
+{
+  "selection_source": "gen_syntdata/experiments_gans_falls/full_data_smoke_results/summary_mean_std.csv",
+  "datasets_dir": "gen_syntdata/experiments_gans_falls/full_data_datasets",
+  "output_dir": "gen_syntdata/experiments_gans_falls/full_data_full_results",
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "num_rounds": 25,
+  "local_epochs": 100,
+  "selected": [
+    {
+      "rank": 1,
+      "model": "fedavg",
+      "generator": "wavegan_lite",
+      "mixture": "90_synthetic_10_original",
+      "smoke_selection_score": 0.6681738047056026
+    },
+    {
+      "rank": 2,
+      "model": "fedavg",
+      "generator": "timegan",
+      "mixture": "50_synthetic_50_original",
+      "smoke_selection_score": 0.6667339311337066
+    },
+    {
+      "rank": 3,
+      "model": "fedavg",
+      "generator": "wavegan_lite",
+      "mixture": "25_synthetic_75_original",
+      "smoke_selection_score": 0.6641643919931257
+    }
+  ]
+}
